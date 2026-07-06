@@ -3,8 +3,15 @@ dist/
 coverage/
 .turbo/
 .vite/
+.playwright-cli/
 .DS_Store
 .env
 .env.*
 !.env.example
+output/
+reports/snapshots/
+reports/*-screenshot.png
 reports/oss-export-scan.json
+
+# Large external visual reference exports stay local.
+visual_reference/

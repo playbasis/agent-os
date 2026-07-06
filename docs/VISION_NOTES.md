@@ -4042,7 +4042,7 @@ $ pbos mission run \
            navigator=0.6.2
            router-lab=0.2.0
            profile=governed-local
-           run_id=run_20260705_154402_ui_to_code_001
+           run_id=sha256:4f14538a97b6dc87116fc4f5b50e102b57e7f533beb24bca1c5dcae8ab73dd21
 
 [00:00.018] mission.input.received
            goal="Turn these 4 reference UI screenshots into a production-quality Next.js app"
@@ -5085,7 +5085,7 @@ PHASE 13 — Evidence pack and audit artifacts
            status=pass
 
 [01:31.650] warehouse.index
-           run_id=run_20260705_154402_ui_to_code_001
+           run_id=sha256:4f14538a97b6dc87116fc4f5b50e102b57e7f533beb24bca1c5dcae8ab73dd21
            checkpoints=12
            metric_atoms=86
            artifacts=47
