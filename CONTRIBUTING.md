@@ -9,14 +9,16 @@ evidence**. Code that works but can't prove it works is treated as unfinished.
 Requires Node 20+ and pnpm 10+.
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile --ignore-scripts
 pnpm typecheck
 pnpm test
-pnpm mission:doctor -- --profile fixture
+pnpm run scan
 ```
 
 All four should pass on a fresh clone before you change anything. If they
 don't, please open an issue with the output rather than working around it.
+This public repo does not depend on hosted GitHub Actions; local verification
+output is the review gate.
 
 ## Development Rules
 
@@ -45,9 +47,10 @@ don't, please open an issue with the output rather than working around it.
 Before opening a PR:
 
 ```bash
+pnpm install --frozen-lockfile --ignore-scripts
 pnpm typecheck
 pnpm test
-pnpm pbos donor:verify
+pnpm run scan
 ```
 
 In the PR description, state what the change proves or affects, which

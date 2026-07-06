@@ -37,40 +37,36 @@ most useful thing about the project.
 | `packages/navigator` | Path-fan planning, council voting, ambition ratchet, Prompt Twin A/B proofs, daily-loop proofing |
 | `packages/router-lab` | Model-routing eval primitives with hash-only telemetry |
 | `packages/run-warehouse` | JSON index over runs, evals, proofs, and lineage |
-| `packages/sandbox-dashboard` | Static credibility dashboard from warehouse artifacts |
-| `packages/donor-registry` / `donor-primitives` | Indexing and clean-room reimplementation of donor-code ideas |
-| `packages/env-vault` | Whitelisted env loading and redaction |
-| `packages/cli` | The `pbos` command surface |
-| `apps/navigator-desktop` | Runnable six-screen Navigator shell fed by generated proof data |
 | `eval-families/` | Public manifests and scorer commitments (answer sheets stay outside the repo) |
 | `examples/`, `goals/`, `schemas/` | Runnable missions, compiled goals, public schemas |
 | `reports/` | Committed proof and dashboard evidence |
 
 ## Quick Start
 
-Requires Node 20+ and pnpm 10+. The fixture profile is fully deterministic:
-no network, database, or LLM calls.
+Requires Node 20+ and pnpm 10+. The public export is deterministic: no
+network, database, or LLM calls are needed for the verification gate.
 
 ```bash
-pnpm install
-pnpm mission:doctor -- --profile fixture   # preflight
-pnpm mission:fixture                       # run one evidence-gated mission
-pnpm hill-climb:fixture                    # watch scores improve across iterations
-pnpm pbos runs:summary                     # inspect the run warehouse
-pnpm prove:robust                          # full multi-profile proof gate
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm typecheck
+pnpm test
+pnpm run scan
 ```
 
-Every run leaves an evidence pack under `runs/` and indexed summaries under
-`reports/`. The complete command surface — Navigator path fans, Prompt Twin
-A/B proofs, eval factories, the visual asset-clone loop, router lab, CEO-sim,
-and value experiments — is documented in
-[`docs/COMMANDS.md`](docs/COMMANDS.md).
+Those four commands are the manual verification gate for this public repo.
+Hosted GitHub Actions is intentionally not required; maintainers verify changes
+locally and record the command output in PRs. Committed summaries under
+`reports/` show the proof artifacts produced by the fuller private harness.
+The complete internal command surface — Navigator path fans, Prompt Twin A/B
+proofs, eval factories, router lab, CEO-sim, and value experiments — is
+documented in [`docs/COMMANDS.md`](docs/COMMANDS.md) as the roadmap for what
+the public harness is proving toward.
 
 ## Profiles
 
 | Profile | Behavior |
 | --- | --- |
-| `fixture` | Deterministic mocked capabilities. Safe anywhere; used by CI and all public proofs. |
+| `fixture` | Deterministic mocked capabilities. Safe anywhere; used by local verification and all public proofs. |
 | `local-monorepo` | Connects to a locally cloned Playbasis platform (expected as a sibling checkout, e.g. `../playbasis-platform`). |
 | `staging-sandbox` | Connects to configured staging services behind explicit allow-flags. Internal use only. |
 
