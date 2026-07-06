@@ -1,0 +1,492 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-06T05:44:48.990Z",
+  "profile": "staging-sandbox",
+  "sourceReport": {
+    "generatedAt": "2026-07-05T22:39:56.052Z",
+    "hash": "302a327d3cfe2d3603ea2679baad4e8b0ae8d827d42560bcc25f1c4ae9b6dbde",
+    "liveRecordedCapabilities": 13,
+    "gatedCapabilities": 4,
+    "writeGatedCapabilities": 3
+  },
+  "gates": [
+    {
+      "category": "events",
+      "capability": "events-ingest",
+      "activationStatus": "write-probe-gated",
+      "currentEvidenceLevel": "safe-live-probe",
+      "requiredProfile": "staging-sandbox",
+      "requiredProfileMatches": true,
+      "requiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "missingRequiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "requiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID"
+      ],
+      "missingRequiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID"
+      ],
+      "optionalEnvKeys": [],
+      "presentOptionalEnvKeys": [],
+      "safetyConstraints": [
+        "Use only a disposable sandbox tenant or namespace.",
+        "Store idempotency key hash only.",
+        "Store event body hash/shape only; never store the raw event body.",
+        "OpenAPI currently has no cleanup operation for event ingestion, so do not run against durable tenant data."
+      ],
+      "owner": {
+        "team": "Playbasis API / Events",
+        "role": "staging sandbox operator",
+        "responsibility": "Run event ingestion only with disposable sandbox identifiers, idempotency-key hashing, and post-write verification by hash-only SafeProbeEvidence."
+      },
+      "executionChecklist": [
+        {
+          "phase": "create",
+          "action": "Create one disposable events-ingest probe record in the staging sandbox.",
+          "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+          "evidenceRequired": [
+            "SafeProbeEvidence status/ok/duration/bytes",
+            "idempotency or selected-id hash only",
+            "no raw URL, request body, response body, tenant data, or env value"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "flag:--allow-write-probes"
+          ]
+        },
+        {
+          "phase": "verify",
+          "action": "Verify the events-ingest write through SafeProbeEvidence and top-level response metadata only.",
+          "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+          "evidenceRequired": [
+            "hash-only follow-up probe",
+            "redaction scan result",
+            "top-level JSON keys or body hash only"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "flag:--allow-write-probes"
+          ]
+        },
+        {
+          "phase": "rollback",
+          "action": "Discard the disposable sandbox tenant/namespace that received the event write; OpenAPI has no event delete rollback path.",
+          "command": "dispose-sandbox-or-private-lifecycle-step",
+          "evidenceRequired": [
+            "Sandbox id hash, event idempotency-key hash, and post-run sandbox disposal or expiry evidence.",
+            "hash-only rollback/disposal status",
+            "claim boundary updated if rollback is disposable-sandbox-only"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "flag:--allow-write-probes"
+          ]
+        }
+      ],
+      "rollbackPolicy": {
+        "mode": "disposable-sandbox-boundary",
+        "reversibleByApi": false,
+        "rollbackAction": "Discard the disposable sandbox tenant/namespace that received the event write; OpenAPI has no event delete rollback path.",
+        "rollbackCommand": null,
+        "rollbackEvidence": "Sandbox id hash, event idempotency-key hash, and post-run sandbox disposal or expiry evidence."
+      },
+      "doneWhen": {
+        "createRecorded": false,
+        "verifyRecorded": false,
+        "rollbackRecorded": false,
+        "requiredEvidence": [
+          "events-ingest: create SafeProbeEvidence recorded",
+          "events-ingest: verify SafeProbeEvidence recorded",
+          "events-ingest: rollback/disposal evidence recorded",
+          "events-ingest: redaction scan passed",
+          "events-ingest: public report contains hashes, labels, statuses, and counts only",
+          "events-ingest: disposable sandbox lifecycle is the rollback boundary"
+        ]
+      },
+      "nextCommand": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+      "readyToRun": false,
+      "readinessStatus": "missing-required-env",
+      "claimBoundary": "Do not count event ingestion as live-write-recorded until mechanic.events.ingest produces SafeProbeEvidence with no raw URL, request body, response body, tenant data, or env values."
+    },
+    {
+      "category": "experiments",
+      "capability": "experiments",
+      "activationStatus": "write-probe-gated",
+      "currentEvidenceLevel": "available-only",
+      "requiredProfile": "staging-sandbox",
+      "requiredProfileMatches": true,
+      "requiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "missingRequiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "requiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID"
+      ],
+      "missingRequiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID"
+      ],
+      "optionalEnvKeys": [],
+      "presentOptionalEnvKeys": [],
+      "safetyConstraints": [
+        "Use only a disposable sandbox tenant or namespace.",
+        "Store idempotency key hash only.",
+        "OpenAPI currently has no cleanup operation for the bandit write probe, so do not run against durable tenant data."
+      ],
+      "owner": {
+        "team": "Playbasis API / Experiments",
+        "role": "staging sandbox operator",
+        "responsibility": "Run bandit or experiment write probes only in a disposable sandbox and verify assignment/result evidence without raw payloads."
+      },
+      "executionChecklist": [
+        {
+          "phase": "create",
+          "action": "Create one disposable experiments probe record in the staging sandbox.",
+          "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+          "evidenceRequired": [
+            "SafeProbeEvidence status/ok/duration/bytes",
+            "idempotency or selected-id hash only",
+            "no raw URL, request body, response body, tenant data, or env value"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "flag:--allow-write-probes"
+          ]
+        },
+        {
+          "phase": "verify",
+          "action": "Verify the experiments write through SafeProbeEvidence and top-level response metadata only.",
+          "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+          "evidenceRequired": [
+            "hash-only follow-up probe",
+            "redaction scan result",
+            "top-level JSON keys or body hash only"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "flag:--allow-write-probes"
+          ]
+        },
+        {
+          "phase": "rollback",
+          "action": "Discard the disposable sandbox tenant/namespace used for the experiment or bandit write; do not write to durable tenant experiments.",
+          "command": "dispose-sandbox-or-private-lifecycle-step",
+          "evidenceRequired": [
+            "Sandbox id hash, experiment/bandit probe hash, and sandbox disposal or expiry evidence.",
+            "hash-only rollback/disposal status",
+            "claim boundary updated if rollback is disposable-sandbox-only"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "flag:--allow-write-probes"
+          ]
+        }
+      ],
+      "rollbackPolicy": {
+        "mode": "disposable-sandbox-boundary",
+        "reversibleByApi": false,
+        "rollbackAction": "Discard the disposable sandbox tenant/namespace used for the experiment or bandit write; do not write to durable tenant experiments.",
+        "rollbackCommand": null,
+        "rollbackEvidence": "Sandbox id hash, experiment/bandit probe hash, and sandbox disposal or expiry evidence."
+      },
+      "doneWhen": {
+        "createRecorded": false,
+        "verifyRecorded": false,
+        "rollbackRecorded": false,
+        "requiredEvidence": [
+          "experiments: create SafeProbeEvidence recorded",
+          "experiments: verify SafeProbeEvidence recorded",
+          "experiments: rollback/disposal evidence recorded",
+          "experiments: redaction scan passed",
+          "experiments: public report contains hashes, labels, statuses, and counts only",
+          "experiments: disposable sandbox lifecycle is the rollback boundary"
+        ]
+      },
+      "nextCommand": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+      "readyToRun": false,
+      "readinessStatus": "missing-required-env",
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    },
+    {
+      "category": "campaigns",
+      "capability": "campaigns",
+      "activationStatus": "identifier-required",
+      "currentEvidenceLevel": "available-only",
+      "requiredProfile": "staging-sandbox",
+      "requiredProfileMatches": true,
+      "requiredOperatorFlags": [],
+      "missingRequiredOperatorFlags": [],
+      "requiredEnvKeys": [
+        "PBOS_PROBE_CAMPAIGN_ID"
+      ],
+      "missingRequiredEnvKeys": [
+        "PBOS_PROBE_CAMPAIGN_ID"
+      ],
+      "optionalEnvKeys": [
+        "PBOS_PROBE_MERCHANT_ID"
+      ],
+      "presentOptionalEnvKeys": [],
+      "safetyConstraints": [
+        "Attempt the built-in non-sensitive campaign probe candidate before requiring an operator-supplied id.",
+        "Use a campaign id created for probe/read-only inspection.",
+        "Do not store the selected live id in reports; publish only path labels and hashes.",
+        "Do not call settlement or validation write operations until disposable sandbox gates are explicit."
+      ],
+      "owner": {
+        "team": "Playbasis API / Campaigns",
+        "role": "staging sandbox operator",
+        "responsibility": "Seed or select a disposable campaign id, verify read-only status evidence, and retire the seeded campaign after the probe."
+      },
+      "executionChecklist": [
+        {
+          "phase": "create",
+          "action": "Select or seed a disposable campaign identifier and prove it is safe for read-only inspection.",
+          "command": "pnpm pbos mechanics probe --profile staging-sandbox; if the campaign default candidate returns 404, rerun after setting PBOS_PROBE_CAMPAIGN_ID to a disposable id",
+          "evidenceRequired": [
+            "SafeProbeEvidence status/ok/duration/bytes",
+            "idempotency or selected-id hash only",
+            "no raw URL, request body, response body, tenant data, or env value"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_PROBE_CAMPAIGN_ID"
+          ]
+        },
+        {
+          "phase": "verify",
+          "action": "Verify the disposable campaign lookup through SafeProbeEvidence.",
+          "command": "pnpm pbos mechanics probe --profile staging-sandbox; if the campaign default candidate returns 404, rerun after setting PBOS_PROBE_CAMPAIGN_ID to a disposable id",
+          "evidenceRequired": [
+            "hash-only follow-up probe",
+            "redaction scan result",
+            "top-level JSON keys or body hash only"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_PROBE_CAMPAIGN_ID"
+          ]
+        },
+        {
+          "phase": "rollback",
+          "action": "Expire, delete, or abandon only the disposable probe campaign through the private seed/admin path; never use a real campaign id.",
+          "command": "dispose-sandbox-or-private-lifecycle-step",
+          "evidenceRequired": [
+            "Hash-only follow-up campaign probe showing inactive/404 status or disposable campaign lifecycle record.",
+            "hash-only rollback/disposal status",
+            "claim boundary updated if rollback is disposable-sandbox-only"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_PROBE_CAMPAIGN_ID"
+          ]
+        }
+      ],
+      "rollbackPolicy": {
+        "mode": "read-only-identifier-lifecycle",
+        "reversibleByApi": false,
+        "rollbackAction": "Expire, delete, or abandon only the disposable probe campaign through the private seed/admin path; never use a real campaign id.",
+        "rollbackCommand": null,
+        "rollbackEvidence": "Hash-only follow-up campaign probe showing inactive/404 status or disposable campaign lifecycle record."
+      },
+      "doneWhen": {
+        "createRecorded": false,
+        "verifyRecorded": false,
+        "rollbackRecorded": false,
+        "requiredEvidence": [
+          "campaigns: create SafeProbeEvidence recorded",
+          "campaigns: verify SafeProbeEvidence recorded",
+          "campaigns: rollback/disposal evidence recorded",
+          "campaigns: redaction scan passed",
+          "campaigns: public report contains hashes, labels, statuses, and counts only",
+          "campaigns: disposable sandbox lifecycle is the rollback boundary"
+        ]
+      },
+      "nextCommand": "pnpm pbos mechanics probe --profile staging-sandbox; if the campaign default candidate returns 404, rerun after setting PBOS_PROBE_CAMPAIGN_ID to a disposable id",
+      "readyToRun": false,
+      "readinessStatus": "missing-required-env",
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    },
+    {
+      "category": "webhooks",
+      "capability": "webhooks",
+      "activationStatus": "write-probe-gated",
+      "currentEvidenceLevel": "available-only",
+      "requiredProfile": "staging-sandbox",
+      "requiredProfileMatches": true,
+      "requiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "missingRequiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "requiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID",
+        "PBOS_PROBE_WEBHOOK_URL"
+      ],
+      "missingRequiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID",
+        "PBOS_PROBE_WEBHOOK_URL"
+      ],
+      "optionalEnvKeys": [],
+      "presentOptionalEnvKeys": [],
+      "safetyConstraints": [
+        "Use only a disposable webhook destination.",
+        "Store webhook URL hash only.",
+        "OpenAPI currently has no cleanup operation for webhook endpoints, so do not run against durable tenant data."
+      ],
+      "owner": {
+        "team": "Playbasis API / Webhooks",
+        "role": "staging sandbox operator",
+        "responsibility": "Provide a disposable webhook destination, run endpoint creation only in the disposable sandbox, and verify the endpoint cannot affect durable tenants."
+      },
+      "executionChecklist": [
+        {
+          "phase": "create",
+          "action": "Create one disposable webhooks probe record in the staging sandbox.",
+          "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+          "evidenceRequired": [
+            "SafeProbeEvidence status/ok/duration/bytes",
+            "idempotency or selected-id hash only",
+            "no raw URL, request body, response body, tenant data, or env value"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "env:PBOS_PROBE_WEBHOOK_URL",
+            "flag:--allow-write-probes"
+          ]
+        },
+        {
+          "phase": "verify",
+          "action": "Verify the webhooks write through SafeProbeEvidence and top-level response metadata only.",
+          "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+          "evidenceRequired": [
+            "hash-only follow-up probe",
+            "redaction scan result",
+            "top-level JSON keys or body hash only"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "env:PBOS_PROBE_WEBHOOK_URL",
+            "flag:--allow-write-probes"
+          ]
+        },
+        {
+          "phase": "rollback",
+          "action": "Use a disposable webhook destination and sandbox namespace, then discard the destination and sandbox record after verification.",
+          "command": "dispose-sandbox-or-private-lifecycle-step",
+          "evidenceRequired": [
+            "Webhook URL hash, endpoint response hash, and disposable destination/sandbox disposal evidence.",
+            "hash-only rollback/disposal status",
+            "claim boundary updated if rollback is disposable-sandbox-only"
+          ],
+          "status": "blocked",
+          "blockedBy": [
+            "env:PBOS_ALLOW_WRITE_PROBES",
+            "env:PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+            "env:PBOS_WRITE_PROBE_SANDBOX_ID",
+            "env:PBOS_PROBE_WEBHOOK_URL",
+            "flag:--allow-write-probes"
+          ]
+        }
+      ],
+      "rollbackPolicy": {
+        "mode": "disposable-sandbox-boundary",
+        "reversibleByApi": false,
+        "rollbackAction": "Use a disposable webhook destination and sandbox namespace, then discard the destination and sandbox record after verification.",
+        "rollbackCommand": null,
+        "rollbackEvidence": "Webhook URL hash, endpoint response hash, and disposable destination/sandbox disposal evidence."
+      },
+      "doneWhen": {
+        "createRecorded": false,
+        "verifyRecorded": false,
+        "rollbackRecorded": false,
+        "requiredEvidence": [
+          "webhooks: create SafeProbeEvidence recorded",
+          "webhooks: verify SafeProbeEvidence recorded",
+          "webhooks: rollback/disposal evidence recorded",
+          "webhooks: redaction scan passed",
+          "webhooks: public report contains hashes, labels, statuses, and counts only",
+          "webhooks: disposable sandbox lifecycle is the rollback boundary"
+        ]
+      },
+      "nextCommand": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+      "readyToRun": false,
+      "readinessStatus": "missing-required-env",
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    }
+  ],
+  "summary": {
+    "totalGates": 4,
+    "readyGates": 0,
+    "blockedGates": 4,
+    "writeGatedCapabilities": 3,
+    "identifierRequiredCapabilities": 1,
+    "missingRequiredEnvKeys": [
+      "PBOS_ALLOW_WRITE_PROBES",
+      "PBOS_PROBE_CAMPAIGN_ID",
+      "PBOS_PROBE_WEBHOOK_URL",
+      "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+      "PBOS_WRITE_PROBE_SANDBOX_ID"
+    ],
+    "missingRequiredOperatorFlags": [
+      "--allow-write-probes"
+    ],
+    "createVerifyRollbackPlans": 4,
+    "recordedCreateVerifyRollbackRuns": 0,
+    "blockedCreateVerifyRollbackRuns": 4,
+    "disposableSandboxRequiredCapabilities": 3,
+    "allReady": false
+  },
+  "safety": {
+    "rawPayloadsIncluded": false,
+    "envValuesIncluded": false,
+    "envValueHashesIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Activation readiness for Playbasis mechanics gates",
+    "liveProofRequiresSafeProbeEvidence": true,
+    "noEnvValuesIncluded": true
+  }
+}

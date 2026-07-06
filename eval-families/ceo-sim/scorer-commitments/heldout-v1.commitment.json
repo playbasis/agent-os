@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "familyId": "ceo-sim-heldout-v1",
+  "generatedAt": "2026-07-05T16:45:23.714Z",
+  "split": "heldOut",
+  "scorerRef": "workspaceops.ceo-sim.delta-heldout.v1",
+  "targetId": "ceo-sim.policy-diversity.smart-score-variance",
+  "caseCount": 24,
+  "scoringPolicy": {
+    "policy": "generic-threshold-risk-cleanliness",
+    "minTargetObserved": 60,
+    "maxRiskAllowed": "low",
+    "candidateWhitelistIncluded": false,
+    "failedChecksAllowed": 0,
+    "redactionLeaksAllowed": 0,
+    "policyHash": "638337777b7c5f5510567bc753d20221b89eb5059558e61e01eb1d26bdb7dd29"
+  },
+  "manifestHash": "877425577660f79fb4756f6060ff9a09d74803629fcd9e5d7974c0d02d2ea75e",
+  "answerKeyCommitment": {
+    "algorithm": "sha256",
+    "hash": "28c3fa59a5c717334bc29acd3105dea055788f4fce76c8f55898093e680bdd61",
+    "answerKeysIncluded": false
+  },
+  "bundleHash": "9ebaa3daa726870bc457bc54885ee6550c181e4774bd90c4a3879229c62f0368",
+  "privateStore": {
+    "storagePolicy": "outside-repo-private",
+    "pathHash": "5b59bdbb14d20b29b5f2de53148373be5a5ba76c9e9822bfaa51c450a15822d5",
+    "pathLabelIncluded": false
+  },
+  "safety": {
+    "rawHeldOutBodiesIncluded": false,
+    "rawAnswerKeysIncluded": false,
+    "rawSimulatorBodiesIncluded": false,
+    "rawScenarioBodiesIncluded": false,
+    "envValuesIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "candidateWhitelistIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Hash-only CEO-sim scorer bundle commitment. This is a local scorer smoke unless generated and frozen before candidate selection.",
+    "notExternalBlindProof": true,
+    "notEconomicValueProof": true,
+    "noAutonomyOrSotaClaim": true
+  }
+}

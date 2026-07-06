@@ -1,0 +1,14 @@
+{
+  "name": "@playbasis-agent-os/hill-climber",
+  "private": true,
+  "version": "0.1.0-internal-pov",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@playbasis-agent-os/evals": "workspace:*",
+    "@playbasis-agent-os/kernel": "workspace:*"
+  }
+}
+

@@ -1,0 +1,27 @@
+{
+  "name": "@playbasis-agent-os/oss-candidate",
+  "private": true,
+  "version": "0.1.0-oss-candidate",
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "Evidence-gated agent harness with missions, traces, evals, promotion gates, and proof reports.",
+  "dependencies": {
+    "@playbasis-agent-os/kernel": "workspace:*",
+    "@playbasis-agent-os/evals": "workspace:*",
+    "@playbasis-agent-os/hill-climber": "workspace:*",
+    "@playbasis-agent-os/mission-optimizer": "workspace:*",
+    "@playbasis-agent-os/navigator": "workspace:*",
+    "@playbasis-agent-os/router-lab": "workspace:*",
+    "@playbasis-agent-os/run-warehouse": "workspace:*"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "scan": "node scripts/scan-oss-export.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

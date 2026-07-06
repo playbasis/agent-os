@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "reportId": "playbasis-mechanics-blind-review-20260706012046",
+  "generatedAt": "2026-07-06T01:20:46.946Z",
+  "profile": "fixture",
+  "familyId": "playbasis-mechanics-blind-causal-review-v1",
+  "reviewMode": "fixture-simulated-review",
+  "sourcePacket": {
+    "reportId": "playbasis-mechanics-blind-review-packet-20260706012029",
+    "packetHash": "a8dda0eef0bb16a88635ffbf23de328595e906cb8aea19796a3c794cd4dc2ebb",
+    "blindedPairCount": 3,
+    "mappingHash": "831cd965d81f8be197669620c6b9be52a63cb4a1666bb93a583335e4fe01a2ad"
+  },
+  "privateMapping": {
+    "provided": true,
+    "mappingHash": "831cd965d81f8be197669620c6b9be52a63cb4a1666bb93a583335e4fe01a2ad",
+    "pathLabel": "PBOS_PRIVATE_EVAL_ROOT/playbasis-mechanics-blind-causal-review-v1",
+    "storagePolicy": "private-scorer-only-outside-repo",
+    "mappingIncludedInPublicReport": false,
+    "answerKeyIncludedInPublicReport": false
+  },
+  "reviewers": [
+    {
+      "reviewerIdHash": "1ca0e7843644087860ec9884bcdc445ebb5908b495121e11ff9cd3f42006202d",
+      "rowCount": 3
+    },
+    {
+      "reviewerIdHash": "e8ef624cfaf292aa5d24d0c26e5c340ec37a7a97eab44ef1eb2e362411f0d4e4",
+      "rowCount": 3
+    }
+  ],
+  "rows": [
+    {
+      "pairId": "pair-bb9d0d8a7d",
+      "reviewerIdHash": "e8ef624cfaf292aa5d24d0c26e5c340ec37a7a97eab44ef1eb2e362411f0d4e4",
+      "winner": "B",
+      "confidence": 0.82,
+      "qualityScoreA": 0.74,
+      "qualityScoreB": 0.88,
+      "reasonCode": "mechanics-evidence-complete",
+      "reasonHash": "b1ab069abf7dc6cdf33c226d661db5199568e53ac4ebd115641160ce1b31ccb1"
+    },
+    {
+      "pairId": "pair-bb9d0d8a7d",
+      "reviewerIdHash": "1ca0e7843644087860ec9884bcdc445ebb5908b495121e11ff9cd3f42006202d",
+      "winner": "B",
+      "confidence": 0.78,
+      "qualityScoreA": 0.74,
+      "qualityScoreB": 0.88,
+      "reasonCode": "governance-discipline-stronger",
+      "reasonHash": "f9b33059f899a0b42934278feb2ecf9f58e027dff3e86496737e779671206875"
+    },
+    {
+      "pairId": "pair-6c5ccf1134",
+      "reviewerIdHash": "e8ef624cfaf292aa5d24d0c26e5c340ec37a7a97eab44ef1eb2e362411f0d4e4",
+      "winner": "A",
+      "confidence": 0.82,
+      "qualityScoreA": 0.88,
+      "qualityScoreB": 0.74,
+      "reasonCode": "mechanics-evidence-complete",
+      "reasonHash": "d6d7a86b28b1d57eb6905d24e63a560d2af665ae57b9a06374291b7d8452db64"
+    },
+    {
+      "pairId": "pair-6c5ccf1134",
+      "reviewerIdHash": "1ca0e7843644087860ec9884bcdc445ebb5908b495121e11ff9cd3f42006202d",
+      "winner": "A",
+      "confidence": 0.78,
+      "qualityScoreA": 0.88,
+      "qualityScoreB": 0.74,
+      "reasonCode": "governance-discipline-stronger",
+      "reasonHash": "4ea5c2b1f0d4ba57faf62d4d2dfded02c5262379422ba376cbcbf7a759cba4b2"
+    },
+    {
+      "pairId": "pair-c741b0b68c",
+      "reviewerIdHash": "e8ef624cfaf292aa5d24d0c26e5c340ec37a7a97eab44ef1eb2e362411f0d4e4",
+      "winner": "B",
+      "confidence": 0.82,
+      "qualityScoreA": 0.74,
+      "qualityScoreB": 0.88,
+      "reasonCode": "mechanics-evidence-complete",
+      "reasonHash": "ee6375d86d18010da600e90962ebc5b18896a4a887ae08901defbecff09b23f5"
+    },
+    {
+      "pairId": "pair-c741b0b68c",
+      "reviewerIdHash": "1ca0e7843644087860ec9884bcdc445ebb5908b495121e11ff9cd3f42006202d",
+      "winner": "B",
+      "confidence": 0.78,
+      "qualityScoreA": 0.74,
+      "qualityScoreB": 0.88,
+      "reasonCode": "governance-discipline-stronger",
+      "reasonHash": "7821d907c7af8fdb79f2eebe80d3a675181659aee880a4b86be887b4a7c9271e"
+    }
+  ],
+  "aggregate": {
+    "blindReviewRowsPresent": true,
+    "fixtureOnly": true,
+    "humanRowsPresent": false,
+    "externalRowsPresent": false,
+    "reviewerCount": 2,
+    "reviewRowCount": 6,
+    "reviewedPairCount": 3,
+    "pairCoverageRate": 1,
+    "averageConfidence": 0.8,
+    "treatmentPreferenceRows": 6,
+    "mappedPreferenceRows": 6,
+    "treatmentPreferenceRate": 1,
+    "interReviewerAgreement": 1,
+    "blindExternalReviewReady": false,
+    "causalProofReady": false,
+    "zeroLeak": true
+  },
+  "gates": [
+    {
+      "name": "packet-ready",
+      "status": "pass",
+      "summary": "Packet has 3 blinded pairs and source replication ready=true.",
+      "resumePoint": "rerun `pnpm pbos mechanics blind-packet` after replication is ready"
+    },
+    {
+      "name": "review-rows-present",
+      "status": "pass",
+      "summary": "6 blind review rows imported.",
+      "resumePoint": "collect blind review rows using the packet schema"
+    },
+    {
+      "name": "pair-coverage",
+      "status": "pass",
+      "summary": "Reviewed pair coverage is 1; required 1.",
+      "resumePoint": "send unreviewed blinded pairs to reviewers"
+    },
+    {
+      "name": "non-fixture-review",
+      "status": "fail",
+      "summary": "Fixture rows prove import plumbing only.",
+      "resumePoint": "import human-blind or external-judge rows before causal claims"
+    },
+    {
+      "name": "private-mapping-available",
+      "status": "pass",
+      "summary": "Private answer-sheet commitment matches the packet.",
+      "resumePoint": "provide the private mapping outside the repo to scorer-only review import"
+    },
+    {
+      "name": "treatment-preference-threshold",
+      "status": "pass",
+      "summary": "Treatment preference rate was 1; required 0.67.",
+      "resumePoint": "collect enough mapped blind rows to estimate treatment preference"
+    },
+    {
+      "name": "zero-leak",
+      "status": "pass",
+      "summary": "Raw review/private/payload text included=false.",
+      "resumePoint": "strip raw review text and retain only reason hashes/codes"
+    },
+    {
+      "name": "causal-value-claim-boundary",
+      "status": "fail",
+      "summary": "Blind review lane is not enough for causal value claims yet.",
+      "resumePoint": "complete non-fixture blind review plus remaining causal proof gates"
+    }
+  ],
+  "safety": {
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "envValuesIncluded": false,
+    "rawUrlsIncluded": false,
+    "privateBodiesIncluded": false,
+    "rawArtifactBodiesIncluded": false,
+    "rawReviewTextIncluded": false,
+    "answerKeysIncluded": false,
+    "treatmentControlMappingIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Blind causal review import for Playbasis mechanics replication",
+    "fixtureRowsAreOnlyPlumbingProof": true,
+    "notEconomicValueProof": true,
+    "noExternalBenchmarkClaim": true,
+    "noSotaClaim": true,
+    "causalClaimRequiresNonFixtureRowsAndMapping": true
+  }
+}

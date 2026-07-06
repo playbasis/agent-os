@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-06T00:06:54.002Z",
+  "profile": "staging-sandbox",
+  "sourceReports": {
+    "auditScorecard": {
+      "path": "reports/audit-scorecard.json",
+      "present": true,
+      "hash": "01e0829fac1915fdd1f5a8e03fbafdc366563201a07fce5f8308d6f3d42d504b"
+    },
+    "apiLeverage": {
+      "path": "reports/playbasis-api-leverage.json",
+      "present": true,
+      "hash": "9bb4e808520ee3788bb60ea4bd81e6a7b9e4871b5cd9cb55f6ce5177ea511088"
+    },
+    "routeDiagnosis": {
+      "path": "reports/openapi-route-diagnosis.json",
+      "present": true,
+      "hash": "3ebdcde3fa06dd8652b2ef6b128714892d2632bdf03f89b30e0eb36945a9746d"
+    },
+    "domainAdapters": {
+      "path": "reports/playbasis-domain-adapter-readiness.json",
+      "present": true,
+      "hash": "2d97fe5acf783cf48a69187c85438a641471369929cc9d754a013bdcd4dc6c0e"
+    },
+    "domainAdapterProbes": {
+      "path": "reports/playbasis-domain-adapter-probes.json",
+      "present": true,
+      "hash": "ceda1cae70495338cc9cf2c44ec2041779a39b834a0810e3a7cda7b2cf629e73"
+    },
+    "mechanicsActivationReadiness": {
+      "path": "reports/playbasis-mechanics-activation-gates.json",
+      "present": true,
+      "hash": "4ea5ca1b398321bef536cd8904f0edd8a62d2b74eb1e9b461dd4b3cfbf83af2b"
+    },
+    "runWarehouseSummary": {
+      "path": "reports/run-warehouse/summary.json",
+      "present": true,
+      "hash": "d8b7337a5f58c55c001530a6cface0d408f4621f3d16c0b710cd54be0610a883"
+    },
+    "agentLoopMechanicsLedger": {
+      "path": "reports/agent-loop-mechanics-ledger.json",
+      "present": true,
+      "hash": "a19650ee505ef39a3e1ee727d77594513dcfeb77abf1433d6f49d28bfd3fb505"
+    },
+    "valueReport": {
+      "path": "reports/value-measurement-report-001.json",
+      "present": true,
+      "hash": "dce452dfa2455cf3a5e0719d6d321c68e2812d15bb853138b43816263085e094"
+    },
+    "ceoSimProof": {
+      "path": "reports/ceo-sim-proof.json",
+      "present": true,
+      "hash": "ef6e47d0696788c024fbfba839f4d141bfde0439dabc0d489c282696608da663"
+    },
+    "ossVerification": {
+      "path": "reports/oss-export-verification.json",
+      "present": true,
+      "hash": "f5ac59743fe16dc2842875a8178e44d309ce42eda2a07b38c289e511755394a9"
+    }
+  },
+  "summary": {
+    "claimStatus": "mechanics-correlated-not-causal",
+    "runCount": 720,
+    "promotedRuns": 366,
+    "zeroLeakRuns": 720,
+    "averageTrainingScore": 0.7444,
+    "averageHeldOutScore": 0.8005,
+    "averageTrustScore": 0.993,
+    "averageEconomicScore": 0,
+    "mechanicsCovered": 16,
+    "requiredMechanics": 16,
+    "liveBackedRecords": 54,
+    "totalLedgerRecords": 61,
+    "blockedRecords": 10,
+    "readyActivationGates": 0,
+    "blockedActivationGates": 4,
+    "outcomeLinkedMechanics": 16,
+    "causalProofReady": false,
+    "zeroLeak": true
+  },
+  "mechanics": [
+    {
+      "mechanic": "adjudications",
+      "ledgerRecords": 5,
+      "liveBackedRecords": 5,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "promoted-runs",
+        "average-trust-score"
+      ],
+      "currentOutcomeUse": "Adjudication rows formalize approve/reject/promote/rollback decisions with evidence hashes.",
+      "nextIntervention": "Use this mechanic in the first control/treatment reward-shaping experiment and compare held-out lift."
+    },
+    {
+      "mechanic": "analytics",
+      "ledgerRecords": 5,
+      "liveBackedRecords": 5,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "average-heldout-score",
+        "average-trust-score"
+      ],
+      "currentOutcomeUse": "Analytics aggregates evidence packs, eval suites, service probes, and mechanics ledgers into proof dashboards.",
+      "nextIntervention": "Use this mechanic in the first control/treatment reward-shaping experiment and compare held-out lift."
+    },
+    {
+      "mechanic": "campaigns",
+      "ledgerRecords": 3,
+      "liveBackedRecords": 1,
+      "blockedRecords": 2,
+      "readinessStatus": "missing-required-env",
+      "evidenceLevel": "readiness-blocked",
+      "linkedOutcomeSignals": [
+        "blocked-ledger-records",
+        "activation-blocked-gates"
+      ],
+      "currentOutcomeUse": "Campaigns run time-bound benchmark seasons or improvement sprints with preregistered targets.",
+      "nextIntervention": "Satisfy campaigns gate (missing-required-env) before counting it as live treatment evidence."
+    },
+    {
+      "mechanic": "cohorts",
+      "ledgerRecords": 2,
+      "liveBackedRecords": 2,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "run-count",
+        "average-heldout-score"
+      ],
+      "currentOutcomeUse": "Cohorts separate mission families, risk tiers, client verticals, and policy maturity groups.",
+      "nextIntervention": "Keep recording hash-only evidence, then include this mechanic in the preregistered treatment policy."
+    },
+    {
+      "mechanic": "credits",
+      "ledgerRecords": 2,
+      "liveBackedRecords": 2,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "average-trust-score",
+        "blocked-ledger-records"
+      ],
+      "currentOutcomeUse": "Credits model budget, cost, spend caps, and cost per accepted artifact.",
+      "nextIntervention": "Keep recording hash-only evidence, then include this mechanic in the preregistered treatment policy."
+    },
+    {
+      "mechanic": "events",
+      "ledgerRecords": 5,
+      "liveBackedRecords": 4,
+      "blockedRecords": 1,
+      "readinessStatus": "missing-required-env",
+      "evidenceLevel": "readiness-blocked",
+      "linkedOutcomeSignals": [
+        "run-count",
+        "service-probes",
+        "mechanics-covered"
+      ],
+      "currentOutcomeUse": "Every mission step, tool call, recovery, gate, and service probe can be projected as structured event evidence.",
+      "nextIntervention": "Satisfy events-ingest gate (missing-required-env) before counting it as live treatment evidence."
+    },
+    {
+      "mechanic": "experiments",
+      "ledgerRecords": 5,
+      "liveBackedRecords": 3,
+      "blockedRecords": 2,
+      "readinessStatus": "missing-required-env",
+      "evidenceLevel": "readiness-blocked",
+      "linkedOutcomeSignals": [
+        "average-heldout-score",
+        "blocked-ledger-records"
+      ],
+      "currentOutcomeUse": "Experiment mechanics compare prompt policies, reward functions, and memory strategies.",
+      "nextIntervention": "Satisfy experiments gate (missing-required-env) before counting it as live treatment evidence."
+    },
+    {
+      "mechanic": "feedback",
+      "ledgerRecords": 5,
+      "liveBackedRecords": 5,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "average-heldout-score",
+        "promoted-runs"
+      ],
+      "currentOutcomeUse": "Feedback records human/judge review, artifact acceptance, rework, and blind-review outcomes.",
+      "nextIntervention": "Use this mechanic in the first control/treatment reward-shaping experiment and compare held-out lift."
+    },
+    {
+      "mechanic": "leaderboards",
+      "ledgerRecords": 4,
+      "liveBackedRecords": 4,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "average-heldout-score",
+        "promoted-runs"
+      ],
+      "currentOutcomeUse": "Leaderboards rank policies or agents by held-out/governance-adjusted utility, not raw vanity score.",
+      "nextIntervention": "Use this mechanic in the first control/treatment reward-shaping experiment and compare held-out lift."
+    },
+    {
+      "mechanic": "points",
+      "ledgerRecords": 2,
+      "liveBackedRecords": 2,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "promoted-runs",
+        "mechanics-covered"
+      ],
+      "currentOutcomeUse": "Internal reward points can score accepted artifacts and evidence completeness without becoming a vanity leaderboard.",
+      "nextIntervention": "Keep recording hash-only evidence, then include this mechanic in the preregistered treatment policy."
+    },
+    {
+      "mechanic": "quests",
+      "ledgerRecords": 3,
+      "liveBackedRecords": 3,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "run-count",
+        "average-heldout-score"
+      ],
+      "currentOutcomeUse": "Mission templates become quests with milestones, constraints, evals, and promotion rules.",
+      "nextIntervention": "Keep recording hash-only evidence, then include this mechanic in the preregistered treatment policy."
+    },
+    {
+      "mechanic": "rewards",
+      "ledgerRecords": 4,
+      "liveBackedRecords": 4,
+      "blockedRecords": 2,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "promoted-runs",
+        "mechanics-covered"
+      ],
+      "currentOutcomeUse": "Rewards/certifications represent zero-leak streaks, replay-stable runs, and held-out lift certifications.",
+      "nextIntervention": "Keep recording hash-only evidence, then include this mechanic in the preregistered treatment policy."
+    },
+    {
+      "mechanic": "rulesets",
+      "ledgerRecords": 5,
+      "liveBackedRecords": 5,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "average-trust-score",
+        "promoted-runs"
+      ],
+      "currentOutcomeUse": "Rulesets encode promotion gates, claim boundaries, tool authorization, and redaction policy.",
+      "nextIntervention": "Use this mechanic in the first control/treatment reward-shaping experiment and compare held-out lift."
+    },
+    {
+      "mechanic": "webhooks",
+      "ledgerRecords": 3,
+      "liveBackedRecords": 1,
+      "blockedRecords": 2,
+      "readinessStatus": "missing-required-env",
+      "evidenceLevel": "readiness-blocked",
+      "linkedOutcomeSignals": [
+        "service-probes",
+        "activation-blocked-gates"
+      ],
+      "currentOutcomeUse": "Webhooks close the loop by triggering review, escalation, replay, or next missions when gates change.",
+      "nextIntervention": "Satisfy webhooks gate (missing-required-env) before counting it as live treatment evidence."
+    },
+    {
+      "mechanic": "workspaceops",
+      "ledgerRecords": 4,
+      "liveBackedRecords": 4,
+      "blockedRecords": 0,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "service-probes",
+        "run-count"
+      ],
+      "currentOutcomeUse": "WorkspaceOps APIs provide real run inspection, super-prompt qualification, approvals, and workflow evidence.",
+      "nextIntervention": "Keep recording hash-only evidence, then include this mechanic in the preregistered treatment policy."
+    },
+    {
+      "mechanic": "xp",
+      "ledgerRecords": 4,
+      "liveBackedRecords": 4,
+      "blockedRecords": 1,
+      "readinessStatus": "not-gated",
+      "evidenceLevel": "safe-live",
+      "linkedOutcomeSignals": [
+        "promoted-runs",
+        "average-heldout-score"
+      ],
+      "currentOutcomeUse": "Progression can measure durable policy skill, held-out improvement, recovery, and approval discipline.",
+      "nextIntervention": "Keep recording hash-only evidence, then include this mechanic in the preregistered treatment policy."
+    }
+  ],
+  "outcomeSignals": [
+    {
+      "signal": "run-count",
+      "source": "run-warehouse",
+      "value": 720,
+      "evidenceHash": "d8b7337a5f58c55c001530a6cface0d408f4621f3d16c0b710cd54be0610a883",
+      "claimBoundary": "Run volume proves replay surface size, not business value."
+    },
+    {
+      "signal": "promoted-runs",
+      "source": "run-warehouse",
+      "value": 366,
+      "evidenceHash": "d8b7337a5f58c55c001530a6cface0d408f4621f3d16c0b710cd54be0610a883",
+      "claimBoundary": "Promotion count is internal gate evidence, not external acceptance."
+    },
+    {
+      "signal": "zero-leak-runs",
+      "source": "run-warehouse",
+      "value": 720,
+      "evidenceHash": "d8b7337a5f58c55c001530a6cface0d408f4621f3d16c0b710cd54be0610a883",
+      "claimBoundary": "Zero-leak runs prove scanner discipline only for generated artifacts."
+    },
+    {
+      "signal": "average-heldout-score",
+      "source": "run-warehouse",
+      "value": 0.8005,
+      "evidenceHash": "d8b7337a5f58c55c001530a6cface0d408f4621f3d16c0b710cd54be0610a883",
+      "claimBoundary": "Held-out score is internal held-out evidence unless tied to external review."
+    },
+    {
+      "signal": "average-trust-score",
+      "source": "run-warehouse",
+      "value": 0.993,
+      "evidenceHash": "d8b7337a5f58c55c001530a6cface0d408f4621f3d16c0b710cd54be0610a883",
+      "claimBoundary": "Trust score supports governance readiness, not task SOTA."
+    },
+    {
+      "signal": "service-probes",
+      "source": "run-warehouse",
+      "value": 66,
+      "evidenceHash": "d8b7337a5f58c55c001530a6cface0d408f4621f3d16c0b710cd54be0610a883",
+      "claimBoundary": "Service probes are hash-only availability evidence, not payload proof."
+    },
+    {
+      "signal": "mechanics-covered",
+      "source": "agent-loop-mechanics-ledger",
+      "value": "16/16",
+      "evidenceHash": "a19650ee505ef39a3e1ee727d77594513dcfeb77abf1433d6f49d28bfd3fb505",
+      "claimBoundary": "Mechanics coverage proves normalized ledger presence, not causal lift."
+    },
+    {
+      "signal": "live-backed-ledger-records",
+      "source": "agent-loop-mechanics-ledger",
+      "value": 54,
+      "evidenceHash": "a19650ee505ef39a3e1ee727d77594513dcfeb77abf1433d6f49d28bfd3fb505",
+      "claimBoundary": "Live-backed records show service-linked mechanics evidence only."
+    },
+    {
+      "signal": "blocked-ledger-records",
+      "source": "agent-loop-mechanics-ledger",
+      "value": 10,
+      "evidenceHash": "a19650ee505ef39a3e1ee727d77594513dcfeb77abf1433d6f49d28bfd3fb505",
+      "claimBoundary": "Blocked records must remain blockers until gates are satisfied."
+    },
+    {
+      "signal": "activation-blocked-gates",
+      "source": "playbasis-mechanics-activation-gates",
+      "value": 4,
+      "evidenceHash": "4ea5ca1b398321bef536cd8904f0edd8a62d2b74eb1e9b461dd4b3cfbf83af2b",
+      "claimBoundary": "Blocked gates prevent live-write/private-adapter claims."
+    }
+  ],
+  "causalExperimentPlan": {
+    "recommendedExperimentId": "playbasis-mechanics-reward-shaping-heldout-v1",
+    "hypothesis": "A Playbasis-mechanics treatment policy that emits events, applies rulesets/adjudications, updates quests/XP/credits, records feedback, and ranks variants will improve held-out mission utility without reducing trust or zero-leak rates.",
+    "controlPolicy": "Run the same mission optimizer with evidence gates but without mechanics-shaped reward/debit/adjudication feedback in candidate selection.",
+    "treatmentPolicy": "Select and revise candidates using the mechanics ledger as a reward/governance signal: reward held-out lift, zero-leak streaks, approval discipline, recovery, evidence completeness, and cost discipline; debit budget/cost/rework.",
+    "primaryMetric": "heldOut score lift over control on preregistered mission families",
+    "guardrailMetrics": [
+      "trust score >= 0.95",
+      "zero-leak runs = all treatment runs",
+      "blocked write/private-adapter gates remain blocked unless explicit operator gates are present",
+      "economic score is reported but not claimed as value until blind review exists"
+    ],
+    "requiredMechanics": [
+      "events",
+      "rulesets",
+      "adjudications",
+      "experiments",
+      "feedback",
+      "credits",
+      "leaderboards",
+      "analytics",
+      "workspaceops"
+    ],
+    "requiredNewEvidence": [
+      "pre-registered control/treatment policy hashes",
+      "run warehouse rows for both arms",
+      "held-out eval rows invisible to candidate selection",
+      "agent-loop mechanics ledgers for each arm",
+      "promotion decisions and negative results",
+      "hash-only leak scan report"
+    ],
+    "replayCommand": "pnpm pbos mechanics attribution --profile staging-sandbox && pnpm sandbox:build && pnpm pbos knowledge compile --sources reports --out reports/agent-os-wiki",
+    "promotionRule": "Promote only if treatment held-out lift is positive, trust and zero-leak guardrails pass, and no blocked readiness gate is counted as live proof."
+  },
+  "safety": {
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "envValuesIncluded": false,
+    "rawUrlsIncluded": false,
+    "privateBodiesIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Mechanics-to-outcome attribution from existing hash-only Agent OS evidence",
+    "correlationOnly": true,
+    "notCausalValueProof": true,
+    "noEconomicOrSotaClaim": true
+  }
+}

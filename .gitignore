@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+.turbo/
+.vite/
+.DS_Store
+.env
+.env.*
+!.env.example
+reports/oss-export-scan.json

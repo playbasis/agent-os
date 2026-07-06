@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://playbasis.internal/schemas/router/model-catalog.schema.json",
+  "title": "RouterModelCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "source", "models", "safety"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedAt": { "type": "string" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pathLabel", "sha256"],
+      "properties": {
+        "pathLabel": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "models": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "provider", "family", "capabilities"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "provider": { "type": "string", "minLength": 1 },
+          "family": { "type": "string", "minLength": 1 },
+          "deploymentEnvKey": { "type": ["string", "null"], "pattern": "^[A-Z][A-Z0-9_]*$" },
+          "capabilities": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pricingOverlayIncluded", "envValuesIncluded", "rawApiKeysIncluded"],
+      "properties": {
+        "pricingOverlayIncluded": { "const": false },
+        "envValuesIncluded": { "const": false },
+        "rawApiKeysIncluded": { "const": false }
+      }
+    }
+  }
+}

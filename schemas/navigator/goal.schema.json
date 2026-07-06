@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://playbasis.internal/schemas/navigator/goal.schema.json",
+  "title": "NavigatorGoal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "goalId",
+    "createdAt",
+    "domain",
+    "objective",
+    "northStar",
+    "sotaDefinition",
+    "benchmarkLadder",
+    "valueFunction",
+    "lossFunction",
+    "budgets",
+    "escalationPolicy",
+    "promptTwin",
+    "councilSeed"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "goalId": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string" },
+    "domain": { "enum": ["flappy-prompt-twin-ab", "asset-clone"] },
+    "objective": { "type": "string", "minLength": 1 },
+    "northStar": { "type": "string", "minLength": 1 },
+    "sotaDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "measurableProperties"],
+      "properties": {
+        "summary": { "type": "string" },
+        "measurableProperties": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "target", "evidenceLayer"],
+            "properties": {
+              "name": { "type": "string" },
+              "target": { "type": "string" },
+              "evidenceLayer": { "$ref": "#/$defs/evidenceLayer" }
+            }
+          }
+        }
+      }
+    },
+    "benchmarkLadder": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["rung", "claim", "objectiveCheck", "requiredEvidenceLayer"],
+        "properties": {
+          "rung": { "type": "integer", "minimum": 1 },
+          "claim": { "type": "string" },
+          "objectiveCheck": { "type": "string" },
+          "requiredEvidenceLayer": { "$ref": "#/$defs/evidenceLayer" }
+        }
+      }
+    },
+    "valueFunction": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["layer", "name", "weight", "promotionEligible"],
+        "properties": {
+          "layer": { "$ref": "#/$defs/evidenceLayer" },
+          "name": { "type": "string" },
+          "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+          "promotionEligible": { "type": "boolean" }
+        }
+      }
+    },
+    "lossFunction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "constraints", "instruments", "entropyRules", "timeCostPenalty", "preRegistration"],
+      "properties": {
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "primaryMetric", "direction", "bar", "trainingEvalRef", "blindedEvalRef", "answerKeyCommitment"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "primaryMetric": { "type": "string", "minLength": 1 },
+            "direction": { "enum": ["maximize", "minimize"] },
+            "bar": { "type": "number" },
+            "trainingEvalRef": { "type": "string", "minLength": 1 },
+            "blindedEvalRef": { "type": "string", "pattern": "^scorer-only:" },
+            "answerKeyCommitment": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["algorithm", "hash"],
+              "properties": {
+                "algorithm": { "const": "sha256" },
+                "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+              }
+            }
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "limit", "instrument", "enforcement"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "limit": {
+                "oneOf": [
+                  { "type": "number" },
+                  { "type": "string", "minLength": 1 }
+                ]
+              },
+              "instrument": { "type": "string", "minLength": 1 },
+              "enforcement": { "enum": ["gate", "score-penalty", "human-escalation"] }
+            }
+          }
+        },
+        "instruments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "command", "provides", "optimizerVisible"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "command": { "type": "string", "minLength": 1 },
+              "provides": { "type": "string", "minLength": 1 },
+              "optimizerVisible": { "type": "boolean" }
+            }
+          }
+        },
+        "entropyRules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "condition", "forcedNextMove", "evidenceRequired"],
+            "properties": {
+              "name": { "enum": ["memorization_alarm", "stall_exploration", "cycle_hypothesis_required"] },
+              "condition": { "type": "string", "minLength": 1 },
+              "forcedNextMove": { "type": "string", "minLength": 1 },
+              "evidenceRequired": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "timeCostPenalty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["qualityWeight", "hourPenaltyLambda", "spendPenaltyMu", "riskPenaltyRho", "selectionMetric", "formula"],
+          "properties": {
+            "qualityWeight": { "type": "number", "minimum": 0 },
+            "hourPenaltyLambda": { "type": "number", "minimum": 0 },
+            "spendPenaltyMu": { "type": "number", "minimum": 0 },
+            "riskPenaltyRho": { "type": "number", "minimum": 0 },
+            "selectionMetric": { "const": "progressSharpe" },
+            "formula": { "type": "string", "minLength": 1 }
+          }
+        },
+        "preRegistration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required", "pathFanHashAlgorithm", "answerKeyCommitmentRequired", "blindedEvalStorage", "heldOutRevealPolicy"],
+          "properties": {
+            "required": { "type": "boolean" },
+            "pathFanHashAlgorithm": { "const": "sha256" },
+            "answerKeyCommitmentRequired": { "type": "boolean" },
+            "blindedEvalStorage": { "const": "scorer-only" },
+            "heldOutRevealPolicy": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxPaths", "maxWallClockHours", "maxCouncilCalls", "maxEstimatedCost"],
+      "properties": {
+        "maxPaths": { "type": "integer", "minimum": 1 },
+        "maxWallClockHours": { "type": "number", "minimum": 0 },
+        "maxCouncilCalls": { "type": "integer", "minimum": 0 },
+        "maxEstimatedCost": { "type": "number", "minimum": 0 }
+      }
+    },
+    "escalationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["driftOutsideAllEnvelopes", "consecutiveOverPerformanceForRatchet", "humanFeedbackWeight"],
+      "properties": {
+        "driftOutsideAllEnvelopes": { "const": "human-escalation" },
+        "consecutiveOverPerformanceForRatchet": { "type": "integer", "minimum": 1 },
+        "humanFeedbackWeight": { "type": "number", "minimum": 0 }
+      }
+    },
+    "promptTwin": { "type": "object" },
+    "councilSeed": { "type": "object" }
+  },
+  "$defs": {
+    "evidenceLayer": {
+      "enum": ["reality", "heldOut", "trust", "promptTwin", "council", "humanFeedback"]
+    }
+  }
+}

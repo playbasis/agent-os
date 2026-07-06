@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "id": "workspaceops-launch-pack",
+  "title": "WorkspaceOps Launch Pack",
+  "objective": "Produce a complete product launch pack proving that the Playbasis Agent OS harness can use donor assets, Playbasis APIs, WorkspaceOps capabilities, provider bridges, evals, and evidence packs.",
+  "profile": "fixture",
+  "inputs": {
+    "productName": "Playbasis Agent OS",
+    "audience": "operators, product teams, and AI platform builders",
+    "maturityLevel": 3
+  },
+  "budgets": {
+    "maxSteps": 15,
+    "maxRuntimeMs": 120000,
+    "maxProviderCalls": 0
+  },
+  "steps": [
+    {
+      "id": "donor-summary",
+      "title": "Classify raw donor assets",
+      "tool": "donor.registry.summarize"
+    },
+    {
+      "id": "donor-primitives",
+      "title": "Synthesize donor-derived operating-system primitives",
+      "tool": "donor.primitives.synthesize"
+    },
+    {
+      "id": "api-catalog",
+      "title": "Map Playbasis API capabilities",
+      "tool": "playbasis.api.catalog"
+    },
+    {
+      "id": "mechanics-coverage",
+      "title": "Probe Playbasis mechanics coverage",
+      "tool": "playbasis.mechanics.coverage"
+    },
+    {
+      "id": "workspaceops-catalog",
+      "title": "Map WorkspaceOps and super-prompt capabilities",
+      "tool": "workspaceops.capability.catalog"
+    },
+    {
+      "id": "workspaceops-run-inspection",
+      "title": "Inspect WorkspaceOps runtime run surfaces",
+      "tool": "workspaceops.run.inspect",
+      "input": {
+        "runId": "latest"
+      }
+    },
+    {
+      "id": "superprompt-qualification",
+      "title": "Qualify WorkspaceOps super-prompt fit",
+      "tool": "workspaceops.superprompt.qualify",
+      "input": {
+        "objective": "Produce a complete market/product launch pack using Playbasis WorkspaceOps capabilities."
+      }
+    },
+    {
+      "id": "workspaceops-ceo-sim-adapter",
+      "title": "Record private WorkspaceOps CEO simulator adapter evidence",
+      "tool": "workspaceops.ceosim.adapter"
+    },
+    {
+      "id": "workspaceops-ceo-sim-policy-experiment",
+      "title": "Run WorkspaceOps CEO simulator policy-variant experiment",
+      "tool": "workspaceops.ceosim.policy-experiment"
+    },
+    {
+      "id": "workspaceops-ceo-sim-repair-quest",
+      "title": "Record Playbasis mechanics repair quest for CEO simulator target",
+      "tool": "workspaceops.ceosim.repair-quest"
+    },
+    {
+      "id": "workspaceops-ceo-sim-delta-replay",
+      "title": "Replay temp-patched CEO simulator policy deltas",
+      "tool": "workspaceops.ceosim.delta-replay"
+    },
+    {
+      "id": "workspaceops-ceo-sim-delta-heldout",
+      "title": "Run scorer-only held-out review for CEO simulator delta",
+      "tool": "workspaceops.ceosim.delta-heldout",
+      "input": {
+        "minScore": 0.8
+      }
+    },
+    {
+      "id": "agent-loop-mechanics-ledger",
+      "title": "Normalize Playbasis mechanics into an agent-loop ledger",
+      "tool": "playbasis.agent-loop.ledger"
+    },
+    {
+      "id": "research",
+      "title": "Generate research brief",
+      "tool": "provider.research.brief",
+      "input": {
+        "topic": "Playbasis Agent OS as a governed AI operating system for business workspaces"
+      }
+    },
+    {
+      "id": "launch-pack",
+      "title": "Build launch artifacts",
+      "tool": "artifact.launch.pack",
+      "input": {
+        "productName": "Playbasis Agent OS",
+        "audience": "operators, product teams, and AI platform builders"
+      }
+    }
+  ],
+  "evals": [
+    "step-success",
+    "artifact-completeness",
+    "business-usefulness",
+    "trace-coverage",
+    "ai-ml-llm-embedding",
+    "workflow-automation-depth",
+    "continuous-improvement-loop",
+    "playbasis-service-leverage",
+    "ml-optimization-proof",
+    "donor-derived-primitives",
+    "secret-redaction"
+  ],
+  "promotionPolicy": {
+    "minScore": 0.8,
+    "requireNoSecretLeaks": true,
+    "requireAllStepsSucceeded": true
+  }
+}

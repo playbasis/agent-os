@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://playbasis.internal/schemas/navigator/loop-proof.schema.json",
+  "title": "NavigatorLoopProofReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "proofId",
+    "goalId",
+    "generatedAt",
+    "passed",
+    "n2",
+    "observationMix",
+    "shapeMemory",
+    "pathFanPreRegistration",
+    "calibration",
+    "ambitionRatchet",
+    "forcedEntropy",
+    "selectedPathId",
+    "baselinePathId",
+    "observations",
+    "milestoneRuns",
+    "checkpoints",
+    "resumeProof",
+    "baselineComparison",
+    "shapeLibraryEntry",
+    "interrupts",
+    "acceptanceGates",
+    "artifacts"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "proofId": { "type": "string" },
+    "goalId": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "passed": { "type": "boolean" },
+    "n2": { "type": "object" },
+    "observationMix": { "type": "object" },
+    "shapeMemory": { "type": "object" },
+    "pathFanPreRegistration": { "type": "object" },
+    "calibration": { "type": "object" },
+    "ambitionRatchet": { "type": "object" },
+    "forcedEntropy": { "$ref": "#/$defs/forcedEntropySummary" },
+    "selectedPathId": { "type": "string" },
+    "baselinePathId": { "type": "string" },
+    "observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "object" }
+    },
+    "milestoneRuns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sequenceIndex", "milestoneId", "observation", "leadingBefore", "leadingAfter", "activePathId", "switched", "driftAlarm", "forcedEntropyAction", "checkpointId"],
+        "properties": {
+          "sequenceIndex": { "type": "integer", "minimum": 0 },
+          "milestoneId": { "type": "string" },
+          "observation": { "type": "object" },
+          "leadingBefore": { "type": "string" },
+          "leadingAfter": { "type": "string" },
+          "activePathId": { "type": "string" },
+          "switched": { "type": "boolean" },
+          "driftAlarm": { "type": "boolean" },
+          "forcedEntropyAction": { "$ref": "#/$defs/forcedEntropyAction" },
+          "forcedPathId": { "type": "string" },
+          "checkpointId": { "type": "string" }
+        }
+      }
+    },
+    "checkpoints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["checkpointId", "sequenceIndex", "timestamp", "activePathId", "milestoneId", "observationId", "reweightHash", "contextPacketId", "pathWeightHash", "pathWeights", "cycleHypothesis", "forcedEntropy", "budgetSpent", "status"],
+        "properties": {
+          "checkpointId": { "type": "string" },
+          "sequenceIndex": { "type": "integer", "minimum": 0 },
+          "timestamp": { "type": "string" },
+          "activePathId": { "type": "string" },
+          "milestoneId": { "type": "string" },
+          "observationId": { "type": "string" },
+          "reweightHash": { "type": "string" },
+          "contextPacketId": { "type": "string" },
+          "pathWeightHash": { "type": "string" },
+          "pathWeights": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["pathId", "weight", "pruned"],
+              "properties": {
+                "pathId": { "type": "string" },
+                "weight": { "type": "number" },
+                "pruned": { "type": "boolean" }
+              }
+            }
+          },
+          "cycleHypothesis": { "$ref": "#/$defs/cycleHypothesis" },
+          "forcedEntropy": { "$ref": "#/$defs/forcedEntropyDecision" },
+          "budgetSpent": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["hours", "tokens", "councilCalls", "estimatedCost"],
+            "properties": {
+              "hours": { "type": "number" },
+              "tokens": { "type": "integer" },
+              "councilCalls": { "type": "integer" },
+              "estimatedCost": { "type": "number" }
+            }
+          },
+          "status": { "enum": ["completed", "escalated"] }
+        }
+      }
+    },
+    "resumeProof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resumeCheckpointId", "remainingObservations", "uninterruptedFinalPathId", "resumedFinalPathId", "matchesUninterrupted"],
+      "properties": {
+        "resumeCheckpointId": { "type": "string" },
+        "remainingObservations": { "type": "integer" },
+        "uninterruptedFinalPathId": { "type": "string" },
+        "resumedFinalPathId": { "type": "string" },
+        "matchesUninterrupted": { "type": "boolean" }
+      }
+    },
+    "baselineComparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metric",
+        "selectionMetric",
+        "baselinePathId",
+        "navigatorPathId",
+        "baselineScore",
+        "navigatorScore",
+        "lift",
+        "baselineProgressSharpe",
+        "navigatorProgressSharpe",
+        "progressSharpeLift",
+        "evidenceConfidence",
+        "majorityRealityOrHeldOutEvidence",
+        "costRatio",
+        "comparableCost",
+        "summary"
+      ],
+      "properties": {
+        "metric": { "const": "path-fit-score" },
+        "selectionMetric": { "const": "progressSharpe" },
+        "baselinePathId": { "type": "string" },
+        "navigatorPathId": { "type": "string" },
+        "baselineScore": { "type": "number" },
+        "navigatorScore": { "type": "number" },
+        "lift": { "type": "number" },
+        "baselineProgressSharpe": { "type": "number" },
+        "navigatorProgressSharpe": { "type": "number" },
+        "progressSharpeLift": { "type": "number" },
+        "evidenceConfidence": { "type": "number" },
+        "majorityRealityOrHeldOutEvidence": { "type": "boolean" },
+        "costRatio": { "type": "number" },
+        "comparableCost": { "type": "boolean" },
+        "summary": { "type": "string" }
+      }
+    },
+    "shapeLibraryEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entryId", "goalId", "objectiveHash", "shapeKey", "selectedPathId", "outcomeScore", "baselineLift", "evidenceHash", "reusablePrior"],
+      "properties": {
+        "entryId": { "type": "string" },
+        "goalId": { "type": "string" },
+        "objectiveHash": { "type": "string" },
+        "shapeKey": { "type": "string" },
+        "selectedPathId": { "type": "string" },
+        "outcomeScore": { "type": "number" },
+        "baselineLift": { "type": "number" },
+        "evidenceHash": { "type": "string" },
+        "reusablePrior": { "type": "object" }
+      }
+    },
+    "interrupts": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "acceptanceGates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "summary"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "enum": ["pass", "fail"] },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  },
+  "$defs": {
+    "forcedEntropyAction": {
+      "enum": [
+        "continue-leading-path",
+        "remove-eval-shaped-artifact",
+        "widen-eval-family",
+        "stall-to-search",
+        "explore-non-leading-path"
+      ]
+    },
+    "forcedEntropyTrigger": {
+      "enum": ["none", "memorization_alarm", "stall_exploration"]
+    },
+    "cycleHypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hypothesis", "expectedFailureMode", "diagnosticInstrument", "expectedMetricMovement", "falsifier"],
+      "properties": {
+        "hypothesis": { "type": "string" },
+        "expectedFailureMode": { "type": "string" },
+        "diagnosticInstrument": { "type": "string" },
+        "expectedMetricMovement": { "type": "string" },
+        "falsifier": { "type": "string" }
+      }
+    },
+    "forcedEntropyDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trigger",
+        "action",
+        "forced",
+        "memorizationDetected",
+        "stallDetected",
+        "trainingLift",
+        "heldOutLift",
+        "primaryMetricDelta",
+        "selectedPathIdBefore",
+        "selectedPathIdAfter",
+        "blockedMoves",
+        "nextMove",
+        "rationale",
+        "evidenceHash"
+      ],
+      "properties": {
+        "trigger": { "$ref": "#/$defs/forcedEntropyTrigger" },
+        "action": { "$ref": "#/$defs/forcedEntropyAction" },
+        "forced": { "type": "boolean" },
+        "memorizationDetected": { "type": "boolean" },
+        "stallDetected": { "type": "boolean" },
+        "trainingLift": { "type": "number" },
+        "heldOutLift": { "type": "number" },
+        "primaryMetricDelta": { "type": "number" },
+        "selectedPathIdBefore": { "type": "string" },
+        "selectedPathIdAfter": { "type": "string" },
+        "nonLeadingPathId": { "type": "string" },
+        "blockedMoves": { "type": "array", "items": { "type": "string" } },
+        "nextMove": { "type": "string" },
+        "rationale": { "type": "string" },
+        "evidenceHash": { "type": "string" }
+      }
+    },
+    "forcedEntropySummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "memorizationDetected", "stallDetected", "forcedActionCount", "actions", "nextRequiredMove", "summary"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "memorizationDetected": { "type": "boolean" },
+        "stallDetected": { "type": "boolean" },
+        "forcedActionCount": { "type": "integer", "minimum": 0 },
+        "actions": { "type": "array", "items": { "$ref": "#/$defs/forcedEntropyDecision" } },
+        "nextRequiredMove": { "type": "string" },
+        "summary": { "type": "string" }
+      }
+    }
+  }
+}

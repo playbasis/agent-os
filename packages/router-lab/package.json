@@ -1,0 +1,9 @@
+{
+  "name": "@playbasis-agent-os/router-lab",
+  "private": true,
+  "version": "0.1.0-internal-pov",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

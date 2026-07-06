@@ -1,0 +1,12 @@
+{
+  "name": "@playbasis-agent-os/run-warehouse",
+  "private": true,
+  "version": "0.1.0-internal-pov",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@playbasis-agent-os/kernel": "workspace:*"
+  }
+}

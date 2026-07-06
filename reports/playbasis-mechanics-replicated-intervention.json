@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "reportId": "playbasis-mechanics-replication-20260706010142",
+  "generatedAt": "2026-07-06T01:01:42.643Z",
+  "profile": "fixture",
+  "familyId": "playbasis-mechanics-replication-v1",
+  "replicationKind": "fixture-executed-control-treatment-replication",
+  "replicateCount": 3,
+  "sourceMissionId": "workspaceops-launch-pack",
+  "scorerRef": "scorer-only:playbasis-mechanics.heldout.v1",
+  "preregistration": {
+    "hypothesis": "A mechanics-ledger treatment should consistently beat a mechanics-removed control on mechanics-sensitive held-out criteria while generic held-out remains saturated.",
+    "minimumReplicates": 3,
+    "requiredTreatmentWinRate": 1,
+    "minimumMedianMechanicsSensitiveLift": 0.5,
+    "maximumAllowedGenericHeldOutLift": 0,
+    "zeroLeakRequired": true,
+    "externalBlindReviewRequiredForCausalClaim": true
+  },
+  "sourceCommitments": {
+    "controlMissionHash": "bbb6ab556768a0fda65a7f82726dc67f63aec1097fbd82154246aadce60b57af",
+    "treatmentMissionHash": "7362422de11168a7bd72afb97fadcc91485400bf75fdf4fab0ef2c04ca4047fa",
+    "heldoutCommitmentHash": "2a79f2442679fe7b91f613f17738ccb7c94db35e513e9adf2de04d663690f1d4",
+    "privateBundleHash": "c23f2edbe591e20ddee91f5ff8dddfa88a4611adc8de6bd98b3f3beb2d504ede",
+    "privateBundleBodiesIncluded": false,
+    "answerKeysIncluded": false
+  },
+  "replicates": [
+    {
+      "replicateId": "replicate-01",
+      "controlRunId": "workspaceops-launch-pack-mechanics-control-replicate-01-20260706010142-67a142cb",
+      "treatmentRunId": "workspaceops-launch-pack-mechanics-treatment-replicate-01-20260706010143-ab191201",
+      "interventionReportHash": "2c363f663599a87d8b449ddc4b0c72556cc2204d88479dfc57edad21dfd31e8b",
+      "heldoutScoreHash": "162ec985b8f008092338acfc341bdd823241be138e674a8acc38f2a3578663ef",
+      "controlScore": 0.125,
+      "treatmentScore": 1,
+      "mechanicsSensitiveHeldOutLift": 0.875,
+      "genericHeldOutLift": 0,
+      "mechanicsExecutionLift": 0.8818,
+      "treatmentWon": true,
+      "nonSaturatedMeasurementReady": true,
+      "zeroLeak": true
+    },
+    {
+      "replicateId": "replicate-02",
+      "controlRunId": "workspaceops-launch-pack-mechanics-control-replicate-02-20260706010143-60ee7f51",
+      "treatmentRunId": "workspaceops-launch-pack-mechanics-treatment-replicate-02-20260706010144-c23f99ea",
+      "interventionReportHash": "2b001275c9f80fb371cfeb0e989f9c944020cda98b66d8973100ecb5ea211290",
+      "heldoutScoreHash": "c9d5c4472a68cce4b71a25ace70519806df15e05756a9ebdf134822aab358ecc",
+      "controlScore": 0.125,
+      "treatmentScore": 1,
+      "mechanicsSensitiveHeldOutLift": 0.875,
+      "genericHeldOutLift": 0,
+      "mechanicsExecutionLift": 0.8818,
+      "treatmentWon": true,
+      "nonSaturatedMeasurementReady": true,
+      "zeroLeak": true
+    },
+    {
+      "replicateId": "replicate-03",
+      "controlRunId": "workspaceops-launch-pack-mechanics-control-replicate-03-20260706010144-89a41f82",
+      "treatmentRunId": "workspaceops-launch-pack-mechanics-treatment-replicate-03-20260706010145-68a339a3",
+      "interventionReportHash": "4a27f3e8f65e2385d46c90e9bedb32ba52b133ea71c22bdd831fa2d2ccc2cfeb",
+      "heldoutScoreHash": "17405266601aae83e85901c4ad2ffcb3e4107ccb34d91bc144d640e117d60396",
+      "controlScore": 0.125,
+      "treatmentScore": 1,
+      "mechanicsSensitiveHeldOutLift": 0.875,
+      "genericHeldOutLift": 0,
+      "mechanicsExecutionLift": 0.8818,
+      "treatmentWon": true,
+      "nonSaturatedMeasurementReady": true,
+      "zeroLeak": true
+    }
+  ],
+  "aggregate": {
+    "treatmentWins": 3,
+    "treatmentWinRate": 1,
+    "medianMechanicsSensitiveHeldOutLift": 0.875,
+    "averageMechanicsSensitiveHeldOutLift": 0.875,
+    "averageGenericHeldOutLift": 0,
+    "averageMechanicsExecutionLift": 0.8818,
+    "allZeroLeak": true,
+    "allNonSaturatedMeasurementReady": true,
+    "replicatedMeasurementReady": true,
+    "causalProofReady": false
+  },
+  "gates": [
+    {
+      "name": "minimum-replicates",
+      "status": "pass",
+      "summary": "3/3 replicate pairs were scored.",
+      "resumePoint": "rerun `pnpm pbos mechanics replicate --replicates <n>` with enough replicate pairs"
+    },
+    {
+      "name": "treatment-win-rate",
+      "status": "pass",
+      "summary": "Treatment win rate was 1; required 1.",
+      "resumePoint": "inspect losing replicates, patch the treatment policy, and rerun from the failed replicate"
+    },
+    {
+      "name": "median-mechanics-sensitive-lift",
+      "status": "pass",
+      "summary": "Median mechanics-sensitive lift was 0.875; required 0.5.",
+      "resumePoint": "strengthen mechanics-specific evidence or widen the held-out family"
+    },
+    {
+      "name": "generic-heldout-not-driving-result",
+      "status": "pass",
+      "summary": "Average generic held-out lift was 0; maximum allowed 0.",
+      "resumePoint": "separate generic quality lift from mechanics-specific lift before using this proof"
+    },
+    {
+      "name": "all-non-saturated-measurements",
+      "status": "pass",
+      "summary": "All replicates non-saturated=true.",
+      "resumePoint": "fix or discard saturated replicate cases, then rerun the scorer"
+    },
+    {
+      "name": "zero-leak",
+      "status": "pass",
+      "summary": "All replicates zero-leak=true.",
+      "resumePoint": "quarantine leaking replicate artifacts and rerun affected pairs"
+    },
+    {
+      "name": "causal-value-not-claimed",
+      "status": "pass",
+      "summary": "Replication strengthens measurement confidence but still requires blind/human/external review before causal value claims.",
+      "resumePoint": "run preregistered blind external review before setting causalProofReady"
+    }
+  ],
+  "safety": {
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "envValuesIncluded": false,
+    "rawUrlsIncluded": false,
+    "privateBodiesIncluded": false,
+    "rawHeldOutCasesIncluded": false,
+    "answerKeysIncluded": false,
+    "rawArtifactBodiesIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Replicated mechanics-sensitive measurement smoke",
+    "notCausalValueProof": true,
+    "notEconomicValueProof": true,
+    "noExternalBenchmarkClaim": true,
+    "noSotaClaim": true,
+    "requiresBlindExternalOrHumanReviewBeforeCausalClaim": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@playbasis-agent-os/navigator",
+  "private": true,
+  "version": "0.1.0-internal-pov",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

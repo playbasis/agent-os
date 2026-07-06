@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node",
+      "vitest/globals"
+    ],
+    "paths": {
+      "@playbasis-agent-os/kernel": [
+        "./packages/kernel/src/index.ts"
+      ],
+      "@playbasis-agent-os/evals": [
+        "./packages/evals/src/index.ts"
+      ],
+      "@playbasis-agent-os/hill-climber": [
+        "./packages/hill-climber/src/index.ts"
+      ],
+      "@playbasis-agent-os/mission-optimizer": [
+        "./packages/mission-optimizer/src/index.ts"
+      ],
+      "@playbasis-agent-os/navigator": [
+        "./packages/navigator/src/index.ts"
+      ],
+      "@playbasis-agent-os/router-lab": [
+        "./packages/router-lab/src/index.ts"
+      ],
+      "@playbasis-agent-os/run-warehouse": [
+        "./packages/run-warehouse/src/index.ts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "reportId": "playbasis-mechanics-intervention-20260706000615",
+  "generatedAt": "2026-07-06T00:06:15.732Z",
+  "profile": "fixture",
+  "missionId": "workspaceops-launch-pack",
+  "experimentKind": "executable-control-treatment-smoke",
+  "policies": {
+    "control": {
+      "policyId": "mechanics-removed-control",
+      "summary": "Run the same launch-pack mission with Playbasis mechanics coverage, CEO-sim mechanics, delta held-out review, and agent-loop ledger steps removed.",
+      "missionHash": "3f60445aa651a3abc32e63f6b139485c2a0d4d2eb6eaf8b97ddc748b704b47eb"
+    },
+    "treatment": {
+      "policyId": "mechanics-ledger-treatment",
+      "summary": "Run the launch-pack mission with mechanics coverage, CEO-sim mechanics, delta held-out review, and normalized agent-loop ledger enabled.",
+      "missionHash": "e9659516d6274733b5640d2464f8c7f1d5a1e6a1dfc342ba39fa00f62f912c59"
+    }
+  },
+  "arms": [
+    {
+      "arm": "control",
+      "runId": "workspaceops-launch-pack-mechanics-control-20260706000615-d5c8c34b",
+      "missionId": "workspaceops-launch-pack-mechanics-control",
+      "promotionDecision": "promote",
+      "durationMs": 567,
+      "stepCount": 9,
+      "okSteps": 9,
+      "artifactCount": 36,
+      "toolsUsed": [
+        "donor.registry.summarize",
+        "donor.primitives.synthesize",
+        "playbasis.api.catalog",
+        "workspaceops.capability.catalog",
+        "workspaceops.run.inspect",
+        "workspaceops.superprompt.qualify",
+        "workspaceops.ceosim.adapter",
+        "provider.research.brief",
+        "artifact.launch.pack"
+      ],
+      "mechanicsToolsUsed": [],
+      "score": {
+        "overall": 0.8421,
+        "training": 1,
+        "heldOut": 1,
+        "trust": 1,
+        "economic": 0
+      },
+      "mechanicsExecution": {
+        "score": 0.1,
+        "components": [
+          {
+            "name": "mechanics-tool-coverage",
+            "score": 0,
+            "weight": 0.25,
+            "evidence": "0/6 mechanics tools used."
+          },
+          {
+            "name": "mechanics-artifact-coverage",
+            "score": 0,
+            "weight": 0.25,
+            "evidence": "0/7 expected mechanics artifact families present."
+          },
+          {
+            "name": "mechanics-quality-signal-coverage",
+            "score": 0,
+            "weight": 0.25,
+            "evidence": "0/6 mechanics quality signals present."
+          },
+          {
+            "name": "scorer-only-heldout-adapter",
+            "score": 0,
+            "weight": 0.15,
+            "evidence": "Uses scorer-only CEO-sim delta held-out signals without exposing private bodies."
+          },
+          {
+            "name": "execution-guardrails",
+            "score": 1,
+            "weight": 0.1,
+            "evidence": "9/9 steps ok; leaks=0."
+          }
+        ],
+        "evidenceKind": "execution-evidence-not-outcome-proof"
+      },
+      "redactionLeaks": 0,
+      "evidencePath": "runs/workspaceops-launch-pack-mechanics-control-20260706000615-d5c8c34b/evidence.json",
+      "evidenceHash": "75c97ba8d6f9b6cae20f3bf1899be771bf929908d5d759635b676bedae250f75"
+    },
+    {
+      "arm": "treatment",
+      "runId": "workspaceops-launch-pack-mechanics-treatment-20260706000616-b7fad93e",
+      "missionId": "workspaceops-launch-pack-mechanics-treatment",
+      "promotionDecision": "promote",
+      "durationMs": 571,
+      "stepCount": 15,
+      "okSteps": 15,
+      "artifactCount": 50,
+      "toolsUsed": [
+        "donor.registry.summarize",
+        "donor.primitives.synthesize",
+        "playbasis.api.catalog",
+        "playbasis.mechanics.coverage",
+        "workspaceops.capability.catalog",
+        "workspaceops.run.inspect",
+        "workspaceops.superprompt.qualify",
+        "workspaceops.ceosim.adapter",
+        "workspaceops.ceosim.policy-experiment",
+        "workspaceops.ceosim.repair-quest",
+        "workspaceops.ceosim.delta-replay",
+        "workspaceops.ceosim.delta-heldout",
+        "playbasis.agent-loop.ledger",
+        "provider.research.brief",
+        "artifact.launch.pack"
+      ],
+      "mechanicsToolsUsed": [
+        "playbasis.mechanics.coverage",
+        "workspaceops.ceosim.policy-experiment",
+        "workspaceops.ceosim.repair-quest",
+        "workspaceops.ceosim.delta-replay",
+        "workspaceops.ceosim.delta-heldout",
+        "playbasis.agent-loop.ledger"
+      ],
+      "score": {
+        "overall": 0.8421,
+        "training": 1,
+        "heldOut": 1,
+        "trust": 1,
+        "economic": 0
+      },
+      "mechanicsExecution": {
+        "score": 0.9818,
+        "components": [
+          {
+            "name": "mechanics-tool-coverage",
+            "score": 1,
+            "weight": 0.25,
+            "evidence": "6/6 mechanics tools used."
+          },
+          {
+            "name": "mechanics-artifact-coverage",
+            "score": 1,
+            "weight": 0.25,
+            "evidence": "7/7 expected mechanics artifact families present."
+          },
+          {
+            "name": "mechanics-quality-signal-coverage",
+            "score": 0.9271,
+            "weight": 0.25,
+            "evidence": "6/6 mechanics quality signals present."
+          },
+          {
+            "name": "scorer-only-heldout-adapter",
+            "score": 1,
+            "weight": 0.15,
+            "evidence": "Uses scorer-only CEO-sim delta held-out signals without exposing private bodies."
+          },
+          {
+            "name": "execution-guardrails",
+            "score": 1,
+            "weight": 0.1,
+            "evidence": "15/15 steps ok; leaks=0."
+          }
+        ],
+        "evidenceKind": "execution-evidence-not-outcome-proof"
+      },
+      "redactionLeaks": 0,
+      "evidencePath": "runs/workspaceops-launch-pack-mechanics-treatment-20260706000616-b7fad93e/evidence.json",
+      "evidenceHash": "893a2f45b12780835045d996fc7478168743cea4265ddae0525f128dec013ad5"
+    }
+  ],
+  "deltas": {
+    "trainingLift": 0,
+    "heldOutLift": 0,
+    "trustDelta": 0,
+    "economicLift": 0,
+    "mechanicsExecutionLift": 0.8818,
+    "artifactDelta": 14,
+    "mechanicsToolDelta": 6
+  },
+  "measurementDiagnostics": {
+    "genericEvalCeilingDetected": true,
+    "saturatedSuites": [
+      "training",
+      "heldOut",
+      "trust"
+    ],
+    "primaryHeldOutLiftMeasurable": false,
+    "mechanicsExecutionScoreIsOutcomeProof": false,
+    "nextRequiredEvidence": [
+      "Add a non-saturated mechanics-specific held-out mission family.",
+      "Score treatment against blind outcomes that control does not already max out.",
+      "Keep mechanics execution score separate from causal value proof.",
+      "Require blind/human or external judge review before economic-value claims."
+    ]
+  },
+  "gates": [
+    {
+      "name": "control-run-complete",
+      "status": "pass",
+      "summary": "9/9 control steps completed.",
+      "resumePoint": "rerun `pnpm pbos mechanics experiment --profile <profile>` after fixing control mission/tool failure"
+    },
+    {
+      "name": "treatment-run-complete",
+      "status": "pass",
+      "summary": "15/15 treatment steps completed.",
+      "resumePoint": "rerun `pnpm pbos mechanics experiment --profile <profile>` after fixing treatment mission/tool failure"
+    },
+    {
+      "name": "mechanics-control-excluded",
+      "status": "pass",
+      "summary": "Control used 0 mechanics-specific tools.",
+      "resumePoint": "rebuild the control variant so mechanics-specific tools are removed"
+    },
+    {
+      "name": "mechanics-treatment-exercised",
+      "status": "pass",
+      "summary": "Treatment used 6 mechanics-specific tools.",
+      "resumePoint": "restore mechanics coverage, CEO-sim mechanics, delta review, and agent-loop ledger steps"
+    },
+    {
+      "name": "heldout-improves",
+      "status": "fail",
+      "summary": "Treatment held-out lift was 0.",
+      "resumePoint": "adjust the mechanics treatment policy, then rerun the treatment arm only if the control evidence is still valid"
+    },
+    {
+      "name": "trust-not-regressed",
+      "status": "pass",
+      "summary": "Treatment trust delta was 0; treatment trust score was 1.",
+      "resumePoint": "fix trust/redaction/approval regressions, then rerun the affected arm"
+    },
+    {
+      "name": "zero-leak",
+      "status": "pass",
+      "summary": "Control leaks=0; treatment leaks=0.",
+      "resumePoint": "quarantine leaking artifacts, fix redaction, and rerun the affected arm"
+    },
+    {
+      "name": "economic-not-claimed",
+      "status": "pass",
+      "summary": "Economic score is reported as a gap signal only; this experiment does not claim measured economic value.",
+      "resumePoint": "add preregistered blind-review rows before any economic-value claim"
+    }
+  ],
+  "summary": {
+    "controlRunId": "workspaceops-launch-pack-mechanics-control-20260706000615-d5c8c34b",
+    "treatmentRunId": "workspaceops-launch-pack-mechanics-treatment-20260706000616-b7fad93e",
+    "treatmentMechanicsToolsUsed": 6,
+    "controlMechanicsToolsUsed": 0,
+    "interventionSmokePassed": false,
+    "candidateReadyForReplicatedHeldOutReview": false,
+    "causalProofReady": false,
+    "zeroLeak": true,
+    "claimStatus": "executable-intervention-smoke"
+  },
+  "safety": {
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "envValuesIncluded": false,
+    "rawUrlsIncluded": false,
+    "privateBodiesIncluded": false,
+    "rawArtifactBodiesIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Executable Playbasis mechanics control/treatment smoke proof",
+    "usesActualMissionRunner": true,
+    "notCausalValueProof": true,
+    "noEconomicOrSotaClaim": true,
+    "requiresReplicatedHeldOutReviewBeforeCausalClaim": true
+  }
+}

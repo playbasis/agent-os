@@ -1,0 +1,1022 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-06T04:41:13.617Z",
+  "profile": "staging-sandbox",
+  "sourceReports": {
+    "auditScorecard": {
+      "path": "reports/audit-scorecard.json",
+      "present": true,
+      "hash": "01e0829fac1915fdd1f5a8e03fbafdc366563201a07fce5f8308d6f3d42d504b"
+    },
+    "apiLeverage": {
+      "path": "reports/playbasis-api-leverage.json",
+      "present": true,
+      "hash": "9bb4e808520ee3788bb60ea4bd81e6a7b9e4871b5cd9cb55f6ce5177ea511088"
+    },
+    "routeDiagnosis": {
+      "path": "reports/openapi-route-diagnosis.json",
+      "present": true,
+      "hash": "3ebdcde3fa06dd8652b2ef6b128714892d2632bdf03f89b30e0eb36945a9746d"
+    },
+    "domainAdapters": {
+      "path": "reports/playbasis-domain-adapter-readiness.json",
+      "present": true,
+      "hash": "f40a75e3fc9d113c604895ef423511bfc9125f987a31a454f7907e544acc4998"
+    },
+    "domainAdapterProbes": {
+      "path": "reports/playbasis-domain-adapter-probes.json",
+      "present": true,
+      "hash": "f868935a997c5f833c87d9cbeb4117301b2ff3f39f9082b90c0f1ef77b678348"
+    },
+    "connectorWorkflows": {
+      "path": "reports/playbasis-connector-workflows.json",
+      "present": true,
+      "hash": "5ff9b85a5653cb5d47f93cdf1b5329f5e3f7dbffd01591f1d5cc0356a18991f8"
+    },
+    "mechanicsActivationReadiness": {
+      "path": "reports/playbasis-mechanics-activation-gates.json",
+      "present": true,
+      "hash": "700b1017984cfc1a687baa76867179659be8a239965308955c3ce0c6dffa0322"
+    },
+    "runWarehouseSummary": {
+      "path": "reports/run-warehouse/summary.json",
+      "present": true,
+      "hash": "480f5335bb7435f06c22ede93a3979ccfbcc84f0b4274a786a17dcb5dee722e9"
+    },
+    "agentLoopMechanicsLedger": {
+      "path": "reports/agent-loop-mechanics-ledger.json",
+      "present": true,
+      "hash": "a19650ee505ef39a3e1ee727d77594513dcfeb77abf1433d6f49d28bfd3fb505"
+    },
+    "valueReport": {
+      "path": "reports/value-measurement-report-001.json",
+      "present": true,
+      "hash": "dce452dfa2455cf3a5e0719d6d321c68e2812d15bb853138b43816263085e094"
+    },
+    "ceoSimProof": {
+      "path": "reports/ceo-sim-proof.json",
+      "present": true,
+      "hash": "ef6e47d0696788c024fbfba839f4d141bfde0439dabc0d489c282696608da663"
+    },
+    "ossVerification": {
+      "path": "reports/oss-export-verification.json",
+      "present": true,
+      "hash": "5ea225076e2594484d58e0b57d1ce84fdd7a822925520fedd36e1ea0e40a4590"
+    }
+  },
+  "summary": {
+    "claimStatus": "internal-proof-green-live-write-gates-blocked",
+    "internalHarnessWired": true,
+    "realServiceEvidencePresent": true,
+    "liveWriteActivationComplete": false,
+    "ossCleanExportVerified": true,
+    "zeroLeak": true,
+    "totalMechanics": 16,
+    "safeLiveMechanics": 13,
+    "simulatedMechanics": 0,
+    "fixtureMechanics": 0,
+    "readinessOnlyMechanics": 3,
+    "missingMechanics": 0,
+    "activationReadyGates": 0,
+    "activationBlockedGates": 4,
+    "openApiOperations": 232,
+    "operationsWithEvidence": 153,
+    "directSafeLiveProbeBackedOperations": 24,
+    "unevidencedOperations": 79,
+    "domainAdapterNeededOperations": 24,
+    "domainAdapterProbeFamilies": 3,
+    "domainAdapterProbeSuccessfulReads": 4,
+    "domainAdapterProbeAttemptedReads": 14,
+    "domainAdapterProbeBlockedPrivateOperations": 10,
+    "domainAdapterProbePrivateReadContractOperations": 24,
+    "domainAdapterProbePrivateReadContractsVerified": 0,
+    "domainAdapterProbePrivateReadContractsPending": 24,
+    "domainAdapterProbeReadTargetMet": false,
+    "routeDiagnosisSourceBackedStaging404Operations": 5,
+    "routeDiagnosisFeatureFlagGuardedStaging404Operations": 5,
+    "routeDiagnosisModuleImportedStaging404Operations": 0,
+    "routeDiagnosisContractOnlyOperations": 0,
+    "routeDiagnosisPrivateAdapterRequiredOperations": 24,
+    "featureFlagActivationGates": 2,
+    "featureFlagActivationBlockedOperations": 5,
+    "featureFlagActivationFlags": [
+      "billing",
+      "health"
+    ],
+    "connectorWorkflowTemplates": 5,
+    "connectorWorkflowCloneTargets": 4,
+    "connectorWorkflowActualCreateVerifyRollbackRuns": 0,
+    "connectorWorkflowGatedLiveWriteConnectors": 1,
+    "connectorWorkflowPrivateAdapterContractsPending": 24,
+    "connectorWorkflowReplayPlans": 5,
+    "connectorWorkflowZeroLeak": true,
+    "runWarehouseEvidencePacks": 814,
+    "agentLoopLedgerWired": true,
+    "agentLoopMechanicsCovered": 16,
+    "agentLoopRequiredMechanics": 16,
+    "agentLoopLedgerRecords": 61,
+    "agentLoopLiveBackedRecords": 54,
+    "agentLoopBlockedRecords": 10,
+    "agentLoopPromotionDecision": "promote-to-platform-patch-review"
+  },
+  "mechanics": [
+    {
+      "category": "events",
+      "capability": "events",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 4,
+      "measurableOutcome": "trace completeness, recovery rate, gate failure rate, and accepted artifact rate",
+      "activationStatus": "write-probe-gated",
+      "readinessStatus": "missing-required-env",
+      "readyToRun": false,
+      "ledgerRecords": 5,
+      "ledgerLiveBackedRecords": 4,
+      "ledgerBlockedRecords": 1,
+      "ledgerVerifiedOrRecordedRecords": 3,
+      "ledgerStatuses": [
+        "blocked",
+        "candidate-ready",
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired-with-activation-gate",
+      "nextProof": "Satisfy events-ingest gate (missing-required-env) then run: pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes"
+    },
+    {
+      "category": "points",
+      "capability": "points",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 5,
+      "measurableOutcome": "points per accepted artifact, reward-to-held-out lift, and penalty rate after failed gates",
+      "ledgerRecords": 2,
+      "ledgerLiveBackedRecords": 2,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 2,
+      "ledgerStatuses": [
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "xp",
+      "capability": "xp-progression",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 3,
+      "measurableOutcome": "held-out lift by level cohort and rework reduction per progression state",
+      "ledgerRecords": 4,
+      "ledgerLiveBackedRecords": 4,
+      "ledgerBlockedRecords": 1,
+      "ledgerVerifiedOrRecordedRecords": 3,
+      "ledgerStatuses": [
+        "blocked",
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired-with-ledger-blockers",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "quests",
+      "capability": "quests",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 5,
+      "measurableOutcome": "quest completion, milestone slippage, and artifact acceptance",
+      "ledgerRecords": 3,
+      "ledgerLiveBackedRecords": 3,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 3,
+      "ledgerStatuses": [
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "rulesets",
+      "capability": "rulesets",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 12,
+      "measurableOutcome": "policy conformance, unsafe action rejection, and manual escalation precision",
+      "ledgerRecords": 5,
+      "ledgerLiveBackedRecords": 5,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 4,
+      "ledgerStatuses": [
+        "candidate-ready",
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "adjudications",
+      "capability": "adjudications",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 6,
+      "measurableOutcome": "governance correctness and adjudication agreement with held-out review",
+      "ledgerRecords": 5,
+      "ledgerLiveBackedRecords": 5,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 4,
+      "ledgerStatuses": [
+        "candidate-ready",
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "experiments",
+      "capability": "experiments",
+      "evidenceStrength": "readiness-only",
+      "status": "available",
+      "evidenceLevel": "available-only",
+      "liveBacked": false,
+      "openApiPathCount": 2,
+      "measurableOutcome": "variant held-out lift, cost-adjusted utility, and confidence interval width",
+      "activationStatus": "write-probe-gated",
+      "readinessStatus": "missing-required-env",
+      "readyToRun": false,
+      "ledgerRecords": 5,
+      "ledgerLiveBackedRecords": 3,
+      "ledgerBlockedRecords": 2,
+      "ledgerVerifiedOrRecordedRecords": 2,
+      "ledgerStatuses": [
+        "blocked",
+        "candidate-ready",
+        "recorded"
+      ],
+      "proofStatus": "readiness-only-blocked",
+      "nextProof": "Satisfy experiments gate (missing-required-env) then run: pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes"
+    },
+    {
+      "category": "feedback",
+      "capability": "feedback",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 3,
+      "measurableOutcome": "blind review score, acceptance rate, and recurring critique themes",
+      "ledgerRecords": 5,
+      "ledgerLiveBackedRecords": 5,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 3,
+      "ledgerStatuses": [
+        "planned",
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "credits",
+      "capability": "credits",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 15,
+      "measurableOutcome": "cost per accepted artifact and budget overrun rate",
+      "ledgerRecords": 2,
+      "ledgerLiveBackedRecords": 2,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 2,
+      "ledgerStatuses": [
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "leaderboards",
+      "capability": "leaderboards",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 5,
+      "measurableOutcome": "leaderboard rank stability and held-out utility by arm",
+      "ledgerRecords": 4,
+      "ledgerLiveBackedRecords": 4,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 3,
+      "ledgerStatuses": [
+        "candidate-ready",
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "cohorts",
+      "capability": "cohorts",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 17,
+      "measurableOutcome": "lift by cohort and cross-cohort generalization",
+      "ledgerRecords": 2,
+      "ledgerLiveBackedRecords": 2,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 1,
+      "ledgerStatuses": [
+        "planned",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "campaigns",
+      "capability": "campaigns",
+      "evidenceStrength": "readiness-only",
+      "status": "available",
+      "evidenceLevel": "available-only",
+      "liveBacked": false,
+      "openApiPathCount": 4,
+      "measurableOutcome": "season-over-season held-out lift and zero-leak streaks",
+      "activationStatus": "identifier-required",
+      "readinessStatus": "missing-required-env",
+      "readyToRun": false,
+      "ledgerRecords": 3,
+      "ledgerLiveBackedRecords": 1,
+      "ledgerBlockedRecords": 2,
+      "ledgerVerifiedOrRecordedRecords": 0,
+      "ledgerStatuses": [
+        "blocked",
+        "planned"
+      ],
+      "proofStatus": "readiness-only-blocked",
+      "nextProof": "Satisfy campaigns gate (missing-required-env) then run: pnpm pbos mechanics probe --profile staging-sandbox; if the campaign default candidate returns 404, rerun after setting PBOS_PROBE_CAMPAIGN_ID to a disposable id"
+    },
+    {
+      "category": "rewards",
+      "capability": "rewards",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 3,
+      "measurableOutcome": "resource efficiency and governed permission-use success",
+      "ledgerRecords": 4,
+      "ledgerLiveBackedRecords": 4,
+      "ledgerBlockedRecords": 2,
+      "ledgerVerifiedOrRecordedRecords": 2,
+      "ledgerStatuses": [
+        "blocked",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired-with-ledger-blockers",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "webhooks",
+      "capability": "webhooks",
+      "evidenceStrength": "readiness-only",
+      "status": "available",
+      "evidenceLevel": "available-only",
+      "liveBacked": false,
+      "openApiPathCount": 2,
+      "measurableOutcome": "review latency and missed escalation rate",
+      "activationStatus": "write-probe-gated",
+      "readinessStatus": "missing-required-env",
+      "readyToRun": false,
+      "ledgerRecords": 3,
+      "ledgerLiveBackedRecords": 1,
+      "ledgerBlockedRecords": 2,
+      "ledgerVerifiedOrRecordedRecords": 0,
+      "ledgerStatuses": [
+        "blocked",
+        "planned"
+      ],
+      "proofStatus": "readiness-only-blocked",
+      "nextProof": "Satisfy webhooks gate (missing-required-env) then run: pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes"
+    },
+    {
+      "category": "analytics",
+      "capability": "analytics",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 12,
+      "measurableOutcome": "dashboard freshness, evaluation coverage, and cost-adjusted learning rate",
+      "ledgerRecords": 5,
+      "ledgerLiveBackedRecords": 5,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 4,
+      "ledgerStatuses": [
+        "candidate-ready",
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    },
+    {
+      "category": "workspaceops",
+      "capability": "workspaceops",
+      "evidenceStrength": "safe-live",
+      "status": "recorded",
+      "evidenceLevel": "safe-live-probe",
+      "liveBacked": true,
+      "openApiPathCount": 1,
+      "measurableOutcome": "real surface coverage, trace inspection success, and super-prompt qualification score",
+      "ledgerRecords": 4,
+      "ledgerLiveBackedRecords": 4,
+      "ledgerBlockedRecords": 0,
+      "ledgerVerifiedOrRecordedRecords": 3,
+      "ledgerStatuses": [
+        "candidate-ready",
+        "recorded",
+        "verified"
+      ],
+      "proofStatus": "safe-live-wired",
+      "nextProof": "Keep collecting hash-only SafeProbeEvidence and link it to held-out outcome movement."
+    }
+  ],
+  "featureFlagActivationGates": [
+    {
+      "featureFlag": "billing",
+      "operationCount": 1,
+      "sourceBackedStaging404Operations": 1,
+      "operationIds": [
+        "listBillingPlans"
+      ],
+      "pathLabels": [
+        "GET /billing/plans"
+      ],
+      "evidenceStrength": "readiness-only",
+      "readyToProbe": false,
+      "nextCommand": "pnpm pbos audit probe-backlog --profile staging-sandbox --include-identifier-reads --allow-failing",
+      "requiredAction": "Enable or verify feature flag billing in staging, then rerun safe read probes for 1 source-backed operation.",
+      "claimBoundary": "Feature-flag source evidence is not live route proof until the follow-up SafeProbeEvidence probe succeeds."
+    },
+    {
+      "featureFlag": "health",
+      "operationCount": 4,
+      "sourceBackedStaging404Operations": 4,
+      "operationIds": [
+        "listHealthAppointmentPackages",
+        "listHealthContent",
+        "listHealthDepartments",
+        "listHealthMilestones"
+      ],
+      "pathLabels": [
+        "GET /health/appointments/packages",
+        "GET /health/content",
+        "GET /health/departments",
+        "GET /health/milestones"
+      ],
+      "evidenceStrength": "readiness-only",
+      "readyToProbe": false,
+      "nextCommand": "pnpm pbos audit probe-backlog --profile staging-sandbox --include-identifier-reads --allow-failing",
+      "requiredAction": "Enable or verify feature flag health in staging, then rerun safe read probes for 4 source-backed operations.",
+      "claimBoundary": "Feature-flag source evidence is not live route proof until the follow-up SafeProbeEvidence probe succeeds."
+    }
+  ],
+  "activationReplayPlan": {
+    "totalSteps": 10,
+    "readySteps": 0,
+    "blockedSteps": 8,
+    "externalStateSteps": 2,
+    "writeProbeSteps": 4,
+    "privateAdapterSteps": 2,
+    "replayFrom": "openapi-safe-read-reprobe",
+    "nextSafeCommand": "pnpm pbos audit scorecard --profile staging-sandbox && pnpm pbos audit route-diagnosis --profile staging-sandbox && pnpm pbos audit domain-adapters --profile staging-sandbox",
+    "steps": [
+      {
+        "stepId": "feature-flag:billing",
+        "kind": "feature-flag",
+        "status": "blocked",
+        "resumeFrom": "openapi-safe-read-reprobe",
+        "command": "pnpm pbos audit probe-backlog --profile staging-sandbox --include-identifier-reads --allow-failing",
+        "requiredEnvKeys": [],
+        "requiredOperatorFlags": [],
+        "featureFlags": [
+          "billing"
+        ],
+        "capabilities": [],
+        "operationIds": [
+          "listBillingPlans"
+        ],
+        "invalidates": [
+          "reports/playbasis-api-operation-backlog-probes.json",
+          "reports/audit-scorecard.json",
+          "reports/openapi-route-diagnosis.json",
+          "reports/playbasis-domain-adapter-readiness.json",
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json",
+          "reports/agent-os-wiki/wiring-audit.md"
+        ],
+        "proves": "Safe-read availability for 1 source-backed billing operation after staging flag enablement.",
+        "claimBoundary": "Feature-flag source evidence is not live route proof until the follow-up SafeProbeEvidence probe succeeds."
+      },
+      {
+        "stepId": "feature-flag:health",
+        "kind": "feature-flag",
+        "status": "blocked",
+        "resumeFrom": "openapi-safe-read-reprobe",
+        "command": "pnpm pbos audit probe-backlog --profile staging-sandbox --include-identifier-reads --allow-failing",
+        "requiredEnvKeys": [],
+        "requiredOperatorFlags": [],
+        "featureFlags": [
+          "health"
+        ],
+        "capabilities": [],
+        "operationIds": [
+          "listHealthAppointmentPackages",
+          "listHealthContent",
+          "listHealthDepartments",
+          "listHealthMilestones"
+        ],
+        "invalidates": [
+          "reports/playbasis-api-operation-backlog-probes.json",
+          "reports/audit-scorecard.json",
+          "reports/openapi-route-diagnosis.json",
+          "reports/playbasis-domain-adapter-readiness.json",
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json",
+          "reports/agent-os-wiki/wiring-audit.md"
+        ],
+        "proves": "Safe-read availability for 4 source-backed health operations after staging flag enablement.",
+        "claimBoundary": "Feature-flag source evidence is not live route proof until the follow-up SafeProbeEvidence probe succeeds."
+      },
+      {
+        "stepId": "openapi-safe-read-reprobe",
+        "kind": "safe-read-reprobe",
+        "status": "waiting-on-upstream",
+        "resumeFrom": "route-diagnosis",
+        "command": "pnpm pbos audit scorecard --profile staging-sandbox && pnpm pbos audit route-diagnosis --profile staging-sandbox && pnpm pbos audit domain-adapters --profile staging-sandbox",
+        "requiredEnvKeys": [],
+        "requiredOperatorFlags": [],
+        "featureFlags": [
+          "billing",
+          "health"
+        ],
+        "capabilities": [],
+        "operationIds": [
+          "listBillingPlans",
+          "listHealthAppointmentPackages",
+          "listHealthContent",
+          "listHealthDepartments",
+          "listHealthMilestones"
+        ],
+        "invalidates": [
+          "reports/audit-scorecard.json",
+          "reports/openapi-route-diagnosis.json",
+          "reports/playbasis-domain-adapter-readiness.json",
+          "reports/end-to-end-wiring-audit.json"
+        ],
+        "proves": "Route diagnosis and domain readiness after feature-gated safe-read reprobes.",
+        "claimBoundary": "Do not promote source-backed routes until the regenerated SafeProbeEvidence shows successful status."
+      },
+      {
+        "stepId": "write-activation:events-ingest",
+        "kind": "write-probe",
+        "status": "blocked",
+        "resumeFrom": "mechanics-probe",
+        "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+        "requiredEnvKeys": [
+          "PBOS_ALLOW_WRITE_PROBES",
+          "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+          "PBOS_WRITE_PROBE_SANDBOX_ID"
+        ],
+        "requiredOperatorFlags": [
+          "--allow-write-probes"
+        ],
+        "featureFlags": [],
+        "capabilities": [
+          "events-ingest"
+        ],
+        "operationIds": [],
+        "invalidates": [
+          "reports/playbasis-mechanics-coverage.json",
+          "reports/playbasis-mechanics-activation-gates.json",
+          "reports/playbasis-api-leverage-mechanics.json",
+          "reports/playbasis-api-leverage-live-latest.json",
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json"
+        ],
+        "proves": "Operator-gated write probe remains blocked for events-ingest until required env key names/operator flags are present.",
+        "claimBoundary": "Do not count event ingestion as live-write-recorded until mechanic.events.ingest produces SafeProbeEvidence with no raw URL, request body, response body, tenant data, or env values."
+      },
+      {
+        "stepId": "write-activation:experiments",
+        "kind": "write-probe",
+        "status": "blocked",
+        "resumeFrom": "mechanics-probe",
+        "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+        "requiredEnvKeys": [
+          "PBOS_ALLOW_WRITE_PROBES",
+          "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+          "PBOS_WRITE_PROBE_SANDBOX_ID"
+        ],
+        "requiredOperatorFlags": [
+          "--allow-write-probes"
+        ],
+        "featureFlags": [],
+        "capabilities": [
+          "experiments"
+        ],
+        "operationIds": [],
+        "invalidates": [
+          "reports/playbasis-mechanics-coverage.json",
+          "reports/playbasis-mechanics-activation-gates.json",
+          "reports/playbasis-api-leverage-mechanics.json",
+          "reports/playbasis-api-leverage-live-latest.json",
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json"
+        ],
+        "proves": "Operator-gated write probe remains blocked for experiments until required env key names/operator flags are present.",
+        "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+      },
+      {
+        "stepId": "write-activation:campaigns",
+        "kind": "write-probe",
+        "status": "blocked",
+        "resumeFrom": "mechanics-probe",
+        "command": "pnpm pbos mechanics probe --profile staging-sandbox; if the campaign default candidate returns 404, rerun after setting PBOS_PROBE_CAMPAIGN_ID to a disposable id",
+        "requiredEnvKeys": [
+          "PBOS_PROBE_CAMPAIGN_ID"
+        ],
+        "requiredOperatorFlags": [],
+        "featureFlags": [],
+        "capabilities": [
+          "campaigns"
+        ],
+        "operationIds": [],
+        "invalidates": [
+          "reports/playbasis-mechanics-coverage.json",
+          "reports/playbasis-mechanics-activation-gates.json",
+          "reports/playbasis-api-leverage-mechanics.json",
+          "reports/playbasis-api-leverage-live-latest.json",
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json"
+        ],
+        "proves": "Operator-gated write probe remains blocked for campaigns until required env key names/operator flags are present.",
+        "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+      },
+      {
+        "stepId": "write-activation:webhooks",
+        "kind": "write-probe",
+        "status": "blocked",
+        "resumeFrom": "mechanics-probe",
+        "command": "pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes",
+        "requiredEnvKeys": [
+          "PBOS_ALLOW_WRITE_PROBES",
+          "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+          "PBOS_WRITE_PROBE_SANDBOX_ID",
+          "PBOS_PROBE_WEBHOOK_URL"
+        ],
+        "requiredOperatorFlags": [
+          "--allow-write-probes"
+        ],
+        "featureFlags": [],
+        "capabilities": [
+          "webhooks"
+        ],
+        "operationIds": [],
+        "invalidates": [
+          "reports/playbasis-mechanics-coverage.json",
+          "reports/playbasis-mechanics-activation-gates.json",
+          "reports/playbasis-api-leverage-mechanics.json",
+          "reports/playbasis-api-leverage-live-latest.json",
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json"
+        ],
+        "proves": "Operator-gated write probe remains blocked for webhooks until required env key names/operator flags are present.",
+        "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+      },
+      {
+        "stepId": "private-adapter:baby-app",
+        "kind": "private-adapter",
+        "status": "blocked",
+        "resumeFrom": "domain-adapter-probes",
+        "command": "pnpm pbos audit domain-probes --profile staging-sandbox --families baby-app",
+        "requiredEnvKeys": [],
+        "requiredOperatorFlags": [],
+        "featureFlags": [],
+        "capabilities": [
+          "baby-app"
+        ],
+        "operationIds": [
+          "babyExportAccount",
+          "babyGetBillingEntitlement",
+          "babyGetMagicAlbum",
+          "babyGetProjectionJob",
+          "babyGetSession",
+          "babyGetState",
+          "babyListMagicAlbums",
+          "babyListProjectionJobs"
+        ],
+        "invalidates": [
+          "reports/playbasis-domain-adapter-probes.json",
+          "reports/playbasis-domain-adapter-readiness.json",
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json"
+        ],
+        "proves": "Hash-only private adapter coverage for baby-app operations without raw payload fields.",
+        "claimBoundary": "Private adapter must store only response hashes, top-level keys, counts, and redacted status metadata; no account snapshots, media IDs, auth sessions, or billing payload fields."
+      },
+      {
+        "stepId": "private-adapter:health",
+        "kind": "private-adapter",
+        "status": "blocked",
+        "resumeFrom": "domain-adapter-probes",
+        "command": "pnpm pbos audit domain-probes --profile staging-sandbox --families health",
+        "requiredEnvKeys": [],
+        "requiredOperatorFlags": [],
+        "featureFlags": [
+          "health"
+        ],
+        "capabilities": [
+          "health"
+        ],
+        "operationIds": [
+          "getHealthCarePlan",
+          "getHealthContent",
+          "getHealthPatientDetail",
+          "getHealthProfile",
+          "getHealthTreeState",
+          "listHealthAppointmentPackages",
+          "listHealthCarePlans",
+          "listHealthCoachHistory",
+          "listHealthConsentLogs",
+          "listHealthContent",
+          "listHealthDepartments",
+          "listHealthFamilyMembers",
+          "listHealthLabReports",
+          "listHealthMetrics",
+          "listHealthMilestones",
+          "listHealthNotificationPreferences",
+          "listHealthPatients",
+          "listHealthPhiAccessLogs",
+          "listHealthStaffRoles",
+          "listHealthTriage"
+        ],
+        "invalidates": [
+          "reports/playbasis-domain-adapter-probes.json",
+          "reports/playbasis-domain-adapter-readiness.json",
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json"
+        ],
+        "proves": "Hash-only private adapter coverage for health operations without raw payload fields.",
+        "claimBoundary": "Private adapter must be PHI-safe: no patient, family, care-plan, lab, appointment, consent, provider note, or raw notification payload fields in public artifacts."
+      },
+      {
+        "stepId": "rebuild-proof-surfaces",
+        "kind": "rebuild-proof-surfaces",
+        "status": "waiting-on-upstream",
+        "resumeFrom": "proof-surface-rebuild",
+        "command": "pnpm pbos audit wiring --profile staging-sandbox && pnpm sandbox:build && pnpm pbos runs:index && pnpm pbos knowledge compile --sources reports --out reports/agent-os-wiki && pnpm pbos knowledge lint --path reports/agent-os-wiki",
+        "requiredEnvKeys": [],
+        "requiredOperatorFlags": [],
+        "featureFlags": [],
+        "capabilities": [],
+        "operationIds": [],
+        "invalidates": [
+          "reports/end-to-end-wiring-audit.json",
+          "reports/agent-os-sandbox-data.json",
+          "reports/run-warehouse/summary.json",
+          "reports/agent-os-wiki/manifest.json"
+        ],
+        "proves": "All derived proof surfaces have been regenerated from the latest service and adapter evidence.",
+        "claimBoundary": "A proof surface rebuild only updates evidence presentation; it does not itself prove live availability."
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "lane": "mission-kernel-evidence-packs",
+      "status": "wired",
+      "evidenceStrength": "fixture",
+      "evidence": "814 evidence packs in run warehouse",
+      "nextProof": "Keep indexing all mission runs and require evidence packs before promotion."
+    },
+    {
+      "lane": "playbasis-safe-live-mechanics",
+      "status": "wired",
+      "evidenceStrength": "safe-live",
+      "evidence": "13 live-recorded capabilities; 20 safe-live calls",
+      "nextProof": "Increase direct SafeProbeEvidence coverage for unevidenced OpenAPI operations."
+    },
+    {
+      "lane": "openapi-route-diagnosis",
+      "status": "wired",
+      "evidenceStrength": "readiness-only",
+      "evidence": "79 diagnosed; 5 source-backed staging 404; 5 feature-flag-gated; 0 module-imported staging gaps; 0 contract-only",
+      "nextProof": "Enable or verify the relevant staging feature flags, then rerun safe read probes."
+    },
+    {
+      "lane": "openapi-feature-flag-activation",
+      "status": "gated",
+      "evidenceStrength": "readiness-only",
+      "evidence": "2 feature flags (billing, health); 5 source-backed safe-read operations blocked",
+      "nextProof": "Enable or verify billing, health in staging, then rerun safe read probes."
+    },
+    {
+      "lane": "agent-loop-mechanics-ledger",
+      "status": "wired",
+      "evidenceStrength": "safe-live",
+      "evidence": "16/16 mechanics; 61 records; 54 live-backed; 10 blocked; decision=promote-to-platform-patch-review",
+      "nextProof": "Use the ledger as the mission reward/governance substrate, then prove held-out outcome movement from mechanics changes."
+    },
+    {
+      "lane": "playbasis-live-write-activation",
+      "status": "gated",
+      "evidenceStrength": "readiness-only",
+      "evidence": "0/4 activation gates ready",
+      "nextProof": "Run only in disposable staging with required env key names present and --allow-write-probes."
+    },
+    {
+      "lane": "domain-private-adapters",
+      "status": "gated",
+      "evidenceStrength": "safe-live",
+      "evidence": "22 safe-read-backed paths; 24 private-adapter-needed operations; private read contracts 24 (24 pending); adapter probes 4/14; read target met=false; blocked private ops 10",
+      "nextProof": "Expand private Baby App and Health adapters from representative safe probes to complete aggregate-only SafeProbeEvidence coverage."
+    },
+    {
+      "lane": "connector-workflow-crud-readiness",
+      "status": "gated",
+      "evidenceStrength": "safe-live",
+      "evidence": "5 workflow templates; 4 clones; 0 recorded create-verify-rollback runs; 1 gated live-write connectors; 24 private contracts pending; replay plans 5",
+      "nextProof": "Run one disposable WorkspaceOps CRUD execution and clone it to Playbasis mechanics writes only after sandbox gates are satisfied."
+    },
+    {
+      "lane": "workspaceops-runtime-surface",
+      "status": "wired",
+      "evidenceStrength": "safe-live",
+      "evidence": "recorded/safe-live-probe",
+      "nextProof": "Tie WorkspaceOps runtime/super-prompt calls to mission outcome deltas, not only surface coverage."
+    },
+    {
+      "lane": "ceo-simulator-benchmark",
+      "status": "fixture-only",
+      "evidenceStrength": "clean-room-sim",
+      "evidence": "0.1083 relative lift; held-out hash only=true",
+      "nextProof": "Adapt one private WorkspaceOps CEO-sim primitive and compare against the clean-room fixture world."
+    },
+    {
+      "lane": "value-measurement-experiment",
+      "status": "fixture-only",
+      "evidenceStrength": "fixture",
+      "evidence": "pov fixture winner; 6 reviewer rows",
+      "nextProof": "Replace deterministic reviewer rows with real blind review while keeping preregistration and losses."
+    },
+    {
+      "lane": "oss-export-boundary",
+      "status": "wired",
+      "evidenceStrength": "safe-live",
+      "evidence": "62 clean-export files; 0 forbidden hits",
+      "nextProof": "Publish only the public ruler/kernel once license and private-data review are complete."
+    }
+  ],
+  "gaps": [
+    {
+      "gapId": "connector-workflow-live-crud-runs",
+      "severity": "high",
+      "status": "blocked",
+      "nextAction": "Run a disposable create->read-verify->update->rollback execution for the WorkspaceOps template, then clone the same hash-only ledger schema to Playbasis mechanics writes.",
+      "claimBoundary": "Do not claim connector CRUD execution from workflow templates or clone plans; require recorded hash-only run evidence."
+    },
+    {
+      "gapId": "connector-workflow-private-adapter-contracts",
+      "severity": "high",
+      "status": "needs-private-adapter",
+      "nextAction": "Implement private adapter workflow clones for 24 pending read contracts, then emit hash-only telemetry.",
+      "claimBoundary": "Do not count Baby App or Health connector workflow clones as complete until private repos record contract verification hashes."
+    },
+    {
+      "gapId": "activation-blocked:events-ingest",
+      "severity": "high",
+      "status": "blocked",
+      "nextAction": "Run next proof for events-ingest: pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes. Missing requirements: PBOS_ALLOW_WRITE_PROBES, PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX, PBOS_WRITE_PROBE_SANDBOX_ID, --allow-write-probes.",
+      "claimBoundary": "Do not count event ingestion as live-write-recorded until mechanic.events.ingest produces SafeProbeEvidence with no raw URL, request body, response body, tenant data, or env values."
+    },
+    {
+      "gapId": "activation-blocked:experiments",
+      "severity": "high",
+      "status": "blocked",
+      "nextAction": "Run next proof for experiments: pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes. Missing requirements: PBOS_ALLOW_WRITE_PROBES, PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX, PBOS_WRITE_PROBE_SANDBOX_ID, --allow-write-probes.",
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    },
+    {
+      "gapId": "activation-blocked:campaigns",
+      "severity": "medium",
+      "status": "blocked",
+      "nextAction": "Run next proof for campaigns: pnpm pbos mechanics probe --profile staging-sandbox; if the campaign default candidate returns 404, rerun after setting PBOS_PROBE_CAMPAIGN_ID to a disposable id. Missing requirements: PBOS_PROBE_CAMPAIGN_ID.",
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    },
+    {
+      "gapId": "activation-blocked:webhooks",
+      "severity": "high",
+      "status": "blocked",
+      "nextAction": "Run next proof for webhooks: pnpm pbos mechanics probe --profile staging-sandbox --allow-write-probes. Missing requirements: PBOS_ALLOW_WRITE_PROBES, PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX, PBOS_WRITE_PROBE_SANDBOX_ID, PBOS_PROBE_WEBHOOK_URL, --allow-write-probes.",
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    },
+    {
+      "gapId": "private-adapter:baby-app",
+      "severity": "high",
+      "status": "needs-private-adapter",
+      "nextAction": "Add baby-app private adapter fixtures that emit SafeProbeEvidence shape without live payloads.",
+      "claimBoundary": "Private adapter must store only response hashes, top-level keys, counts, and redacted status metadata; no account snapshots, media IDs, auth sessions, or billing payload fields."
+    },
+    {
+      "gapId": "private-adapter:health",
+      "severity": "high",
+      "status": "needs-private-adapter",
+      "nextAction": "Enable or verify feature flag(s) health for 4 failed safe-read probes before claiming health domain availability.",
+      "claimBoundary": "Private adapter must be PHI-safe: no patient, family, care-plan, lab, appointment, consent, provider note, or raw notification payload fields in public artifacts."
+    },
+    {
+      "gapId": "feature-flag-blocked:billing",
+      "severity": "high",
+      "status": "blocked",
+      "nextAction": "Enable or verify feature flag billing in staging, then rerun safe read probes for 1 source-backed operation. Command: pnpm pbos audit probe-backlog --profile staging-sandbox --include-identifier-reads --allow-failing.",
+      "claimBoundary": "Feature-flag source evidence is not live route proof until the follow-up SafeProbeEvidence probe succeeds."
+    },
+    {
+      "gapId": "feature-flag-blocked:health",
+      "severity": "high",
+      "status": "blocked",
+      "nextAction": "Enable or verify feature flag health in staging, then rerun safe read probes for 4 source-backed operations. Command: pnpm pbos audit probe-backlog --profile staging-sandbox --include-identifier-reads --allow-failing.",
+      "claimBoundary": "Feature-flag source evidence is not live route proof until the follow-up SafeProbeEvidence probe succeeds."
+    },
+    {
+      "gapId": "openapi-source-backed-staging-404",
+      "severity": "high",
+      "status": "blocked",
+      "nextAction": "Enable or verify the staging feature flags for the source-backed 404 routes, then rerun `pnpm pbos audit probe-backlog --profile staging-sandbox --include-identifier-reads --allow-failing`.",
+      "claimBoundary": "Do not count OpenAPI route source presence as live service proof until SafeProbeEvidence returns successful status."
+    },
+    {
+      "gapId": "real-blind-value-review",
+      "severity": "high",
+      "status": "needs-external-review",
+      "nextAction": "Run the preregistered value experiment with real blind reviewers, timing rows, costs, losses, and zero-leak scan.",
+      "claimBoundary": "Do not claim measured economic value from deterministic fixture rows."
+    },
+    {
+      "gapId": "workspaceops-ceo-sim-private-primitive",
+      "severity": "medium",
+      "status": "needs-private-adapter",
+      "nextAction": "Run one private WorkspaceOps CEO-sim primitive through a hash-only adapter and compare against fixture policy arms.",
+      "claimBoundary": "Do not claim WorkspaceOps CEO simulator parity from clean-room fixture evidence alone."
+    }
+  ],
+  "safety": {
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "envValuesIncluded": false,
+    "rawUrlsIncluded": false,
+    "privateBodiesIncluded": false
+  },
+  "claimBoundary": {
+    "currentPublicClaim": "evidence-gated autonomy infrastructure benchmark/kernel",
+    "notYetProven": [
+      "AGI",
+      "ASI",
+      "SOTA super-agent",
+      "measured economic value",
+      "external benchmark win"
+    ],
+    "completionRequires": [
+      "Disposable staging write probes for events-ingest, experiments, campaigns, and webhooks where applicable.",
+      "Connector workflow create->verify->update->rollback runs with idempotency, replay, and rollback hashes.",
+      "Staging feature flags enabled or verified for source-backed OpenAPI routes before counting them as live safe-read proof.",
+      "Private Baby App and Health adapters that emit SafeProbeEvidence without payload bodies.",
+      "Real blind human/external review rows before claiming measured economic value.",
+      "External benchmark or customer evidence before claiming SOTA or market superiority."
+    ]
+  }
+}

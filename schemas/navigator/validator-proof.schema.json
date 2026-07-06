@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://playbasis.internal/schemas/navigator/validator-proof.schema.json",
+  "title": "NavigatorValidatorProofReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "proofId",
+    "goalId",
+    "generatedAt",
+    "passed",
+    "validator",
+    "loop",
+    "acceptanceGates",
+    "artifacts"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "proofId": { "type": "string" },
+    "goalId": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "passed": { "type": "boolean" },
+    "validator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "reportId",
+        "generatedAt",
+        "source",
+        "smoke",
+        "baseline",
+        "navigator",
+        "validatorRows",
+        "validatorLift",
+        "observations",
+        "safety"
+      ],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "reportId": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sourceLabel", "sourceHash", "loc", "detectedConstants", "ruleChecks"],
+          "properties": {
+            "sourceLabel": { "type": "string" },
+            "sourceHash": { "type": "string" },
+            "loc": { "type": "integer" },
+            "detectedConstants": { "type": "object" },
+            "ruleChecks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["ruleId", "summary", "passedInSeed", "severity"],
+                "properties": {
+                  "ruleId": { "type": "string" },
+                  "summary": { "type": "string" },
+                  "passedInSeed": { "type": "boolean" },
+                  "severity": { "enum": ["info", "warning", "blocking"] }
+                }
+              }
+            }
+          }
+        },
+        "smoke": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["probeName", "commandLabel", "cwdLabel", "status", "ok", "durationMs", "stdoutHash", "stderrHash", "detectedFailure"],
+          "properties": {
+            "probeName": { "type": "string" },
+            "commandLabel": { "type": "string" },
+            "cwdLabel": { "type": "string" },
+            "status": { "type": ["integer", "null"] },
+            "ok": { "type": "boolean" },
+            "durationMs": { "type": "integer" },
+            "stdoutHash": { "type": "string" },
+            "stderrHash": { "type": "string" },
+            "detectedFailure": { "type": ["string", "null"] }
+          }
+        },
+        "baseline": { "$ref": "#/$defs/arm" },
+        "navigator": { "$ref": "#/$defs/arm" },
+        "validatorRows": { "type": "integer" },
+        "validatorLift": { "type": "number" },
+        "observations": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "safety": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rawSourceIncluded", "rawCommandOutputIncluded", "envValuesIncluded"],
+          "properties": {
+            "rawSourceIncluded": { "const": false },
+            "rawCommandOutputIncluded": { "const": false },
+            "envValuesIncluded": { "const": false }
+          }
+        }
+      }
+    },
+    "loop": { "type": "object" },
+    "acceptanceGates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "summary"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "enum": ["pass", "fail"] },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  },
+  "$defs": {
+    "arm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["armId", "pathId", "fixedRuleIds", "unresolvedRuleIds", "passRate", "objectiveScore"],
+      "properties": {
+        "armId": { "enum": ["static-baseline", "navigator-selected"] },
+        "pathId": { "type": "string" },
+        "fixedRuleIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "unresolvedRuleIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "passRate": { "type": "number" },
+        "objectiveScore": { "type": "number" }
+      }
+    }
+  }
+}

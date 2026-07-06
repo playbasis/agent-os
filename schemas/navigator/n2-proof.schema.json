@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://playbasis.internal/schemas/navigator/n2-proof.schema.json",
+  "title": "NavigatorN2ProofReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "proofId",
+    "goalId",
+    "generatedAt",
+    "passed",
+    "n1",
+    "councilTournament",
+    "frontierSelection",
+    "conformal",
+    "contextPacket",
+    "acceptanceGates",
+    "artifacts"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "proofId": { "type": "string", "minLength": 1 },
+    "goalId": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string" },
+    "passed": { "type": "boolean" },
+    "n1": { "type": "object" },
+    "councilTournament": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sessionId", "generatedAt", "kFactor", "payoff", "judgments", "eloRatings", "rankedPathIds", "selectedPathId", "falsifier"],
+      "properties": {
+        "sessionId": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "kFactor": { "type": "number" },
+        "payoff": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["expectedDecisionValue", "councilCost", "convened", "netValue"],
+          "properties": {
+            "expectedDecisionValue": { "type": "number" },
+            "councilCost": { "type": "number" },
+            "convened": { "type": "boolean" },
+            "netValue": { "type": "number" }
+          }
+        },
+        "judgments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["matchId", "leftPathId", "rightPathId", "winnerPathId", "criterion", "margin", "reason", "inputHash"],
+            "properties": {
+              "matchId": { "type": "string" },
+              "leftPathId": { "type": "string" },
+              "rightPathId": { "type": "string" },
+              "winnerPathId": { "type": "string" },
+              "criterion": { "enum": ["value-risk", "cost-control", "evidence-fit", "ambition-ratchet"] },
+              "margin": { "type": "number" },
+              "reason": { "type": "string" },
+              "inputHash": { "type": "string" }
+            }
+          }
+        },
+        "eloRatings": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        },
+        "rankedPathIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "selectedPathId": { "type": "string" },
+        "falsifier": { "type": "string" }
+      }
+    },
+    "frontierSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "selectionMetric",
+        "selectedPathId",
+        "efficientPathIds",
+        "dominatedPathIds",
+        "payoffScore",
+        "selectedRawPathFitScore",
+        "selectedProgressSharpe",
+        "evidenceConfidence",
+        "progressSharpeScores",
+        "rationale"
+      ],
+      "properties": {
+        "selectionMetric": { "enum": ["progressSharpe", "councilEloEfficientFrontier"] },
+        "selectedPathId": { "type": "string" },
+        "efficientPathIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "dominatedPathIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "payoffScore": { "type": "number" },
+        "selectedRawPathFitScore": { "type": "number" },
+        "selectedProgressSharpe": { "type": "number" },
+        "evidenceConfidence": { "type": "number" },
+        "progressSharpeScores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "pathId",
+              "rank",
+              "frontierEfficient",
+              "rawPathFitScore",
+              "constraintAlarmCount",
+              "constraintPass",
+              "evidenceConfidence",
+              "verifiedProgress",
+              "hours",
+              "hourPenalty",
+              "spendPenalty",
+              "riskPenalty",
+              "denominator",
+              "progressSharpe"
+            ],
+            "properties": {
+              "pathId": { "type": "string" },
+              "rank": { "type": "number" },
+              "frontierEfficient": { "type": "boolean" },
+              "rawPathFitScore": { "type": "number" },
+              "constraintAlarmCount": { "type": "number" },
+              "constraintPass": { "type": "boolean" },
+              "evidenceConfidence": { "type": "number" },
+              "verifiedProgress": { "type": "number" },
+              "hours": { "type": "number" },
+              "hourPenalty": { "type": "number" },
+              "spendPenalty": { "type": "number" },
+              "riskPenalty": { "type": "number" },
+              "denominator": { "type": "number" },
+              "progressSharpe": { "type": "number" }
+            }
+          }
+        },
+        "rationale": { "type": "string" }
+      }
+    },
+    "conformal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "generatedAt", "confidence", "calibrationSource", "residualHistory", "bands", "alarms", "allPathsBreached"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "generatedAt": { "type": "string" },
+        "confidence": { "type": "number" },
+        "calibrationSource": { "const": "path-fan-residuals" },
+        "residualHistory": { "type": "array" },
+        "bands": { "type": "array" },
+        "alarms": { "type": "array" },
+        "allPathsBreached": { "type": "boolean" }
+      }
+    },
+    "contextPacket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "packetId",
+        "goalId",
+        "objectiveHash",
+        "activePathId",
+        "activeMilestoneId",
+        "latestObservationIds",
+        "driftSummaryHash",
+        "councilSummaryHash",
+        "includedHashes",
+        "omittedRawContextNotice",
+        "nextAction",
+        "safetyBoundary"
+      ],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "packetId": { "type": "string" },
+        "goalId": { "type": "string" },
+        "objectiveHash": { "type": "string" },
+        "activePathId": { "type": "string" },
+        "activeMilestoneId": { "type": "string" },
+        "latestObservationIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "driftSummaryHash": { "type": "string" },
+        "councilSummaryHash": { "type": "string" },
+        "includedHashes": { "type": "array" },
+        "omittedRawContextNotice": { "type": "string" },
+        "nextAction": { "type": "string" },
+        "safetyBoundary": { "type": "string" }
+      }
+    },
+    "acceptanceGates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "summary"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "enum": ["pass", "fail"] },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "bytes", "summary"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string" },
+          "bytes": { "type": "integer" },
+          "summary": { "type": "string" }
+        }
+      }
+    }
+  }
+}

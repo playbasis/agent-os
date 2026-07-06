@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "reportId": "CEO_SIM_HELDOUT_FACTORY_001",
+  "familyId": "ceo-sim-heldout-v1",
+  "generatedAt": "2026-07-05T16:45:23.714Z",
+  "targetId": "ceo-sim.policy-diversity.smart-score-variance",
+  "caseCount": 24,
+  "commitmentPath": "eval-families/ceo-sim/scorer-commitments/heldout-v1.commitment.json",
+  "commitmentHash": "8349d4f63d51d923efcd9cc02b01dd882644d71e25f226bc8b18f83af27cf548",
+  "privateStore": {
+    "storagePolicy": "outside-repo-private",
+    "outsideRepo": true,
+    "pathHash": "5b59bdbb14d20b29b5f2de53148373be5a5ba76c9e9822bfaa51c450a15822d5",
+    "pathLabelIncluded": false,
+    "manifestHash": "877425577660f79fb4756f6060ff9a09d74803629fcd9e5d7974c0d02d2ea75e",
+    "answerKeyHash": "28c3fa59a5c717334bc29acd3105dea055788f4fce76c8f55898093e680bdd61",
+    "bundleHash": "9ebaa3daa726870bc457bc54885ee6550c181e4774bd90c4a3879229c62f0368"
+  },
+  "publicArtifactPolicy": {
+    "rawHeldOutBodiesIncluded": false,
+    "rawAnswerKeysIncluded": false,
+    "rawSimulatorBodiesIncluded": false,
+    "rawScenarioBodiesIncluded": false,
+    "privateCaseIdsIncluded": false,
+    "candidateWhitelistIncluded": false
+  },
+  "gates": [
+    {
+      "name": "private-store-outside-repo",
+      "status": "pass",
+      "summary": "Private scorer inputs are written outside the PoV repo."
+    },
+    {
+      "name": "hash-only-public-commitment",
+      "status": "pass",
+      "summary": "Public commitment includes hashes, counts, scoring policy, and safety flags only."
+    },
+    {
+      "name": "no-candidate-whitelist",
+      "status": "pass",
+      "summary": "Held-out cases use generic target/risk/cleanliness thresholds instead of a delta-id whitelist."
+    },
+    {
+      "name": "bootstrap-claim-boundary",
+      "status": "pass",
+      "summary": "Report labels this as a scorer-only bootstrap until pre-registered before candidate selection."
+    }
+  ],
+  "claimBoundary": {
+    "publicPositioning": "Hash-only CEO-sim scorer bundle commitment. This is a local scorer smoke unless generated and frozen before candidate selection.",
+    "notExternalBlindProof": true,
+    "notEconomicValueProof": true,
+    "noAutonomyOrSotaClaim": true
+  }
+}

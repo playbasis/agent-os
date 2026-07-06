@@ -1,0 +1,1060 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-06T02:29:25.548Z",
+  "profile": "staging-sandbox",
+  "status": "warn",
+  "mode": "safe-live-readonly",
+  "configured": true,
+  "baseUrlKey": "PB_APIM_BASE_URL",
+  "tenantIdSource": "PB_TENANT_ID",
+  "headerKeysUsed": [
+    "accept",
+    "x-tenant-id",
+    "Ocp-Apim-Subscription-Key"
+  ],
+  "summary": {
+    "requestedFamilies": 3,
+    "adapterFamilies": 3,
+    "attemptedReadProbes": 14,
+    "successfulReadProbes": 4,
+    "blockedPrivateOperations": 10,
+    "privateReadContractOperations": 24,
+    "privateReadContractsVerified": 0,
+    "privateReadContractsPending": 24,
+    "readProbeTarget": 14,
+    "readProbeTargetMet": false,
+    "safeLiveFamilies": 1,
+    "fixtureFamilies": 0,
+    "zeroLeak": true
+  },
+  "families": [
+    {
+      "family": "baby-app",
+      "status": "blocked",
+      "plannedPrivateTools": [
+        "baby-app.session.inspect",
+        "baby-app.projection.jobs.inspect",
+        "baby-app.billing.entitlement.inspect",
+        "baby-app.magic-albums.inspect"
+      ],
+      "attemptedReadProbes": 4,
+      "successfulReadProbes": 0,
+      "blockedPrivateOperations": 4,
+      "privateReadContractOperations": 8,
+      "privateReadContractsVerified": 0,
+      "privateReadContractsPending": 8,
+      "privateReadContracts": [
+        {
+          "toolName": "baby-app.export-account.inspect",
+          "operationId": "babyExportAccount",
+          "method": "GET",
+          "pathLabel": "account/export",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private baby-app adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET account/export, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "baby-app.session.inspect",
+          "operationId": "babyGetSession",
+          "method": "GET",
+          "pathLabel": "auth/session",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private baby-app adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET auth/session, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "baby-app.billing.entitlement.inspect",
+          "operationId": "babyGetBillingEntitlement",
+          "method": "GET",
+          "pathLabel": "billing/entitlement",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private baby-app adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET billing/entitlement, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "baby-app.magic-albums.inspect",
+          "operationId": "babyListMagicAlbums",
+          "method": "GET",
+          "pathLabel": "magic-albums",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private baby-app adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET magic-albums, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "baby-app.magic-album.detail.inspect",
+          "operationId": "babyGetMagicAlbum",
+          "method": "GET",
+          "pathLabel": "magic-albums/{albumId}",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private baby-app adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET magic-albums/{albumId}, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "baby-app.projection.jobs.inspect",
+          "operationId": "babyListProjectionJobs",
+          "method": "GET",
+          "pathLabel": "projections/jobs",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private baby-app adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET projections/jobs, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "baby-app.projection.job.detail.inspect",
+          "operationId": "babyGetProjectionJob",
+          "method": "GET",
+          "pathLabel": "projections/jobs/{sessionId}",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private baby-app adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET projections/jobs/{sessionId}, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "baby-app.state.inspect",
+          "operationId": "babyGetState",
+          "method": "GET",
+          "pathLabel": "state",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private baby-app adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET state, with no raw payloads or identifiers."
+        }
+      ],
+      "adapterRecords": [
+        {
+          "toolName": "baby-app.state.inspect",
+          "operationId": "babyGetState",
+          "method": "GET",
+          "pathLabel": "state",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 401,
+          "evidenceHash": "de583d4bca7fa84aa4c7bc533f1a6629cf42deaa2023b848fea2c170396af4b6",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "baby-app.billing.entitlement.inspect",
+          "operationId": "babyGetBillingEntitlement",
+          "method": "GET",
+          "pathLabel": "billing/entitlement",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 401,
+          "evidenceHash": "e9182e553bb01db0ab620dc1ec618e955cfc31b3b535999230ddfea2738f4a4c",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "baby-app.magic-albums.inspect",
+          "operationId": "babyListMagicAlbums",
+          "method": "GET",
+          "pathLabel": "magic-albums",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 401,
+          "evidenceHash": "d2fb7d41478c5e5abe092d977942e8e20e8d3be9091a4472864f997946272cf1",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "baby-app.projection.jobs.inspect",
+          "operationId": "babyListProjectionJobs",
+          "method": "GET",
+          "pathLabel": "projections/jobs",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 401,
+          "evidenceHash": "c241b52d2eb6909fa8824310263958d9c21b7dcca345c54ca4d8b4048c5345ee",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "baby-app.account.export.inspect",
+          "operationId": "babyExportAccount",
+          "method": "GET",
+          "pathLabel": "account/export",
+          "adapterMode": "private-auth-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "0766a233d76277f5de8d4ebd5e875fe1528bf5c6a1b7b99687b95dc8838d2a27",
+          "blockedReason": "private-auth-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "baby-app.session.inspect",
+          "operationId": "babyGetSession",
+          "method": "GET",
+          "pathLabel": "auth/session",
+          "adapterMode": "private-auth-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "4591074241d6e2fdf1ca51576a8812b2d04afb6849a751f316f57dc438983cfd",
+          "blockedReason": "private-auth-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "baby-app.magic-album.detail.inspect",
+          "operationId": "babyGetMagicAlbum",
+          "method": "GET",
+          "pathLabel": "magic-albums/{albumId}",
+          "adapterMode": "identifier-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "fb011e90be7d2bea12f70c9a8c398d67538624d065b2426d9d337a4775f2340d",
+          "blockedReason": "identifier-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "baby-app.projection.job.detail.inspect",
+          "operationId": "babyGetProjectionJob",
+          "method": "GET",
+          "pathLabel": "projections/jobs/{sessionId}",
+          "adapterMode": "identifier-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "200b169c6f16801fda397a3e847c993aea03d07ba0245ae69c080967cfb3adc7",
+          "blockedReason": "identifier-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        }
+      ]
+    },
+    {
+      "family": "health",
+      "status": "blocked",
+      "plannedPrivateTools": [
+        "health.appointments.inspect",
+        "health.care-plans.inspect",
+        "health.content.inspect",
+        "health.metrics.inspect"
+      ],
+      "attemptedReadProbes": 6,
+      "successfulReadProbes": 0,
+      "blockedPrivateOperations": 6,
+      "privateReadContractOperations": 16,
+      "privateReadContractsVerified": 0,
+      "privateReadContractsPending": 16,
+      "privateReadContracts": [
+        {
+          "toolName": "health.care-plans.inspect",
+          "operationId": "listHealthCarePlans",
+          "method": "GET",
+          "pathLabel": "health/care-plans",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/care-plans, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.care-plan.detail.inspect",
+          "operationId": "getHealthCarePlan",
+          "method": "GET",
+          "pathLabel": "health/care-plans/{carePlanId}",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/care-plans/{carePlanId}, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.coach.history.inspect",
+          "operationId": "listHealthCoachHistory",
+          "method": "GET",
+          "pathLabel": "health/coach/history",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/coach/history, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.consent.logs.inspect",
+          "operationId": "listHealthConsentLogs",
+          "method": "GET",
+          "pathLabel": "health/consent/logs",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/consent/logs, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.content.detail.inspect",
+          "operationId": "getHealthContent",
+          "method": "GET",
+          "pathLabel": "health/content/{contentId}",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/content/{contentId}, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.family.members.inspect",
+          "operationId": "listHealthFamilyMembers",
+          "method": "GET",
+          "pathLabel": "health/family/members",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/family/members, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.labs.inspect",
+          "operationId": "listHealthLabReports",
+          "method": "GET",
+          "pathLabel": "health/labs",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/labs, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.metrics.inspect",
+          "operationId": "listHealthMetrics",
+          "method": "GET",
+          "pathLabel": "health/metrics",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/metrics, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.notifications.preferences.inspect",
+          "operationId": "listHealthNotificationPreferences",
+          "method": "GET",
+          "pathLabel": "health/notifications/preferences",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/notifications/preferences, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.patients.inspect",
+          "operationId": "listHealthPatients",
+          "method": "GET",
+          "pathLabel": "health/patients",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/patients, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.patient.detail.inspect",
+          "operationId": "getHealthPatientDetail",
+          "method": "GET",
+          "pathLabel": "health/patients/{patientId}",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/patients/{patientId}, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.phi.access.inspect",
+          "operationId": "listHealthPhiAccessLogs",
+          "method": "GET",
+          "pathLabel": "health/phi/access",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/phi/access, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.profile.inspect",
+          "operationId": "getHealthProfile",
+          "method": "GET",
+          "pathLabel": "health/profile",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/profile, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.staff.roles.inspect",
+          "operationId": "listHealthStaffRoles",
+          "method": "GET",
+          "pathLabel": "health/staff/roles",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/staff/roles, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.tree.state.inspect",
+          "operationId": "getHealthTreeState",
+          "method": "GET",
+          "pathLabel": "health/tree/{schoolId}",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/tree/{schoolId}, with no raw payloads or identifiers."
+        },
+        {
+          "toolName": "health.triage.inspect",
+          "operationId": "listHealthTriage",
+          "method": "GET",
+          "pathLabel": "health/triage",
+          "contractStatus": "pending-private-implementation",
+          "privateCodeBoundary": "private-repo-only",
+          "telemetryLevel": "hash-only",
+          "doneWhen": "Private health adapter emits SafeProbeEvidence-compatible hash-only telemetry for GET health/triage, with no raw payloads or identifiers."
+        }
+      ],
+      "adapterRecords": [
+        {
+          "toolName": "health.departments.inspect",
+          "operationId": "listHealthDepartments",
+          "method": "GET",
+          "pathLabel": "health/departments",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 404,
+          "evidenceHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.providers.inspect",
+          "operationId": "listHealthProviders",
+          "method": "GET",
+          "pathLabel": "health/providers",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 404,
+          "evidenceHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.content.inspect",
+          "operationId": "listHealthContent",
+          "method": "GET",
+          "pathLabel": "health/content",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 404,
+          "evidenceHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.milestones.inspect",
+          "operationId": "listHealthMilestones",
+          "method": "GET",
+          "pathLabel": "health/milestones",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 404,
+          "evidenceHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.appointment-packages.inspect",
+          "operationId": "listHealthAppointmentPackages",
+          "method": "GET",
+          "pathLabel": "health/appointments/packages",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 404,
+          "evidenceHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.appointment-slots.inspect",
+          "operationId": "listHealthAppointmentSlots",
+          "method": "GET",
+          "pathLabel": "health/appointments/slots",
+          "adapterMode": "safe-read-preflight",
+          "ok": false,
+          "status": 404,
+          "evidenceHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.appointments.private.inspect",
+          "operationId": "listHealthAppointments",
+          "method": "GET",
+          "pathLabel": "health/appointments",
+          "adapterMode": "private-auth-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "9ce3eb8c662f5d4efccde6973fa9379229dc1331abcdb33e93523aa4c0c910fb",
+          "blockedReason": "private-auth-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.care-plans.private.inspect",
+          "operationId": "listHealthCarePlans",
+          "method": "GET",
+          "pathLabel": "health/care-plans",
+          "adapterMode": "private-auth-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "b5f9ad1a82a10ff045e3ef14b321529ebdc82441460f1097c91ca17e22ef670d",
+          "blockedReason": "private-auth-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.care-plan.detail.inspect",
+          "operationId": "getHealthCarePlan",
+          "method": "GET",
+          "pathLabel": "health/care-plans/{carePlanId}",
+          "adapterMode": "identifier-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "f723d68159a40db3873077d70ba2c63af279b238bc95942ae8c3f57efd8a9b9a",
+          "blockedReason": "identifier-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.content.detail.inspect",
+          "operationId": "getHealthContent",
+          "method": "GET",
+          "pathLabel": "health/content/{contentId}",
+          "adapterMode": "identifier-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "9840b3e71cd1eed81152624ccd5377e3f91661f33656a5e902c2d07198a22370",
+          "blockedReason": "identifier-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.patient.detail.inspect",
+          "operationId": "getHealthPatientDetail",
+          "method": "GET",
+          "pathLabel": "health/patients/{patientId}",
+          "adapterMode": "identifier-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "57858359a93e17fb131ca5346fdedea310829b216395ec3173f744d0beacb820",
+          "blockedReason": "identifier-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "health.tree.state.inspect",
+          "operationId": "getHealthTreeState",
+          "method": "GET",
+          "pathLabel": "health/tree/{schoolId}",
+          "adapterMode": "identifier-required",
+          "ok": false,
+          "status": "blocked",
+          "evidenceHash": "d2658825e850bf0cc5849ac681c6c19a7c979b0304cdc20938ccd4eef03c502a",
+          "blockedReason": "identifier-required",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        }
+      ]
+    },
+    {
+      "family": "booking",
+      "status": "safe-live-read-backed",
+      "plannedPrivateTools": [
+        "booking.availability.inspect",
+        "booking.locations.inspect",
+        "booking.resources.inspect"
+      ],
+      "attemptedReadProbes": 4,
+      "successfulReadProbes": 4,
+      "blockedPrivateOperations": 0,
+      "privateReadContractOperations": 0,
+      "privateReadContractsVerified": 0,
+      "privateReadContractsPending": 0,
+      "privateReadContracts": [],
+      "adapterRecords": [
+        {
+          "toolName": "booking.availability-rules.inspect",
+          "operationId": "listBookingAvailabilityRules",
+          "method": "GET",
+          "pathLabel": "booking/availability/rules",
+          "adapterMode": "safe-read-preflight",
+          "ok": true,
+          "status": 200,
+          "evidenceHash": "eef46741adfc3a9f76294d3b78f37a45f113092ac9d44ee77c7a038a88ff09a1",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "booking.locations.inspect",
+          "operationId": "listBookingLocations",
+          "method": "GET",
+          "pathLabel": "booking/locations",
+          "adapterMode": "safe-read-preflight",
+          "ok": true,
+          "status": 200,
+          "evidenceHash": "8f02a7174d6b258b0b86dd4d588d490e1a92eff83d5e2224e51b39d83c5b652f",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "booking.resources.inspect",
+          "operationId": "listBookingResources",
+          "method": "GET",
+          "pathLabel": "booking/resources",
+          "adapterMode": "safe-read-preflight",
+          "ok": true,
+          "status": 200,
+          "evidenceHash": "1f9a6b6cdbfd26070ec6eecea2f27ecc140a9874719617b8695306fc86309b7a",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        },
+        {
+          "toolName": "booking.schedules.inspect",
+          "operationId": "listBookingSchedules",
+          "method": "GET",
+          "pathLabel": "booking/schedules",
+          "adapterMode": "safe-read-preflight",
+          "ok": true,
+          "status": 200,
+          "evidenceHash": "0b5282f032f6b48e28f3b652bfa9fc800e1a645935157abd723276ea8be1d701",
+          "rawIdentifierStored": false,
+          "rawPayloadStored": false
+        }
+      ]
+    }
+  ],
+  "probes": [
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.baby-app.state.inspect",
+      "method": "GET",
+      "pathLabel": "state",
+      "urlHash": "ac70a30caf0f76a202cc25715963621089198c8aa76eabc6083d471f7a88f50d",
+      "ok": false,
+      "status": 401,
+      "durationMs": 1595,
+      "responseBytes": 118,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "de583d4bca7fa84aa4c7bc533f1a6629cf42deaa2023b848fea2c170396af4b6",
+      "jsonShape": {
+        "topLevelKeys": [
+          "code",
+          "message",
+          "requestId"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "code",
+        "message",
+        "requestId"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.baby-app.billing.entitlement.inspect",
+      "method": "GET",
+      "pathLabel": "billing/entitlement",
+      "urlHash": "b63d511ee97eb2fc394f3d926d5fd3f1bb0bd136fc9e45ca38e2f5ecf50a2c35",
+      "ok": false,
+      "status": 401,
+      "durationMs": 1598,
+      "responseBytes": 118,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "e9182e553bb01db0ab620dc1ec618e955cfc31b3b535999230ddfea2738f4a4c",
+      "jsonShape": {
+        "topLevelKeys": [
+          "code",
+          "message",
+          "requestId"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "code",
+        "message",
+        "requestId"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.baby-app.magic-albums.inspect",
+      "method": "GET",
+      "pathLabel": "magic-albums",
+      "urlHash": "08a3da10e135127141c5e37a9e94c5b575c26a1b8297e34f611dea5e0dd89d75",
+      "ok": false,
+      "status": 401,
+      "durationMs": 1671,
+      "responseBytes": 118,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "d2fb7d41478c5e5abe092d977942e8e20e8d3be9091a4472864f997946272cf1",
+      "jsonShape": {
+        "topLevelKeys": [
+          "code",
+          "message",
+          "requestId"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "code",
+        "message",
+        "requestId"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.baby-app.projection.jobs.inspect",
+      "method": "GET",
+      "pathLabel": "projections/jobs",
+      "urlHash": "facc604788d5ddea0bf9906bc7bfbfd82a8aa6e2991180f3773446ab7c2774bb",
+      "ok": false,
+      "status": 401,
+      "durationMs": 1704,
+      "responseBytes": 118,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "c241b52d2eb6909fa8824310263958d9c21b7dcca345c54ca4d8b4048c5345ee",
+      "jsonShape": {
+        "topLevelKeys": [
+          "code",
+          "message",
+          "requestId"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "code",
+        "message",
+        "requestId"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.health.departments.inspect",
+      "method": "GET",
+      "pathLabel": "health/departments",
+      "urlHash": "3214c2c9551b2c3167356ab867958f1007e53eafdf0727ca1c46d41c6d9fdf8e",
+      "ok": false,
+      "status": 404,
+      "durationMs": 1115,
+      "responseBytes": 40,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+      "jsonShape": {
+        "topLevelKeys": [
+          "message",
+          "statusCode"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "message",
+        "statusCode"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.health.providers.inspect",
+      "method": "GET",
+      "pathLabel": "health/providers",
+      "urlHash": "0c48e5350691eaa3897ea688750b89a9eb9a1762efeb4cca09fb6487b8b77597",
+      "ok": false,
+      "status": 404,
+      "durationMs": 1108,
+      "responseBytes": 40,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+      "jsonShape": {
+        "topLevelKeys": [
+          "message",
+          "statusCode"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "message",
+        "statusCode"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.health.content.inspect",
+      "method": "GET",
+      "pathLabel": "health/content",
+      "urlHash": "b1f87453a7ce7c59de901161cec826f67da6c6255ec91f74bcf5a2d532f0ade9",
+      "ok": false,
+      "status": 404,
+      "durationMs": 1114,
+      "responseBytes": 40,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+      "jsonShape": {
+        "topLevelKeys": [
+          "message",
+          "statusCode"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "message",
+        "statusCode"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.health.milestones.inspect",
+      "method": "GET",
+      "pathLabel": "health/milestones",
+      "urlHash": "a7714655e6cf2046e19748c94349282f6b5f8b474a7bcd8aae432300e2b04c05",
+      "ok": false,
+      "status": 404,
+      "durationMs": 1127,
+      "responseBytes": 40,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+      "jsonShape": {
+        "topLevelKeys": [
+          "message",
+          "statusCode"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "message",
+        "statusCode"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.health.appointment-packages.inspect",
+      "method": "GET",
+      "pathLabel": "health/appointments/packages",
+      "urlHash": "626f874cccf759900617f83c46c34e30780d4e215313d99678fa5837a0f3b3da",
+      "ok": false,
+      "status": 404,
+      "durationMs": 1124,
+      "responseBytes": 40,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+      "jsonShape": {
+        "topLevelKeys": [
+          "message",
+          "statusCode"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "message",
+        "statusCode"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.health.appointment-slots.inspect",
+      "method": "GET",
+      "pathLabel": "health/appointments/slots",
+      "urlHash": "34b2fbb3f812d9404545c369fc38f96fc28e864a15467125b35a84ce93a33368",
+      "ok": false,
+      "status": 404,
+      "durationMs": 1132,
+      "responseBytes": 40,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "0c1ff633a380e90f9ff813bc47ed2bd40ea47df5bd682d5901c64bfa071f8b04",
+      "jsonShape": {
+        "topLevelKeys": [
+          "message",
+          "statusCode"
+        ],
+        "arrays": {},
+        "objects": {}
+      },
+      "jsonKeys": [
+        "message",
+        "statusCode"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.booking.availability-rules.inspect",
+      "method": "GET",
+      "pathLabel": "booking/availability/rules",
+      "urlHash": "931a9c6b33ec8268fd068802aa0ef0f842450d3e620bd9474187ad0e214e01f4",
+      "ok": true,
+      "status": 200,
+      "durationMs": 1774,
+      "responseBytes": 12,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "eef46741adfc3a9f76294d3b78f37a45f113092ac9d44ee77c7a038a88ff09a1",
+      "jsonShape": {
+        "topLevelKeys": [
+          "items"
+        ],
+        "arrays": {
+          "items": 0
+        },
+        "objects": {}
+      },
+      "jsonKeys": [
+        "items"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.booking.locations.inspect",
+      "method": "GET",
+      "pathLabel": "booking/locations",
+      "urlHash": "987c663a7f621c4b9056d991ed5674bf6f42c0e2156c7596217b74d634a8b150",
+      "ok": true,
+      "status": 200,
+      "durationMs": 1871,
+      "responseBytes": 576,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "8f02a7174d6b258b0b86dd4d588d490e1a92eff83d5e2224e51b39d83c5b652f",
+      "jsonShape": {
+        "topLevelKeys": [
+          "items"
+        ],
+        "arrays": {
+          "items": 2
+        },
+        "objects": {}
+      },
+      "jsonKeys": [
+        "items"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.booking.resources.inspect",
+      "method": "GET",
+      "pathLabel": "booking/resources",
+      "urlHash": "a4e4a16f837e6a8df4845c1cd2034da90c7fd710c5770005dfe27b502ade081a",
+      "ok": true,
+      "status": 200,
+      "durationMs": 1879,
+      "responseBytes": 2079,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "1f9a6b6cdbfd26070ec6eecea2f27ecc140a9874719617b8695306fc86309b7a",
+      "jsonShape": {
+        "topLevelKeys": [
+          "items"
+        ],
+        "arrays": {
+          "items": 6
+        },
+        "objects": {}
+      },
+      "jsonKeys": [
+        "items"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    },
+    {
+      "serviceFamily": "playbasis-api",
+      "name": "domain.booking.schedules.inspect",
+      "method": "GET",
+      "pathLabel": "booking/schedules",
+      "urlHash": "a7f6c8e2dbcccd1ca7a113741740e25f0eb966be5d673b522c0617a2461c95e8",
+      "ok": true,
+      "status": 200,
+      "durationMs": 2284,
+      "responseBytes": 13091,
+      "contentType": "application/json; charset=utf-8",
+      "bodyHash": "0b5282f032f6b48e28f3b652bfa9fc800e1a645935157abd723276ea8be1d701",
+      "jsonShape": {
+        "topLevelKeys": [
+          "items"
+        ],
+        "arrays": {
+          "items": 30
+        },
+        "objects": {}
+      },
+      "jsonKeys": [
+        "items"
+      ],
+      "redaction": {
+        "scanned": true,
+        "leaksDetected": 0
+      }
+    }
+  ],
+  "safety": {
+    "readOnly": true,
+    "rawUrlsIncluded": false,
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "selectedLiveFieldsIncluded": false,
+    "selectedLiveIdsIncluded": false,
+    "envValuesIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Hash-only private-domain adapter probe evidence",
+    "liveProofRequiresSuccessfulSafeProbeEvidence": true,
+    "doesNotExposeDomainPayloads": true,
+    "doesNotProveFullPrivateAdapterCompletion": true
+  }
+}

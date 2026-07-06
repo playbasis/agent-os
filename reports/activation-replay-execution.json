@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-05T23:02:15.987Z",
+  "profile": "staging-sandbox",
+  "mode": "safe-execution",
+  "sourceWiringHash": "0dcf3b7f0719763d131e96acb5937650e1c62aa17f631994be0db74f53b73d60",
+  "postWiringHash": "05fbc5f256ee9f2f9bd7c5c21f1882140c281905404c96afc23739196cb5a062",
+  "replayPlan": {
+    "totalSteps": 10,
+    "readySteps": 0,
+    "blockedSteps": 8,
+    "externalStateSteps": 2,
+    "writeProbeSteps": 4,
+    "privateAdapterSteps": 2,
+    "replayFrom": "openapi-safe-read-reprobe",
+    "nextSafeCommand": "pnpm pbos audit scorecard --profile staging-sandbox && pnpm pbos audit route-diagnosis --profile staging-sandbox && pnpm pbos audit domain-adapters --profile staging-sandbox"
+  },
+  "summary": {
+    "plannedSteps": 10,
+    "blockedPlanSteps": 8,
+    "executableSafeCommandGroups": 2,
+    "executedSafeCommands": 9,
+    "passedSafeCommands": 9,
+    "failedSafeCommands": 0,
+    "skippedPlanSteps": 8,
+    "zeroLeak": true
+  },
+  "plannedStepResults": [
+    {
+      "stepId": "feature-flag:billing",
+      "kind": "feature-flag",
+      "planStatus": "blocked",
+      "executionStatus": "skipped-blocked",
+      "commandCount": 0,
+      "passedCommandCount": 0,
+      "requiredEnvKeys": [],
+      "requiredOperatorFlags": [],
+      "featureFlags": [
+        "billing"
+      ],
+      "claimBoundary": "Feature-flag source evidence is not live route proof until the follow-up SafeProbeEvidence probe succeeds."
+    },
+    {
+      "stepId": "feature-flag:health",
+      "kind": "feature-flag",
+      "planStatus": "blocked",
+      "executionStatus": "skipped-blocked",
+      "commandCount": 0,
+      "passedCommandCount": 0,
+      "requiredEnvKeys": [],
+      "requiredOperatorFlags": [],
+      "featureFlags": [
+        "health"
+      ],
+      "claimBoundary": "Feature-flag source evidence is not live route proof until the follow-up SafeProbeEvidence probe succeeds."
+    },
+    {
+      "stepId": "openapi-safe-read-reprobe",
+      "kind": "safe-read-reprobe",
+      "planStatus": "waiting-on-upstream",
+      "executionStatus": "executed",
+      "commandCount": 4,
+      "passedCommandCount": 4,
+      "requiredEnvKeys": [],
+      "requiredOperatorFlags": [],
+      "featureFlags": [
+        "billing",
+        "health"
+      ],
+      "claimBoundary": "Do not promote source-backed routes until the regenerated SafeProbeEvidence shows successful status."
+    },
+    {
+      "stepId": "write-activation:events-ingest",
+      "kind": "write-probe",
+      "planStatus": "blocked",
+      "executionStatus": "skipped-blocked",
+      "commandCount": 0,
+      "passedCommandCount": 0,
+      "requiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID"
+      ],
+      "requiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "featureFlags": [],
+      "claimBoundary": "Do not count event ingestion as live-write-recorded until mechanic.events.ingest produces SafeProbeEvidence with no raw URL, request body, response body, tenant data, or env values."
+    },
+    {
+      "stepId": "write-activation:experiments",
+      "kind": "write-probe",
+      "planStatus": "blocked",
+      "executionStatus": "skipped-blocked",
+      "commandCount": 0,
+      "passedCommandCount": 0,
+      "requiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID"
+      ],
+      "requiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "featureFlags": [],
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    },
+    {
+      "stepId": "write-activation:campaigns",
+      "kind": "write-probe",
+      "planStatus": "blocked",
+      "executionStatus": "skipped-blocked",
+      "commandCount": 0,
+      "passedCommandCount": 0,
+      "requiredEnvKeys": [
+        "PBOS_PROBE_CAMPAIGN_ID"
+      ],
+      "requiredOperatorFlags": [],
+      "featureFlags": [],
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    },
+    {
+      "stepId": "write-activation:webhooks",
+      "kind": "write-probe",
+      "planStatus": "blocked",
+      "executionStatus": "skipped-blocked",
+      "commandCount": 0,
+      "passedCommandCount": 0,
+      "requiredEnvKeys": [
+        "PBOS_ALLOW_WRITE_PROBES",
+        "PBOS_WRITE_PROBE_DISPOSABLE_SANDBOX",
+        "PBOS_WRITE_PROBE_SANDBOX_ID",
+        "PBOS_PROBE_WEBHOOK_URL"
+      ],
+      "requiredOperatorFlags": [
+        "--allow-write-probes"
+      ],
+      "featureFlags": [],
+      "claimBoundary": "Do not count this capability as live-recorded until the listed gate produces SafeProbeEvidence with no raw URLs, payloads, tenant data, or env values."
+    },
+    {
+      "stepId": "private-adapter:baby-app",
+      "kind": "private-adapter",
+      "planStatus": "blocked",
+      "executionStatus": "skipped-blocked",
+      "commandCount": 0,
+      "passedCommandCount": 0,
+      "requiredEnvKeys": [],
+      "requiredOperatorFlags": [],
+      "featureFlags": [],
+      "claimBoundary": "Private adapter must store only response hashes, top-level keys, counts, and redacted status metadata; no account snapshots, media IDs, auth sessions, or billing payload fields."
+    },
+    {
+      "stepId": "private-adapter:health",
+      "kind": "private-adapter",
+      "planStatus": "blocked",
+      "executionStatus": "skipped-blocked",
+      "commandCount": 0,
+      "passedCommandCount": 0,
+      "requiredEnvKeys": [],
+      "requiredOperatorFlags": [],
+      "featureFlags": [
+        "health"
+      ],
+      "claimBoundary": "Private adapter must be PHI-safe: no patient, family, care-plan, lab, appointment, consent, provider note, or raw notification payload fields in public artifacts."
+    },
+    {
+      "stepId": "rebuild-proof-surfaces",
+      "kind": "rebuild-proof-surfaces",
+      "planStatus": "waiting-on-upstream",
+      "executionStatus": "executed",
+      "commandCount": 5,
+      "passedCommandCount": 5,
+      "requiredEnvKeys": [],
+      "requiredOperatorFlags": [],
+      "featureFlags": [],
+      "claimBoundary": "A proof surface rebuild only updates evidence presentation; it does not itself prove live availability."
+    }
+  ],
+  "commands": [
+    {
+      "stepId": "openapi-safe-read-reprobe",
+      "commandLabel": "pnpm pbos audit probe-backlog --include-identifier-reads --allow-failing",
+      "status": 0,
+      "ok": true,
+      "durationMs": 2093,
+      "stdoutHash": "5f7763f35c82f8ab6e04b45483751d42ed73b0cdd3105cf326a60c0c8b3c7284",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    },
+    {
+      "stepId": "openapi-safe-read-reprobe",
+      "commandLabel": "pnpm pbos audit scorecard",
+      "status": 0,
+      "ok": true,
+      "durationMs": 888,
+      "stdoutHash": "2ba9daf5e265c35e266747216892a1bf95706a82dc093e56e754ad7423a35ca5",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    },
+    {
+      "stepId": "openapi-safe-read-reprobe",
+      "commandLabel": "pnpm pbos audit route-diagnosis",
+      "status": 0,
+      "ok": true,
+      "durationMs": 2491,
+      "stdoutHash": "09bbeb23e3139cb9e99d2dd384a32993ba380ca3ad31fcc5f5a1996ba61b1b65",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    },
+    {
+      "stepId": "openapi-safe-read-reprobe",
+      "commandLabel": "pnpm pbos audit domain-adapters",
+      "status": 0,
+      "ok": true,
+      "durationMs": 872,
+      "stdoutHash": "7e1556a4c94de52ef3bfd465addbabe4c5051f961aa96fec672b9107b7f2a82d",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    },
+    {
+      "stepId": "rebuild-proof-surfaces",
+      "commandLabel": "pnpm pbos audit wiring",
+      "status": 0,
+      "ok": true,
+      "durationMs": 410,
+      "stdoutHash": "9eef2a966daf5366a3d5f8b2163ff7b4e829601f3b8c5da23131139f4465888e",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    },
+    {
+      "stepId": "rebuild-proof-surfaces",
+      "commandLabel": "pnpm sandbox:build",
+      "status": 0,
+      "ok": true,
+      "durationMs": 939,
+      "stdoutHash": "81e148e6342722547841f525a162b8ac3c5b57c2a7aa8f9cea88364b53a1d659",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    },
+    {
+      "stepId": "rebuild-proof-surfaces",
+      "commandLabel": "pnpm pbos runs:index",
+      "status": 0,
+      "ok": true,
+      "durationMs": 1202,
+      "stdoutHash": "a57c8cd41128303d31de85c25f53e5f966252b61ad4a4d8d6468fbdcb5d5b799",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    },
+    {
+      "stepId": "rebuild-proof-surfaces",
+      "commandLabel": "pnpm pbos knowledge compile",
+      "status": 0,
+      "ok": true,
+      "durationMs": 416,
+      "stdoutHash": "4236a57bd4ab8a3213ffbe6251d5016a7c162facf30eeedf9c3fb2e42cce6512",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    },
+    {
+      "stepId": "rebuild-proof-surfaces",
+      "commandLabel": "pnpm pbos knowledge lint",
+      "status": 0,
+      "ok": true,
+      "durationMs": 391,
+      "stdoutHash": "1c12766a2737357c6a3e7cca8f63d39021f3b214942f7d416bddeae1aad34189",
+      "stderrHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "detectedFailure": null
+    }
+  ],
+  "safety": {
+    "stdoutStored": false,
+    "stderrStored": false,
+    "envValuesIncluded": false,
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "rawUrlsIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Hash-only activation replay execution report",
+    "safeExecutionOnly": true,
+    "doesNotSatisfyExternalFeatureFlags": true,
+    "doesNotRunWriteProbes": true,
+    "doesNotRunPrivateAdapters": true
+  }
+}

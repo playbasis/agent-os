@@ -1,0 +1,2460 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-05T23:02:09.649Z",
+  "profile": "staging-sandbox",
+  "platformRoot": {
+    "label": "playbasis-platform",
+    "exists": true,
+    "hash": "ae66f6c4dc97faf076c0614f63273f5ba4f2adad3a4b298e9b7e3bd45285650a"
+  },
+  "sourceReports": {
+    "auditScorecardHash": "7659f75e1500b51dd1d05b317c7fe10aeaa9faf453bb47246812ff85647067ad",
+    "operationBacklogProbeHash": "67e2ffbf8c15c7014b4753151a3d5ccfbbeeebd6405e91aa309648c73cf6828a"
+  },
+  "summary": {
+    "diagnosedOperations": 79,
+    "failedSafeReadOperations": 5,
+    "sourceBackedStaging404Operations": 5,
+    "sourceBackedNotProbedOperations": 0,
+    "contractOnlyOperations": 0,
+    "privateAdapterRequiredOperations": 24,
+    "writeGatedOperations": 49,
+    "identifierResolverNeededOperations": 1,
+    "noPlatformSourceFoundOperations": 0,
+    "generatedClientBackedOperations": 79,
+    "apiControllerBackedOperations": 78,
+    "domainClientBackedOperations": 17,
+    "featureFlagGuardedOperations": 34,
+    "featureFlagGuardedStaging404Operations": 5,
+    "moduleImportedStaging404Operations": 0,
+    "zeroLeak": true
+  },
+  "items": [
+    {
+      "path": "/billing/plans",
+      "method": "GET",
+      "operationId": "listBillingPlans",
+      "tags": [
+        "Billing"
+      ],
+      "capability": "general",
+      "probeClass": "safe-read-probe-candidate",
+      "priority": "high",
+      "lastProbeStatus": 404,
+      "lastProbeOk": false,
+      "diagnosis": "source-backed-staging-404",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": true,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "billing"
+        ],
+        "exposureAssessment": "feature-flag-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/admin-portal/src/data/billing.ts",
+          "playbasis-platform/apps/api/src/billing/billing.controller.ts",
+          "playbasis-platform/apps/api/src/billing/billing.service.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/billing/billing.ts"
+        ]
+      },
+      "nextProof": "Enable or verify feature flag(s) billing for listBillingPlans in staging, then rerun pbos audit probe-backlog with hash-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/appointments/packages",
+      "method": "GET",
+      "operationId": "listHealthAppointmentPackages",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "safe-read-probe-candidate",
+      "priority": "high",
+      "lastProbeStatus": 404,
+      "lastProbeOk": false,
+      "diagnosis": "source-backed-staging-404",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "feature-flag-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-mobile/src/api/booking-growth.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/apps/health-portal/src/api/useHealthData.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts",
+          "playbasis-platform/packages/genai-sdk/src/api/health-growth.ts"
+        ]
+      },
+      "nextProof": "Enable or verify feature flag(s) health for listHealthAppointmentPackages in staging, then rerun pbos audit probe-backlog with hash-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/content",
+      "method": "GET",
+      "operationId": "listHealthContent",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "safe-read-probe-candidate",
+      "priority": "high",
+      "lastProbeStatus": 404,
+      "lastProbeOk": false,
+      "diagnosis": "source-backed-staging-404",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "feature-flag-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/apps/health-portal/src/api/useHealthData.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Enable or verify feature flag(s) health for listHealthContent in staging, then rerun pbos audit probe-backlog with hash-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/departments",
+      "method": "GET",
+      "operationId": "listHealthDepartments",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "safe-read-probe-candidate",
+      "priority": "high",
+      "lastProbeStatus": 404,
+      "lastProbeOk": false,
+      "diagnosis": "source-backed-staging-404",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "feature-flag-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-mobile/src/api/booking-growth.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/apps/health-portal/src/api/useHealthData.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts",
+          "playbasis-platform/packages/genai-sdk/src/api/health-growth.ts"
+        ]
+      },
+      "nextProof": "Enable or verify feature flag(s) health for listHealthDepartments in staging, then rerun pbos audit probe-backlog with hash-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/milestones",
+      "method": "GET",
+      "operationId": "listHealthMilestones",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "safe-read-probe-candidate",
+      "priority": "high",
+      "lastProbeStatus": 404,
+      "lastProbeOk": false,
+      "diagnosis": "source-backed-staging-404",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "feature-flag-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Enable or verify feature flag(s) health for listHealthMilestones in staging, then rerun pbos audit probe-backlog with hash-only SafeProbeEvidence."
+    },
+    {
+      "path": "/admin/bandits/{key}/arms",
+      "method": "GET",
+      "operationId": "getBanditArms",
+      "tags": [
+        "Bandits"
+      ],
+      "capability": "general",
+      "probeClass": "identifier-required",
+      "priority": "medium",
+      "diagnosis": "identifier-resolver-needed",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": true,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "identifier-needed",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/bandits/bandits.controller.ts",
+          "playbasis-platform/apps/api/src/bandits/bandits.service.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/bandits/bandits.ts"
+        ]
+      },
+      "nextProof": "Add a safe list-sourced identifier resolver for getBanditArms without storing raw selected identifiers."
+    },
+    {
+      "path": "/account/export",
+      "method": "GET",
+      "operationId": "babyExportAccount",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Build a private baby-app adapter for babyExportAccount that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/auth/session",
+      "method": "GET",
+      "operationId": "babyGetSession",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Build a private baby-app adapter for babyGetSession that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/billing/entitlement",
+      "method": "GET",
+      "operationId": "babyGetBillingEntitlement",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Build a private baby-app adapter for babyGetBillingEntitlement that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/magic-albums",
+      "method": "GET",
+      "operationId": "babyListMagicAlbums",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts"
+        ]
+      },
+      "nextProof": "Build a private baby-app adapter for babyListMagicAlbums that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/magic-albums/{albumId}",
+      "method": "GET",
+      "operationId": "babyGetMagicAlbum",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts"
+        ]
+      },
+      "nextProof": "Build a private baby-app adapter for babyGetMagicAlbum that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/projections/jobs",
+      "method": "GET",
+      "operationId": "babyListProjectionJobs",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Build a private baby-app adapter for babyListProjectionJobs that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/projections/jobs/{sessionId}",
+      "method": "GET",
+      "operationId": "babyGetProjectionJob",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Build a private baby-app adapter for babyGetProjectionJob that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/state",
+      "method": "GET",
+      "operationId": "babyGetState",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": true,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/admin-portal/src/data/games.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/campaign/orchestrator.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/geminiDeepResearch.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/orchestrator.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/primitives.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/services/visual-generation.service.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/services/visual-prompts.library.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/swarm/healer.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/swarm/lane-executor.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/swarm/orchestrator.ts"
+        ]
+      },
+      "nextProof": "Build a private baby-app adapter for babyGetState that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/care-plans",
+      "method": "GET",
+      "operationId": "listHealthCarePlans",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/apps/health-portal/src/api/useHealthData.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthCarePlans that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/care-plans/{carePlanId}",
+      "method": "GET",
+      "operationId": "getHealthCarePlan",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for getHealthCarePlan that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/coach/history",
+      "method": "GET",
+      "operationId": "listHealthCoachHistory",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthCoachHistory that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/consent/logs",
+      "method": "GET",
+      "operationId": "listHealthConsentLogs",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthConsentLogs that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/content/{contentId}",
+      "method": "GET",
+      "operationId": "getHealthContent",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for getHealthContent that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/family/members",
+      "method": "GET",
+      "operationId": "listHealthFamilyMembers",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-mobile/src/api/booking-growth.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts",
+          "playbasis-platform/packages/genai-sdk/src/api/health-growth.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthFamilyMembers that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/labs",
+      "method": "GET",
+      "operationId": "listHealthLabReports",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthLabReports that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/metrics",
+      "method": "GET",
+      "operationId": "listHealthMetrics",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthMetrics that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/notifications/preferences",
+      "method": "GET",
+      "operationId": "listHealthNotificationPreferences",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthNotificationPreferences that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/patients",
+      "method": "GET",
+      "operationId": "listHealthPatients",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/apps/health-portal/src/api/useHealthData.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthPatients that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/patients/{patientId}",
+      "method": "GET",
+      "operationId": "getHealthPatientDetail",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for getHealthPatientDetail that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/phi/access",
+      "method": "GET",
+      "operationId": "listHealthPhiAccessLogs",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts",
+          "playbasis-platform/packages/genai-sdk/src/api/playbasis-adapter.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthPhiAccessLogs that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/profile",
+      "method": "GET",
+      "operationId": "getHealthProfile",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for getHealthProfile that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/staff/roles",
+      "method": "GET",
+      "operationId": "listHealthStaffRoles",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/apps/health-portal/src/api/useHealthData.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthStaffRoles that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/tree/{schoolId}",
+      "method": "GET",
+      "operationId": "getHealthTreeState",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health-tree.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for getHealthTreeState that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/health/triage",
+      "method": "GET",
+      "operationId": "listHealthTriage",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "domain-adapter-needed",
+      "priority": "medium",
+      "diagnosis": "private-adapter-required",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "private-adapter",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/apps/health-portal/src/api/useHealthData.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Build a private health adapter for listHealthTriage that emits aggregate-only SafeProbeEvidence."
+    },
+    {
+      "path": "/account",
+      "method": "DELETE",
+      "operationId": "babyDeleteAccount",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": true,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/admin-portal/src/data/prompts.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/playbasisContext.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/quick-start-templates.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/sample-program-docs.ts",
+          "playbasis-platform/apps/api/src/agentic/services/agentic-primitives.service.ts",
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/apps/api/src/baby/baby.service.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyDeleteAccount only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/ai-text/chat",
+      "method": "POST",
+      "operationId": "babyAiChat",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyAiChat only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/ai-text/chat-starters",
+      "method": "POST",
+      "operationId": "babyAiChatStarters",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyAiChatStarters only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/ai-text/explanation",
+      "method": "POST",
+      "operationId": "babyAiExplanation",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyAiExplanation only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/ai-text/weekly-insight",
+      "method": "POST",
+      "operationId": "babyAiWeeklyInsight",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyAiWeeklyInsight only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/auth/google/link",
+      "method": "POST",
+      "operationId": "babyLinkGoogleSession",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyLinkGoogleSession only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/auth/google/session",
+      "method": "POST",
+      "operationId": "babyCreateGoogleSession",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyCreateGoogleSession only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/auth/guest/session",
+      "method": "POST",
+      "operationId": "babyCreateGuestSession",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyCreateGuestSession only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/auth/refresh",
+      "method": "POST",
+      "operationId": "babyRefreshSession",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyRefreshSession only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/auth/sign-out",
+      "method": "POST",
+      "operationId": "babySignOut",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babySignOut only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/baby/release/smoke",
+      "method": "POST",
+      "operationId": "babyRunReleaseSmoke",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyRunReleaseSmoke only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/billing/google-play/purchases",
+      "method": "POST",
+      "operationId": "babyVerifyGooglePlayPurchase",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyVerifyGooglePlayPurchase only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/billing/google-play/restore",
+      "method": "POST",
+      "operationId": "babyRestoreGooglePlayPurchases",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyRestoreGooglePlayPurchases only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/magic-albums",
+      "method": "POST",
+      "operationId": "babyCreateMagicAlbum",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts"
+        ]
+      },
+      "nextProof": "Run babyCreateMagicAlbum only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/magic-albums/{albumId}",
+      "method": "DELETE",
+      "operationId": "babyDeleteMagicAlbum",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts"
+        ]
+      },
+      "nextProof": "Run babyDeleteMagicAlbum only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/magic-albums/{albumId}",
+      "method": "PATCH",
+      "operationId": "babyUpdateMagicAlbum",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts"
+        ]
+      },
+      "nextProof": "Run babyUpdateMagicAlbum only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/magic-albums/{albumId}/generations",
+      "method": "POST",
+      "operationId": "babyRequestMagicAlbumGeneration",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts"
+        ]
+      },
+      "nextProof": "Run babyRequestMagicAlbumGeneration only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/magic-albums/{albumId}/pause",
+      "method": "POST",
+      "operationId": "babyPauseMagicAlbum",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts"
+        ]
+      },
+      "nextProof": "Run babyPauseMagicAlbum only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/magic-albums/{albumId}/resume",
+      "method": "POST",
+      "operationId": "babyResumeMagicAlbum",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts"
+        ]
+      },
+      "nextProof": "Run babyResumeMagicAlbum only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/notifications/permission-intent",
+      "method": "POST",
+      "operationId": "babyNotificationPermissionIntent",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyNotificationPermissionIntent only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/notifications/projection-ready",
+      "method": "POST",
+      "operationId": "babyNotificationProjectionReady",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyNotificationProjectionReady only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/notifications/reminders",
+      "method": "POST",
+      "operationId": "babyNotificationReminder",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyNotificationReminder only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/onboarding/complete",
+      "method": "POST",
+      "operationId": "babyCompleteOnboarding",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyCompleteOnboarding only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/onboarding/reopen",
+      "method": "POST",
+      "operationId": "babyReopenOnboarding",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyReopenOnboarding only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/jobs",
+      "method": "POST",
+      "operationId": "babySubmitProjectionJob",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babySubmitProjectionJob only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/jobs/{sessionId}",
+      "method": "DELETE",
+      "operationId": "babyDeleteProjectionJob",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyDeleteProjectionJob only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/jobs/{sessionId}/favorite",
+      "method": "POST",
+      "operationId": "babyFavoriteProjectionImage",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyFavoriteProjectionImage only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/jobs/{sessionId}/images/{imageId}",
+      "method": "PATCH",
+      "operationId": "babyUpdateProjectionImage",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyUpdateProjectionImage only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/jobs/{sessionId}/images/{imageId}/reject",
+      "method": "POST",
+      "operationId": "babyRejectProjectionImage",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyRejectProjectionImage only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/jobs/{sessionId}/images/{imageId}/sharing",
+      "method": "PATCH",
+      "operationId": "babyUpdateProjectionImageSharing",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyUpdateProjectionImageSharing only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/jobs/{sessionId}/images/{imageId}/variation",
+      "method": "POST",
+      "operationId": "babyCreateProjectionVariation",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyCreateProjectionVariation only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/jobs/{sessionId}/reroll",
+      "method": "POST",
+      "operationId": "babyRerollProjectionJob",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyRerollProjectionJob only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/uploads",
+      "method": "POST",
+      "operationId": "babyCreateProjectionUploads",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": true,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/apps/api/src/baby/baby.service.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyCreateProjectionUploads only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/projections/uploads/{uploadId}/blob",
+      "method": "PUT",
+      "operationId": "babyAcceptProjectionUploadBlob",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyAcceptProjectionUploadBlob only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/settings",
+      "method": "PATCH",
+      "operationId": "babyUpdateSettings",
+      "tags": [
+        "Baby App"
+      ],
+      "capability": "baby-app",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": true,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/primitives.ts",
+          "playbasis-platform/apps/admin-portal/src/lib/agentic/services/visual-generation.service.ts",
+          "playbasis-platform/apps/api/src/baby/baby.controller.ts",
+          "playbasis-platform/apps/api/src/baby/baby.service.ts",
+          "playbasis-platform/apps/api/src/builder/services/export.service.ts",
+          "playbasis-platform/apps/api/src/game-four/services/game-four-builder.service.ts",
+          "playbasis-platform/apps/api/src/game-four/services/game-four-orchestrator.service.ts",
+          "playbasis-platform/apps/health-portal/src/api/fallbacks.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/baby-app/baby-app.ts"
+        ]
+      },
+      "nextProof": "Run babyUpdateSettings only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/billing/signup",
+      "method": "POST",
+      "operationId": "createBillingSignup",
+      "tags": [
+        "Billing"
+      ],
+      "capability": "general",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "billing"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/billing/billing.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/billing/billing.ts"
+        ]
+      },
+      "nextProof": "Run createBillingSignup only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/appointments/{appointmentId}",
+      "method": "PATCH",
+      "operationId": "updateHealthAppointment",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-portal/src/api/healthClient.ts",
+          "playbasis-platform/apps/health-portal/src/api/useHealthData.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run updateHealthAppointment only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/care-plans/{carePlanId}/tasks/{taskId}/complete",
+      "method": "POST",
+      "operationId": "completeHealthCareTask",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run completeHealthCareTask only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/coach/chat",
+      "method": "POST",
+      "operationId": "createHealthCoachChat",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run createHealthCoachChat only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/consent/logs",
+      "method": "POST",
+      "operationId": "createHealthConsentLog",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run createHealthConsentLog only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/family/members",
+      "method": "POST",
+      "operationId": "createHealthFamilyMember",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-mobile/src/api/booking-growth.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts",
+          "playbasis-platform/packages/genai-sdk/src/api/health-growth.ts"
+        ]
+      },
+      "nextProof": "Run createHealthFamilyMember only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/family/members/{memberId}",
+      "method": "PATCH",
+      "operationId": "updateHealthFamilyMember",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": true,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/apps/health-mobile/src/api/booking-growth.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts",
+          "playbasis-platform/packages/genai-sdk/src/api/health-growth.ts"
+        ]
+      },
+      "nextProof": "Run updateHealthFamilyMember only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/intake",
+      "method": "PATCH",
+      "operationId": "updateHealthProfile",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": false,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": false,
+        "featureFlagGuarded": false,
+        "featureFlagNames": [],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run updateHealthProfile only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/intake",
+      "method": "POST",
+      "operationId": "submitHealthIntake",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run submitHealthIntake only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/labs/import",
+      "method": "POST",
+      "operationId": "importHealthLabReport",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run importHealthLabReport only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/metrics",
+      "method": "POST",
+      "operationId": "createHealthMetric",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run createHealthMetric only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/milestones/{milestoneId}/complete",
+      "method": "POST",
+      "operationId": "completeHealthMilestone",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run completeHealthMilestone only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/notifications/test",
+      "method": "POST",
+      "operationId": "sendHealthNotificationTest",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run sendHealthNotificationTest only behind disposable staging write gates and explicit operator flags."
+    },
+    {
+      "path": "/health/tree/{schoolId}",
+      "method": "PUT",
+      "operationId": "updateHealthTreeState",
+      "tags": [
+        "Health"
+      ],
+      "capability": "health",
+      "probeClass": "write-probe-gated",
+      "priority": "low",
+      "diagnosis": "write-gated",
+      "implementationEvidence": {
+        "openApiDeclared": true,
+        "generatedClientBacked": true,
+        "apiControllerBacked": true,
+        "apiServiceBacked": false,
+        "domainClientBacked": false,
+        "appModuleBacked": true,
+        "featureFlagGuarded": true,
+        "featureFlagNames": [
+          "health"
+        ],
+        "exposureAssessment": "write-gated",
+        "sourceLabels": [
+          "playbasis-platform/apps/api/src/health/health-tree.controller.ts",
+          "playbasis-platform/packages/client/src/generated/openapi.ts",
+          "playbasis-platform/packages/client/src/generated/orval/health/health.ts"
+        ]
+      },
+      "nextProof": "Run updateHealthTreeState only behind disposable staging write gates and explicit operator flags."
+    }
+  ],
+  "safety": {
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "envValuesIncluded": false,
+    "rawUrlsIncluded": false,
+    "privateBodiesIncluded": false,
+    "absolutePathsIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Hash-only OpenAPI route diagnosis for Agent OS proof hardening",
+    "doesNotProveLiveAvailability": true,
+    "doesNotReplacePrivateAdapters": true
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "reportId": "playbasis-mechanics-blind-review-packet-20260706012029",
+  "generatedAt": "2026-07-06T01:20:29.314Z",
+  "profile": "fixture",
+  "familyId": "playbasis-mechanics-blind-causal-review-v1",
+  "packetKind": "hash-only-blind-review-packet",
+  "sourceReplication": {
+    "reportId": "playbasis-mechanics-replication-20260706010142",
+    "sourcePathLabel": "reports/playbasis-mechanics-replicated-intervention.json",
+    "sourceReportHash": "df8eeb677059138cce09c463493f2da45a0ff567ea8722035135edeb1e7312b6",
+    "replicateCount": 3,
+    "replicatedMeasurementReady": true
+  },
+  "privateMappingCommitment": {
+    "mappingHash": "831cd965d81f8be197669620c6b9be52a63cb4a1666bb93a583335e4fe01a2ad",
+    "pathLabel": "PBOS_PRIVATE_EVAL_ROOT/playbasis-mechanics-blind-causal-review-v1",
+    "storagePolicy": "private-scorer-only-outside-repo",
+    "mappingIncludedInPublicReport": false,
+    "answerKeyIncludedInPublicReport": false
+  },
+  "blindedPairs": [
+    {
+      "pairId": "pair-bb9d0d8a7d",
+      "replicateHash": "8c0d3983b511288d734547e4bf7dfd4a28bfd42f3bc501f88455587aa8d086d7",
+      "armCount": 2,
+      "arms": [
+        {
+          "label": "A",
+          "armEvidenceHash": "2b8af6c24044ddebc10194f3713d2e6351c35c96245c2c7758f4d58e10ce4db5",
+          "runHash": "13a96621dc902778e51a580c60568373b65f458c7215d0cf1a48d24ac25cc988",
+          "scoreCommitmentHash": "53ca7fbf785d8af5e77a6b0022628a8577389c2f08d509431b9f90654509e86a"
+        },
+        {
+          "label": "B",
+          "armEvidenceHash": "d7b1df3b4c6622c730fe207f9db43b6486a05cb7980ca1c77760e1c67478c6ec",
+          "runHash": "53309dd26f4c66bcccc812714235f85b99bd902ab73462299c2777dca250b7a3",
+          "scoreCommitmentHash": "ba7b0e9164a112774ea5fd03bf7aad27fb3a0086759972e9847fc00331e5964f"
+        }
+      ],
+      "mappingIncludedInPublicReport": false
+    },
+    {
+      "pairId": "pair-6c5ccf1134",
+      "replicateHash": "173bf27887cbe9ed889920564579cb6e27516ed228c1a91fee8c91bd7461a4b9",
+      "armCount": 2,
+      "arms": [
+        {
+          "label": "A",
+          "armEvidenceHash": "05c0af1a7bba861d4f1bfad09aabab18a268aae997a215bdbba8c9cea21c548d",
+          "runHash": "bd0e1e3488402ae29bace9d743ab69f59cd8cb0dd3a14e9483119b05109ef0f5",
+          "scoreCommitmentHash": "7d34c6d4ebb935ae4c2e0dd75d2e4ea7a3e8a403ef3b2c9013ff618d968104ed"
+        },
+        {
+          "label": "B",
+          "armEvidenceHash": "8a21e58c8b73b51d6ca75577729a7c5233808b36f198c094fbad0c8498cddb10",
+          "runHash": "199fb6eb581e6cad74fdbb921257d19be878fa7abef3810ea16d3b2bd5b45dcf",
+          "scoreCommitmentHash": "8899c88917e8c6332ae14a2a3b66ceb081924fa21e737a74e56303edeea21743"
+        }
+      ],
+      "mappingIncludedInPublicReport": false
+    },
+    {
+      "pairId": "pair-c741b0b68c",
+      "replicateHash": "1c897a1bfc28a5cd37d48db0e64189a4d112942056104207d8ae48559c6668e9",
+      "armCount": 2,
+      "arms": [
+        {
+          "label": "A",
+          "armEvidenceHash": "90929ba1b088acec1e5b05f66935d0d02fe4fbbb910de278805b9dfe49ef0f33",
+          "runHash": "04ea5d946b083f056f5f8154249efe07867fdcd350dbe460114d90934a218704",
+          "scoreCommitmentHash": "848074920fdd306c6ccf56a2c39852a0ed43cccfacb7d7f2980fa934a9904249"
+        },
+        {
+          "label": "B",
+          "armEvidenceHash": "1e3a6bc335b1cd30aabc017680d9e9116091278fd22af62f13ec06c626996907",
+          "runHash": "1c5e43a10eb0df3f4f5ba272ea06a13245f65225e67b69cca9964667245b76da",
+          "scoreCommitmentHash": "b0a08641b78b9a51eb2506558630a6e8cdb1e1563f5e554259114c04b2869ff3"
+        }
+      ],
+      "mappingIncludedInPublicReport": false
+    }
+  ],
+  "reviewRubric": {
+    "primaryQuestion": "Which blinded arm provides stronger evidence that Playbasis mechanics improved governed agent behavior without reducing trust?",
+    "reviewerInstructions": [
+      "Judge each pair without knowing which arm is the mechanics treatment.",
+      "Prefer the arm with clearer evidence, better governance behavior, lower rework risk, and no leak signals.",
+      "Use only reason codes and hashes in public reports; do not include raw review text."
+    ],
+    "allowedWinnerValues": [
+      "A",
+      "B",
+      "tie"
+    ],
+    "reasonCodes": [
+      "mechanics-evidence-complete",
+      "governance-discipline-stronger",
+      "trust-or-redaction-risk",
+      "insufficient-difference",
+      "needs-human-context"
+    ],
+    "rawReviewTextAllowedInPublicReport": false
+  },
+  "expectedReviewRowSchema": {
+    "requiredFields": [
+      "pairId",
+      "reviewerIdHash",
+      "winner",
+      "confidence",
+      "qualityScoreA",
+      "qualityScoreB",
+      "reasonCode",
+      "reasonHash"
+    ],
+    "forbiddenFields": [
+      "reviewerName",
+      "email",
+      "rawReviewText",
+      "reason",
+      "requestBody",
+      "responseBody",
+      "url",
+      "env",
+      "headers"
+    ]
+  },
+  "summary": {
+    "blindedPairCount": 3,
+    "style": "two-arm-blind-pairwise",
+    "reviewerCanSeeArmMapping": false,
+    "publicPacketReady": true,
+    "causalProofReady": false,
+    "zeroLeak": true
+  },
+  "safety": {
+    "rawPayloadsIncluded": false,
+    "requestBodiesIncluded": false,
+    "responseBodiesIncluded": false,
+    "envValuesIncluded": false,
+    "rawUrlsIncluded": false,
+    "privateBodiesIncluded": false,
+    "rawArtifactBodiesIncluded": false,
+    "rawReviewTextIncluded": false,
+    "answerKeysIncluded": false,
+    "treatmentControlMappingIncluded": false
+  },
+  "claimBoundary": {
+    "publicPositioning": "Hash-only packet for blind causal review of Playbasis mechanics replication",
+    "notCausalValueProof": true,
+    "notEconomicValueProof": true,
+    "noExternalBenchmarkClaim": true,
+    "noSotaClaim": true,
+    "requiresHumanOrExternalRowsBeforeCausalClaim": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "configId": "fixture-echo",
+  "description": "Deterministic zero-cost router-lab Phase 0 config. Every harness stage maps to fixture/echo.",
+  "defaultModelId": "fixture/echo",
+  "stageModels": {
+    "S1": "fixture/echo",
+    "S2": "fixture/echo",
+    "S3": "fixture/echo",
+    "S4": "fixture/echo",
+    "S5": "fixture/echo",
+    "S6": "fixture/echo",
+    "S7": "fixture/echo",
+    "S8": "fixture/echo",
+    "S9": "fixture/echo"
+  },
+  "metadata": {
+    "phase": "router-lab-phase-0",
+    "liveProviderCallsAllowed": false,
+    "pricingOverlayRequired": false
+  }
+}

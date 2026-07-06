@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://playbasis.internal/schemas/operator-twin/screenshot-frontend-mission.schema.json",
+  "title": "ScreenshotFrontendMission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "missionType",
+    "id",
+    "title",
+    "objective",
+    "status",
+    "target",
+    "app",
+    "contextPack",
+    "workerQuest",
+    "verification",
+    "promotionPolicy",
+    "claimBoundary"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "missionType": { "const": "screenshot_frontend_build" },
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "objective": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["template", "ready", "running", "promoted", "failed"] },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "privateImageRef", "imageHash", "viewports", "qualityBar"],
+      "properties": {
+        "description": { "type": "string", "minLength": 1 },
+        "privateImageRef": { "type": "string", "minLength": 1 },
+        "imageHash": { "$ref": "#/$defs/sha256" },
+        "viewports": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "width", "height", "dpr"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "width": { "type": "integer", "minimum": 1 },
+              "height": { "type": "integer", "minimum": 1 },
+              "dpr": { "type": "number", "minimum": 1 }
+            }
+          }
+        },
+        "qualityBar": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "maxPixelDiffRatio",
+            "requireBlindStylePass",
+            "requireResponsivePass",
+            "requireA11yPass",
+            "requireHumanOrPromptTwinReview"
+          ],
+          "properties": {
+            "maxPixelDiffRatio": { "type": "number", "minimum": 0, "maximum": 1 },
+            "requireBlindStylePass": { "type": "boolean" },
+            "requireResponsivePass": { "type": "boolean" },
+            "requireA11yPass": { "type": "boolean" },
+            "requireHumanOrPromptTwinReview": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "app": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "route", "allowedFiles", "forbiddenFiles"],
+      "properties": {
+        "root": { "type": "string", "minLength": 1 },
+        "route": { "type": "string", "minLength": 1 },
+        "allowedFiles": { "$ref": "#/$defs/stringList" },
+        "forbiddenFiles": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "contextPack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requiredSources", "selectionPolicy", "publicArtifactPolicy"],
+      "properties": {
+        "requiredSources": { "$ref": "#/$defs/stringList" },
+        "selectionPolicy": { "type": "string", "minLength": 1 },
+        "publicArtifactPolicy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "workerQuest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task", "allowedActions", "forbiddenActions", "escalateIf"],
+      "properties": {
+        "task": { "type": "string", "minLength": 1 },
+        "allowedActions": { "$ref": "#/$defs/stringList" },
+        "forbiddenActions": { "$ref": "#/$defs/stringList" },
+        "escalateIf": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commands", "evidenceRequired"],
+      "properties": {
+        "commands": { "$ref": "#/$defs/stringList" },
+        "evidenceRequired": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "promotionPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["promotedArtifact", "minimumEvidence", "stopConditions"],
+      "properties": {
+        "promotedArtifact": { "type": "string", "minLength": 1 },
+        "minimumEvidence": { "$ref": "#/$defs/stringList" },
+        "stopConditions": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "claimBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowedClaim", "disallowedClaims"],
+      "properties": {
+        "allowedClaim": { "type": "string", "minLength": 1 },
+        "disallowedClaims": { "$ref": "#/$defs/stringList" }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "stringList": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

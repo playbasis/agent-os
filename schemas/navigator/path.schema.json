@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://playbasis.internal/schemas/navigator/path.schema.json",
+  "title": "NavigationPath",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pathId",
+    "goalId",
+    "shape",
+    "ambition",
+    "resourceMode",
+    "milestones",
+    "toolKinds",
+    "toolQualifications",
+    "approvalRequired",
+    "predictedOutcome",
+    "estimatedCost",
+    "valueEstimate",
+    "riskEstimate",
+    "councilElo",
+    "frontier",
+    "weight"
+  ],
+  "properties": {
+    "pathId": { "type": "string", "minLength": 1 },
+    "goalId": { "type": "string", "minLength": 1 },
+    "shape": {
+      "enum": [
+        "risk-first",
+        "steady-grind",
+        "spike-and-stabilize",
+        "parallel-tracks",
+        "research-then-build",
+        "build-then-measure"
+      ]
+    },
+    "ambition": { "enum": ["safe", "stretch", "moonshot"] },
+    "resourceMode": { "enum": ["solo-agent", "swarm", "council-heavy"] },
+    "milestones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "index", "state", "toolKinds", "approvalRequired", "etaHours", "envelope"],
+        "properties": {
+          "id": { "type": "string" },
+          "index": { "type": "integer", "minimum": 1 },
+          "state": { "type": "string" },
+          "toolKinds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/workspaceOpsToolKind" }
+          },
+          "approvalRequired": { "type": "boolean" },
+          "etaHours": { "type": "number", "minimum": 0 },
+          "envelope": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["metric", "min", "expected", "max"],
+            "properties": {
+              "metric": { "type": "string" },
+              "min": { "type": "number" },
+              "expected": { "type": "number" },
+              "max": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "toolKinds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/workspaceOpsToolKind" }
+    },
+    "toolQualifications": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["toolKind", "proficiency", "description"],
+        "properties": {
+          "toolKind": { "$ref": "#/$defs/workspaceOpsToolKind" },
+          "proficiency": { "enum": ["primary", "secondary"] },
+          "description": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "approvalRequired": { "type": "boolean" },
+    "predictedOutcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric", "value", "band"],
+      "properties": {
+        "metric": { "type": "string" },
+        "value": { "type": "number" },
+        "band": {
+          "type": "array",
+          "prefixItems": [{ "type": "number" }, { "type": "number" }],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "estimatedCost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tokens", "hours", "councilCalls"],
+      "properties": {
+        "tokens": { "type": "integer", "minimum": 0 },
+        "hours": { "type": "number", "minimum": 0 },
+        "councilCalls": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "valueEstimate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "riskEstimate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "councilElo": { "type": "integer" },
+    "frontier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "cost", "risk", "efficient"],
+      "properties": {
+        "value": { "type": "number" },
+        "cost": { "type": "number" },
+        "risk": { "type": "number" },
+        "efficient": { "type": "boolean" }
+      }
+    },
+    "weight": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "$defs": {
+    "workspaceOpsToolKind": {
+      "enum": [
+        "web_search",
+        "document_generate",
+        "image_generate",
+        "image_create",
+        "video_create",
+        "dashboard_app_edit",
+        "dashboard_app_execute_auto",
+        "dashboard_app_execute_governed",
+        "deep_research",
+        "vision_analyze",
+        "data_enrichment",
+        "audio_transcribe",
+        "text_to_speech",
+        "spreadsheet_generate",
+        "file_edit",
+        "outbound_api_call",
+        "social_post_generate",
+        "social_post_schedule",
+        "social_post_publish",
+        "social_channel_connect",
+        "social_analytics_sync"
+      ]
+    }
+  }
+}
