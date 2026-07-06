@@ -42,6 +42,28 @@ output is the review gate.
    `packages/donor-primitives` with a registry entry; donor code is never
    imported directly.
 
+## Secret Scanning
+
+Hosted GitHub Actions is currently unavailable for this repository (billing
+lock on the owning account), so `pnpm run scan` and GitHub's native secret
+scanning + push protection are the active safety net, not a CI job. `scan`
+checks for known token formats (GitHub, AWS, Stripe, Slack, Google, npm,
+JWTs, PEM private keys) plus this project's own donor/held-out/provider-payload
+markers. It intentionally does not do generic entropy-based secret detection,
+because this codebase legitimately contains many `*Hash`-suffixed fields
+(`manifestHash`, `answerKeyHash`, `bundleHash`, etc.) that would produce
+constant false positives under a naive entropy rule.
+
+Before pushing, maintainers with write access are encouraged to also run:
+
+```bash
+gitleaks detect --source . --redact --log-opts="--all"
+trufflehog git file://"$PWD" --only-verified
+```
+
+These are independent, broader-spectrum scanners than the bundled one; use
+them as a second opinion, not a replacement for `pnpm run scan`.
+
 ## Pull Requests
 
 Before opening a PR:

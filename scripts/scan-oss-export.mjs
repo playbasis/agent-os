@@ -8,11 +8,19 @@ const forbidden = [
   { name: "raw-donor-file", re: /(?:^|["'\s])raw-donors\/[A-Za-z0-9_.-]+/ },
   { name: "local-user-path", re: /\/Users\/[A-Za-z0-9._-]+\// },
   { name: "private-eval-store", re: /playbasis-agent-os-private-evals/ },
-  { name: "private-key", re: /BEGIN PRIVATE KEY/ },
+  { name: "private-key", re: /BEGIN (?:RSA |EC |DSA |OPENSSH |ENCRYPTED )?PRIVATE KEY/ },
+  { name: "pgp-private-key", re: /BEGIN PGP PRIVATE KEY BLOCK/ },
   { name: "apim-subscription-key", re: /Ocp-Apim-Subscription-Key\s*:/ },
   { name: "azure-storage-connection", re: /AZURE_STORAGE_CONNECTION_STRING\s*=/ },
   { name: "env-file-reference", re: /(?:\/Users\/[^\s"']+\/\.env(?:\.[A-Za-z0-9_-]+)?|(?:^|[\s"'])(?:\.\/|\.\.\/)[^\s"']*\.env(?:\.[A-Za-z0-9_-]+)?)/ },
   { name: "provider-secret-literal", re: /(?:^|[^A-Za-z0-9_-])sk-[A-Za-z0-9_-]{32,}(?:[^A-Za-z0-9_-]|$)/ },
+  { name: "github-token", re: /(?:ghp|gho|ghu|ghs|ghr|github_pat)_[A-Za-z0-9_]{20,}/ },
+  { name: "aws-access-key-id", re: /(?:AKIA|ASIA)[0-9A-Z]{16}/ },
+  { name: "stripe-secret-key", re: /(?:sk|rk)_live_[A-Za-z0-9]{16,}/ },
+  { name: "slack-token", re: /xox[baprs]-[A-Za-z0-9-]{10,}/ },
+  { name: "google-api-key", re: /AIza[0-9A-Za-z_-]{35}/ },
+  { name: "npm-token", re: /npm_[A-Za-z0-9]{36}/ },
+  { name: "jwt-literal", re: /eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}/ },
   { name: "raw-image-payload", re: /data:image\/[a-zA-Z0-9.+-]+;base64,/ },
   { name: "raw-provider-response-included", re: /rawProviderResponseIncluded\s*:\s*true/ },
   { name: "heldout-bodies-included", re: /heldOutBodiesIncluded\s*:\s*true/ },
@@ -58,7 +66,7 @@ const report = {
   heldOutBodiesIncluded: hits.some((hit) => hit.pattern === "heldout-bodies-included"),
   screenshotsIncluded: hits.some((hit) => hit.pattern === "raw-image-payload"),
   providerPayloadsIncluded: hits.some((hit) => hit.pattern === "raw-provider-response-included"),
-  credentialsIncluded: hits.some((hit) => ["private-key", "apim-subscription-key", "azure-storage-connection", "provider-secret-literal"].includes(hit.pattern))
+  credentialsIncluded: hits.some((hit) => ["private-key", "pgp-private-key", "apim-subscription-key", "azure-storage-connection", "provider-secret-literal", "github-token", "aws-access-key-id", "stripe-secret-key", "slack-token", "google-api-key", "npm-token", "jwt-literal"].includes(hit.pattern))
 };
 mkdirSync("reports", { recursive: true });
 writeFileSync("reports/oss-export-scan.json", JSON.stringify(report, null, 2) + "\n", "utf8");
