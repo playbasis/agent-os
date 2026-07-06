@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-06T04:41:13.617Z",
+  "generatedAt": "2026-07-06T05:45:00.363Z",
   "profile": "staging-sandbox",
   "sourceReports": {
     "auditScorecard": {
@@ -31,17 +31,17 @@
     "connectorWorkflows": {
       "path": "reports/playbasis-connector-workflows.json",
       "present": true,
-      "hash": "5ff9b85a5653cb5d47f93cdf1b5329f5e3f7dbffd01591f1d5cc0356a18991f8"
+      "hash": "53dd921d900f83f4099bc73c10d95b2885a74c49a4bf286a83f1d782392e708f"
     },
     "mechanicsActivationReadiness": {
       "path": "reports/playbasis-mechanics-activation-gates.json",
       "present": true,
-      "hash": "700b1017984cfc1a687baa76867179659be8a239965308955c3ce0c6dffa0322"
+      "hash": "56a75555f31cd537fd67c0ff1340866bd319371820a8adb294618771f91a945d"
     },
     "runWarehouseSummary": {
       "path": "reports/run-warehouse/summary.json",
       "present": true,
-      "hash": "480f5335bb7435f06c22ede93a3979ccfbcc84f0b4274a786a17dcb5dee722e9"
+      "hash": "a5e9c0f4efec96a5bba7730653c48a1f8c6e4eb873765f74b72944e688113fed"
     },
     "agentLoopMechanicsLedger": {
       "path": "reports/agent-loop-mechanics-ledger.json",
@@ -61,7 +61,7 @@
     "ossVerification": {
       "path": "reports/oss-export-verification.json",
       "present": true,
-      "hash": "5ea225076e2594484d58e0b57d1ce84fdd7a822925520fedd36e1ea0e40a4590"
+      "hash": "d231881f8545e16296cdf4c98a68e669edb6c599b98bb694e63d4ab77efca7ba"
     }
   },
   "summary": {
@@ -110,7 +110,7 @@
     "connectorWorkflowPrivateAdapterContractsPending": 24,
     "connectorWorkflowReplayPlans": 5,
     "connectorWorkflowZeroLeak": true,
-    "runWarehouseEvidencePacks": 814,
+    "runWarehouseEvidencePacks": 822,
     "agentLoopLedgerWired": true,
     "agentLoopMechanicsCovered": 16,
     "agentLoopRequiredMechanics": 16,
@@ -819,7 +819,7 @@
       "lane": "mission-kernel-evidence-packs",
       "status": "wired",
       "evidenceStrength": "fixture",
-      "evidence": "814 evidence packs in run warehouse",
+      "evidence": "822 evidence packs in run warehouse",
       "nextProof": "Keep indexing all mission runs and require evidence packs before promotion."
     },
     {
@@ -896,7 +896,7 @@
       "lane": "oss-export-boundary",
       "status": "wired",
       "evidenceStrength": "safe-live",
-      "evidence": "62 clean-export files; 0 forbidden hits",
+      "evidence": "88 clean-export files; 0 forbidden hits",
       "nextProof": "Publish only the public ruler/kernel once license and private-data review are complete."
     }
   ],

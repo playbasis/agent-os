@@ -254,6 +254,7 @@ Generate a worker-facing task packet:
 - exact edit target
 - target image hash and safe description
 - visual/fidelity bar
+- donor/context hints by source hash, capability, and relevance reason
 - commands to run
 - failure evidence from the previous cycle
 - stop/escalation criteria
@@ -298,12 +299,13 @@ Current seed command:
 
 The review passport is the decision record. The dispatch quest is the
 worker-facing continuation packet: it carries the next task, allowed and
-forbidden files, commands, evidence requirements, failing review gates, and
-hash-only context pointers. `run-worker` can hand that packet to a configured
-local worker command under explicit execution gates. A run report still does
-not prove the worker produced the correct frontend; it only proves whether the
-configured worker command consumed the bounded prompt and what hash-only IO and
-workspace status were observed.
+forbidden files, commands, evidence requirements, failing review gates,
+hash-only context pointers, and hash-only donor hints selected from the donor
+registry and Playbasis primitive map. `run-worker` can hand that packet to a
+configured local worker command under explicit execution gates. A run report
+still does not prove the worker produced the correct frontend; it only proves
+whether the configured worker command consumed the bounded prompt and what
+hash-only IO and workspace status were observed.
 
 The cycle report links the worker-run, attempt scope, browser/rendered/visual
 review evidence, and next quest. This reduces the user's manual sequencing work

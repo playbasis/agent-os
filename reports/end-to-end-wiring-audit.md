@@ -1,6 +1,6 @@
 # End-to-End Wiring Audit
 
-Generated At: 2026-07-06T04:41:13.617Z
+Generated At: 2026-07-06T05:45:00.363Z
 
 Profile: staging-sandbox
 
@@ -34,7 +34,7 @@ Claim Status: internal-proof-green-live-write-gates-blocked
 - Connector workflow pending private contracts: 24
 - Connector workflow replay plans: 5
 - Connector workflow zero leak: true
-- Run warehouse evidence packs: 814
+- Run warehouse evidence packs: 822
 - Agent-loop mechanics ledger wired: true
 - Agent-loop mechanics covered: 16/16
 - Agent-loop ledger records: 61
@@ -92,7 +92,7 @@ Claim Status: internal-proof-green-live-write-gates-blocked
 ## Value Lanes
 | Lane | Status | Strength | Evidence | Next proof |
 | --- | --- | --- | --- | --- |
-| mission-kernel-evidence-packs | wired | fixture | 814 evidence packs in run warehouse | Keep indexing all mission runs and require evidence packs before promotion. |
+| mission-kernel-evidence-packs | wired | fixture | 822 evidence packs in run warehouse | Keep indexing all mission runs and require evidence packs before promotion. |
 | playbasis-safe-live-mechanics | wired | safe-live | 13 live-recorded capabilities; 20 safe-live calls | Increase direct SafeProbeEvidence coverage for unevidenced OpenAPI operations. |
 | openapi-route-diagnosis | wired | readiness-only | 79 diagnosed; 5 source-backed staging 404; 5 feature-flag-gated; 0 module-imported staging gaps; 0 contract-only | Enable or verify the relevant staging feature flags, then rerun safe read probes. |
 | openapi-feature-flag-activation | gated | readiness-only | 2 feature flags (billing, health); 5 source-backed safe-read operations blocked | Enable or verify billing, health in staging, then rerun safe read probes. |
@@ -103,7 +103,7 @@ Claim Status: internal-proof-green-live-write-gates-blocked
 | workspaceops-runtime-surface | wired | safe-live | recorded/safe-live-probe | Tie WorkspaceOps runtime/super-prompt calls to mission outcome deltas, not only surface coverage. |
 | ceo-simulator-benchmark | fixture-only | clean-room-sim | 0.1083 relative lift; held-out hash only=true | Adapt one private WorkspaceOps CEO-sim primitive and compare against the clean-room fixture world. |
 | value-measurement-experiment | fixture-only | fixture | pov fixture winner; 6 reviewer rows | Replace deterministic reviewer rows with real blind review while keeping preregistration and losses. |
-| oss-export-boundary | wired | safe-live | 62 clean-export files; 0 forbidden hits | Publish only the public ruler/kernel once license and private-data review are complete. |
+| oss-export-boundary | wired | safe-live | 88 clean-export files; 0 forbidden hits | Publish only the public ruler/kernel once license and private-data review are complete. |
 
 ## Remaining Gaps
 | Gap | Severity | Status | Next action |
