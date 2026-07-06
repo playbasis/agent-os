@@ -143,12 +143,13 @@ variant from it today, with no live vision-model call required.
   the leading candidate's `VisualFeatureSet` against the real GPT-image-2
   reference's features (both already computed by the existing
   `scoreVisualTarget` pipeline), flags actionable dimensions (dark-depth,
-  saturation/accent-coverage, hue-entropy) versus non-actionable ones
-  (edge-density, contrast-spread, luminance, light-surface), and
-  `generateRefinedVariant` applies targeted HSL token adjustments to produce
-  one new variant — not one of the fixed named templates.
+  saturation/accent-coverage, hue-entropy, edge-density, contrast-spread,
+  luminance, light-surface), and `generateRefinedVariant` applies targeted HSL
+  token adjustments plus safe layout/renderer levers to produce generated
+  variants — not fixed named templates.
 - Wired into `improveEvidenceDashboard`: the generated variant is rendered and
-  scored through the same real Playwright pipeline as the fixed variants, then
+  scored through the same real Playwright pipeline as the fixed variants,
+  critique can re-run for a bounded `--critique-rounds` loop, and candidates are
   fairly compared against all of them via a refactored `applyPromotionDecisions`
   (previously `scoreDesignVariants` marked its own single-batch winner, which
   would have let a separately-scored generated variant win by default rather
@@ -164,12 +165,17 @@ variant from it today, with no live vision-model call required.
   (`meanSaturation` off by `0.101` from the live reference, `major`,
   `actionable`), the resulting token adjustments, and a fair (non-automatic-win)
   comparison against the incumbent `launch-proof-sheet`.
-- Added `tests/image-critique.test.ts` (5 tests, deterministic, no I/O).
+- Added `tests/image-critique.test.ts` (deterministic, no I/O) covering both
+  token and layout levers.
 
-Not covered by this addendum: the bounding-box/layout-zone primitives already
-ported into `packages/donor-primitives` are region-level and would need a
-live vision-model call this generator does not make; this remains the
-donor-primitives module's documented future work, not duplicated here.
+Region-level critique is available behind `--region-critique` and
+`PBOS_ALLOW_PROVIDER_CALLS=1`. It sends the rendered candidate and optional
+private reference to a vision-capable provider, then writes a public
+`reports/evidence-dashboard-region-critique-<timestamp>.json` artifact with only
+hashes, normalized boxes, categorical defect kinds, and hashed provider text.
+If provider configuration, authorization, or timeout gates fail, the artifact
+records that exact skipped/failed state instead of fabricating localized
+defects.
 
 ## Clean-Room Port Status
 

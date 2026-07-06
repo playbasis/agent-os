@@ -13,8 +13,8 @@
     "pathHash": "5b59bdbb14d20b29b5f2de53148373be5a5ba76c9e9822bfaa51c450a15822d5",
     "pathLabelIncluded": false,
     "manifestHash": "877425577660f79fb4756f6060ff9a09d74803629fcd9e5d7974c0d02d2ea75e",
-    "answerKeyHash": "28c3fa59a5c717334bc29acd3105dea055788f4fce76c8f55898093e680bdd61",
-    "bundleHash": "9ebaa3daa726870bc457bc54885ee6550c181e4774bd90c4a3879229c62f0368"
+    "bundleHash": "9ebaa3daa726870bc457bc54885ee6550c181e4774bd90c4a3879229c62f0368",
+    "answerCommitmentSha256": "28c3fa59a5c717334bc29acd3105dea055788f4fce76c8f55898093e680bdd61"
   },
   "publicArtifactPolicy": {
     "rawHeldOutBodiesIncluded": false,

@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "familyId": "image-generation-v1",
+  "description": "Public-safe image generation and analysis eval-family plan derived from the local GPT-image pipeline donor scan. Raw provider payloads, generated images, source photos, target pixels, and private answer keys stay outside the repo.",
+  "storagePolicy": {
+    "rawGeneratedImagesIncludedInRepo": false,
+    "rawReferenceImagesIncludedInRepo": false,
+    "rawProviderPayloadsIncludedInRepo": false,
+    "publicReportsContain": [
+      "prompt hashes",
+      "request hashes",
+      "image hashes",
+      "dimensions",
+      "aggregate rubric scores",
+      "normalized boxes",
+      "layout-zone metadata",
+      "pairwise winner/confidence",
+      "redacted retry metrics"
+    ],
+    "publicReportsExclude": [
+      "raw prompts when private",
+      "raw request bodies",
+      "raw response bodies",
+      "base64 image payloads",
+      "private URLs",
+      "raw generated images",
+      "source photos",
+      "private target pixels",
+      "env values"
+    ],
+    "privateEvalRootLabelHash": "82362d873f0f587ac294c14d39d5bdf749303734212f27e16a3e4dac32287538",
+    "privateEvalRootLabelIncluded": false
+  },
+  "taxonomy": {
+    "audiences": [
+      "builder",
+      "researcher",
+      "operator",
+      "buyer"
+    ],
+    "verticals": [
+      "agent-harness",
+      "product-dashboard",
+      "marketing-graphic",
+      "documentation-visual"
+    ],
+    "surfaces": [
+      "dashboard-reference",
+      "screenshot-to-frontend",
+      "editable-graphic",
+      "public-report"
+    ],
+    "difficulties": [
+      "sanity",
+      "baseline",
+      "stress",
+      "adversarial-text-fit"
+    ]
+  },
+  "defaultRunSettings": {
+    "maxIterations": 4,
+    "candidatesPerIteration": 3,
+    "finalists": 2,
+    "convergenceThreshold": 0.015,
+    "providerProfile": "staging-sandbox",
+    "providerCallsRequireExplicitAllowFlag": true
+  },
+  "metricPolicy": {
+    "primaryGate": "weightedVisualQualityAndSafety",
+    "rubricWeights": {
+      "alignment": 0.25,
+      "realism": 0.3,
+      "composition": 0.25,
+      "artifacts": 0.2
+    },
+    "minimumWeightedScore": 0.72,
+    "minimumPairwiseConfidence": 0.6,
+    "maxBlockingTextFitIssues": 0,
+    "maxRedactionLeaks": 0,
+    "requirePrivateImageOutsideRepo": true,
+    "schema": "schemas/image/image-create-evidence.schema.json"
+  },
+  "analysisPrimitives": [
+    "weighted-visual-quality-rubric",
+    "normalized-box-sanitizer",
+    "layout-zone-map",
+    "pairwise-order-bias-combiner",
+    "refinement-plan-sanitizer",
+    "text-fit-issue-summary"
+  ],
+  "cases": [
+    {
+      "caseId": "evidence-dashboard-reference-sanity",
+      "suite": "training",
+      "audience": "builder",
+      "vertical": "agent-harness",
+      "surface": "dashboard-reference",
+      "difficulty": "sanity",
+      "objective": "Generate a private visual reference for the evidence dashboard and publish only hash-safe metadata.",
+      "targetRef": {
+        "kind": "private-image-generation",
+        "commitment": "scorer-only:image-generation-v1:evidence-dashboard-reference-sanity"
+      },
+      "requiredEvidence": [
+        "image-create evidence schema",
+        "prompt hash",
+        "image hash and dimensions",
+        "quality rubric score",
+        "zero raw provider payloads",
+        "zero raw image bytes"
+      ]
+    },
+    {
+      "caseId": "operator-twin-screenshot-frontend-baseline",
+      "suite": "training",
+      "audience": "operator",
+      "vertical": "product-dashboard",
+      "surface": "screenshot-to-frontend",
+      "difficulty": "baseline",
+      "objective": "Use private screenshot references to drive a frontend build loop with hash-only public evidence.",
+      "targetRef": {
+        "kind": "private-screenshot",
+        "commitment": "scorer-only:image-generation-v1:operator-twin-screenshot-frontend-baseline"
+      },
+      "requiredEvidence": [
+        "private screenshot hash",
+        "browser render checks",
+        "text-fit summary",
+        "pixel/style score",
+        "promotion passport"
+      ]
+    },
+    {
+      "caseId": "safe-text-editable-graphic-stress",
+      "suite": "heldOut",
+      "audience": "buyer",
+      "vertical": "marketing-graphic",
+      "surface": "editable-graphic",
+      "difficulty": "stress",
+      "objective": "Measure whether generated visual layouts preserve safe text, CTA, logo, subject, and avoid zones without raw image disclosure.",
+      "targetRef": {
+        "kind": "private-layout-zone",
+        "commitment": "scorer-only:image-generation-v1:safe-text-editable-graphic-stress"
+      },
+      "requiredEvidence": [
+        "normalized layout zones",
+        "blocking text-fit issue count",
+        "contrast hints",
+        "pairwise winner/confidence",
+        "refinement plan"
+      ]
+    },
+    {
+      "caseId": "public-report-adversarial-text-fit",
+      "suite": "heldOut",
+      "audience": "researcher",
+      "vertical": "documentation-visual",
+      "surface": "public-report",
+      "difficulty": "adversarial-text-fit",
+      "objective": "Stress generated report visuals with long labels and dense evidence rows while requiring zero text clipping at mobile and desktop viewports.",
+      "targetRef": {
+        "kind": "private-text-fit-fixture",
+        "commitment": "scorer-only:image-generation-v1:public-report-adversarial-text-fit"
+      },
+      "requiredEvidence": [
+        "desktop browser pass",
+        "mobile browser pass",
+        "zero blocking text-fit issues",
+        "zero offscreen elements",
+        "zero redaction leaks"
+      ]
+    }
+  ],
+  "claimBoundary": {
+    "allowedClaim": "This manifest defines a public-safe plan for image-generation and visual-analysis evals using hash-only image evidence and clean-room primitives.",
+    "disallowedClaims": [
+      "It does not prove live GPT-image generation is configured.",
+      "It does not include raw generated images or private target pixels.",
+      "It does not prove external SOTA image quality.",
+      "It does not replace human visual review for production release."
+    ]
+  }
+}

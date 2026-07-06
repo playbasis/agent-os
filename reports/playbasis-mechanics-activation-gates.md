@@ -1,6 +1,6 @@
 # Playbasis Mechanics Activation Gates
 
-- Generated: 2026-07-06T05:44:48.990Z
+- Generated: 2026-07-06T20:44:44.422Z
 - Profile checked: staging-sandbox
 - Source report hash: 302a327d3cfe2d3603ea2679baad4e8b0ae8d827d42560bcc25f1c4ae9b6dbde
 - Ready gates: 0/4

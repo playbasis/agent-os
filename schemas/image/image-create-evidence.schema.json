@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://playbasis.internal/schemas/image/image-create-evidence.schema.json",
+  "title": "ImageCreateEvidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "evidenceKind",
+    "generatedAtUtc",
+    "profile",
+    "provider",
+    "prompt",
+    "request",
+    "reference",
+    "quality",
+    "layout",
+    "pairwise",
+    "refinement",
+    "safety",
+    "claimBoundary"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "evidenceKind": { "const": "image_create_evidence" },
+    "generatedAtUtc": { "type": "string", "minLength": 1 },
+    "profile": { "enum": ["fixture", "local-monorepo", "staging-sandbox"] },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "status", "callsEnabled", "configured"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["ok", "skipped", "failed"] },
+        "callsEnabled": { "type": "boolean" },
+        "configured": { "type": "boolean" },
+        "reason": { "type": "string" },
+        "deploymentHash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "prompt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["promptHash", "rawPromptIncluded"],
+      "properties": {
+        "promptHash": { "$ref": "#/$defs/sha256" },
+        "rawPromptIncluded": { "const": false },
+        "promptLabel": { "type": "string", "minLength": 1 },
+        "revision": { "type": "string", "minLength": 1 }
+      }
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requestHash", "size", "imageCount"],
+      "properties": {
+        "requestHash": { "$ref": "#/$defs/sha256" },
+        "size": { "type": "string", "pattern": "^[1-9][0-9]{1,4}x[1-9][0-9]{1,4}$" },
+        "imageCount": { "type": "integer", "minimum": 1 },
+        "quality": { "type": "string", "minLength": 1 },
+        "outputFormat": { "enum": ["png", "jpeg", "webp"] },
+        "retryCount": { "type": "integer", "minimum": 0 },
+        "totalRetryDelayMs": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["liveImageGenerationUsed", "rawImageIncluded"],
+      "properties": {
+        "liveImageGenerationUsed": { "type": "boolean" },
+        "imageHash": { "$ref": "#/$defs/sha256" },
+        "bodyHash": { "$ref": "#/$defs/sha256" },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "dimensions": { "$ref": "#/$defs/dimensions" },
+        "mimeType": { "enum": ["image/png", "image/jpeg", "image/webp"] },
+        "privatePathLabel": { "type": "string", "minLength": 1 },
+        "rawImageIncluded": { "const": false }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "signals", "weights"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "signals": { "$ref": "#/$defs/qualitySignals" },
+        "weights": { "$ref": "#/$defs/qualitySignals" },
+        "warnings": { "$ref": "#/$defs/stringList" },
+        "strengths": { "$ref": "#/$defs/stringList" },
+        "issues": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["boxes", "zones"],
+      "properties": {
+        "boxes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/box" }
+        },
+        "zones": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/layoutZone" }
+        },
+        "dominantColorHashes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "contrastHints": { "$ref": "#/$defs/stringList" },
+        "compositionNotes": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "pairwise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["used", "winner", "confidence", "possibleOrderBias"],
+      "properties": {
+        "used": { "type": "boolean" },
+        "winner": { "enum": ["candidateA", "candidateB", "tie", "not-run"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "possibleOrderBias": { "type": "boolean" },
+        "evidenceCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "refinement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["objective", "steps", "droppedSteps"],
+      "properties": {
+        "objective": { "type": "string", "minLength": 1 },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["action", "target", "reason", "priority"],
+            "properties": {
+              "action": {
+                "enum": [
+                  "adjust-layout",
+                  "improve-realism",
+                  "rebalance-composition",
+                  "remove-artifacts",
+                  "fix-text-fit",
+                  "respect-safe-zone",
+                  "increase-subject-clarity"
+                ]
+              },
+              "target": { "type": "string", "minLength": 1 },
+              "reason": { "type": "string", "minLength": 1 },
+              "priority": { "type": "integer", "minimum": 1, "maximum": 5 },
+              "box": { "$ref": "#/$defs/box" }
+            }
+          }
+        },
+        "droppedSteps": { "type": "integer", "minimum": 0 },
+        "notes": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "redactionScanned",
+        "leaksDetected",
+        "rawRequestBodyIncluded",
+        "rawResponseBodyIncluded",
+        "rawImagePayloadIncluded",
+        "rawImageBytesIncluded"
+      ],
+      "properties": {
+        "redactionScanned": { "type": "boolean" },
+        "leaksDetected": { "type": "integer", "minimum": 0 },
+        "rawRequestBodyIncluded": { "const": false },
+        "rawResponseBodyIncluded": { "const": false },
+        "rawImagePayloadIncluded": { "const": false },
+        "rawImageBytesIncluded": { "const": false },
+        "privateImageStoredOutsideRepo": { "type": "boolean" }
+      }
+    },
+    "claimBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowedClaim", "disallowedClaims"],
+      "properties": {
+        "allowedClaim": { "type": "string", "minLength": 1 },
+        "disallowedClaims": { "$ref": "#/$defs/stringList" }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "qualitySignals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["alignment", "realism", "composition", "artifacts"],
+      "properties": {
+        "alignment": { "type": "number", "minimum": 0, "maximum": 1 },
+        "realism": { "type": "number", "minimum": 0, "maximum": 1 },
+        "composition": { "type": "number", "minimum": 0, "maximum": 1 },
+        "artifacts": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "x", "y", "width", "height", "confidence"],
+      "properties": {
+        "kind": { "enum": ["subject", "text", "logo", "cta", "avoid", "safe"] },
+        "x": { "type": "number", "minimum": 0, "maximum": 1 },
+        "y": { "type": "number", "minimum": 0, "maximum": 1 },
+        "width": { "type": "number", "minimum": 0, "maximum": 1 },
+        "height": { "type": "number", "minimum": 0, "maximum": 1 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "label": { "type": "string", "minLength": 1 }
+      }
+    },
+    "layoutZone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "box", "priority"],
+      "properties": {
+        "kind": { "enum": ["safe-text", "safe-logo", "safe-cta", "avoid", "subject"] },
+        "box": { "$ref": "#/$defs/box" },
+        "priority": { "type": "number", "minimum": 0, "maximum": 1 },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "stringList": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

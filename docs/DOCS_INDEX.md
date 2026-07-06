@@ -56,10 +56,11 @@ win over aspirational language.
 - `docs/MODEL_ROUTER_EVAL_HANDOVER.md` - router-lab implementation handover.
 - `docs/MODEL_ROUTER_DONOR_SCAN.md` - donor scan for model routing assets and
   OSS boundary.
-- `docs/IMAGE_PIPELINE_DONOR_SCAN.md` - donor scan for a local GPT-image
-  pipeline POC: critique/refinement patterns ported into
-  `packages/donor-primitives` and `packages/cli` (not part of this repo's
-  exported package set).
+- `docs/IMAGE_PIPELINE_DONOR_SCAN.md` - donor scan for the local GPT-image
+  pipeline POC, reusable image-generation/eval patterns, and clean-room output
+  boundary.
+- `eval-families/image-generation-v1/manifest.json` - public-safe image
+  generation and visual-analysis eval-family plan derived from the donor scan.
 - `docs/NAVIGATOR_BLENDED_VISUAL_HANDOVER.md` - blended visual proof state.
 - `docs/NAVIGATOR_STUNNING_VISUALS_HANDOVER.md` - premium visual-quality pass
   and process contract.
