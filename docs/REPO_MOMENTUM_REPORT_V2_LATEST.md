@@ -1,12 +1,12 @@
 # Repo Momentum Report (v2)
 
-Generated: 2026-07-07T15:35:50.329Z
+Generated: 2026-07-07T17:51:46.744Z
 
 ## Monthly Commit Density
 
 | Month | Commits | Insertions | Deletions | Net | Read |
 | --- | --- | --- | --- | --- | --- |
-| 2026-07 | 59 | 182,379 | 11,383 | 170,996 | cli / command surface + missions / proof loop + visual / navigator |
+| 2026-07 | 62 | 183,168 | 11,400 | 171,768 | cli / command surface + missions / proof loop + visual / navigator |
 
 ## Ranked Apps (by momentum)
 
@@ -30,4 +30,4 @@ Generated: 2026-07-07T15:35:50.329Z
 ## Phases
 
 ### Admin / builder × WorkspaceOps build-out · 2026-07 → 2026-07
-Admin / builder × WorkspaceOps build-out — 2026-07. 59 commits. Dominant themes: CLI / command surface (17%), Missions / proof loop (16%), Visual / Navigator (16%).
+Admin / builder × WorkspaceOps build-out — 2026-07. 62 commits. Dominant themes: CLI / command surface (17%), Missions / proof loop (17%), Visual / Navigator (16%).

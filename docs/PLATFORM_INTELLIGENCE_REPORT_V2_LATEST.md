@@ -1,12 +1,12 @@
 # Playbasis Agent OS Intelligence Report (v2)
 
-Generated: 2026-07-07T15:35:50.329Z
+Generated: 2026-07-07T17:51:46.744Z
 
 ## Executive Summary
 
 - One-liner: A 12-lane codebase whose center of gravity is pbos cli command surface under apps/navigator-desktop.
 - Short read: Active lanes: PBOS CLI Command Surface, Navigator Path-Fan Proof Loop, Tooling, Tests, And Quality Gates.
-- Momentum: Latest visible momentum concentrates in pbos cli command surface and adjacent lanes, with 59 commits in 2026-07 reading as cli / command surface + missions / proof loop + visual / navigator.
+- Momentum: Latest visible momentum concentrates in pbos cli command surface and adjacent lanes, with 62 commits in 2026-07 reading as cli / command surface + missions / proof loop + visual / navigator.
 - Defensibility: The codebase shows multiple independent capability lanes moving in parallel, which is harder to replicate than a single-product repo.
 - Investor line: The repo concentrates momentum in pbos cli command surface under apps/navigator-desktop, with supporting distribution via packages/cli.
 - Lab line: A 12-lane codebase anchored on pbos cli command surface, with 1 top-level apps feeding the monorepo.
@@ -17,27 +17,27 @@ Generated: 2026-07-07T15:35:50.329Z
 | Score | Value | Grade | Band | Interpretation |
 | --- | --- | --- | --- | --- |
 | Codebase Health | 74.4 | B | healthy | Healthy overall. Pay attention to 3 large files and 13 single-point-of-failure paths. |
-| Momentum | 92.5 | A+ | excellent | Heavy active momentum: ~261 commits/month and ~807,678 insertions/month; 10 clearly rising lanes. |
+| Momentum | 92.5 | A+ | excellent | Heavy active momentum: ~275 commits/month and ~811,173 insertions/month; 10 clearly rising lanes. |
 | Velocity | 60 | C | watch | Mixed velocity: either a lot of churn or uneven monthly output. |
-| Focus | 61.5 | C | watch | Scattered: momentum is spread evenly enough that no lane is the strategic leader. |
+| Focus | 61.7 | C | watch | Scattered: momentum is spread evenly enough that no lane is the strategic leader. |
 
 ## Narrative Phases
 
-- **Admin / builder × WorkspaceOps build-out** (2026-07 → 2026-07) — 59 commits. CLI / command surface 17%, Missions / proof loop 16%, Visual / Navigator 16%
+- **Admin / builder × WorkspaceOps build-out** (2026-07 → 2026-07) — 62 commits. CLI / command surface 17%, Missions / proof loop 17%, Visual / Navigator 16%
 
 ## Capability Groups
 
 | Capability | Lines | 30d | 90d | Rank | Direction |
 | --- | --- | --- | --- | --- | --- |
-| PBOS CLI Command Surface | 26,337 | 44 | 44 | 512 | rising |
+| PBOS CLI Command Surface | 26,584 | 46 | 46 | 534.9 | rising |
 | Navigator Path-Fan Proof Loop | 11,959 | 39 | 39 | 448.5 | rising |
-| Tooling, Tests, And Quality Gates | 25,184 | 43 | 43 | 392.3 | rising |
-| Docs, Strategy, And Claim Boundary | 11,585 | 48 | 48 | 306.8 | rising |
+| Tooling, Tests, And Quality Gates | 25,336 | 43 | 43 | 392.4 | rising |
+| Docs, Strategy, And Claim Boundary | 11,585 | 50 | 50 | 324.6 | rising |
 | Adaptive Search And Optimizers | 40,028 | 35 | 35 | 283.2 | rising |
-| Mission Kernel And Evidence Packs | 2,500 | 16 | 16 | 183 | rising |
+| Mission Kernel And Evidence Packs | 2,500 | 17 | 17 | 194.4 | rising |
 | Router Lab And Provider Bridge | 12,977 | 14 | 14 | 164.6 | rising |
-| Operator Twin And Visual Critique Loop | 8,557 | 11 | 11 | 128.2 | rising |
-| Evals And Promotion Gates | 14,202 | 18 | 18 | 87.5 | rising |
+| Operator Twin And Visual Critique Loop | 8,946 | 12 | 12 | 139.8 | rising |
+| Evals And Promotion Gates | 14,202 | 19 | 19 | 98.9 | rising |
 | Run Warehouse And Reports | 7,501 | 8 | 8 | 83.3 | stable |
 | Donor Clean-Room And OSS Boundary | 1,566 | 7 | 7 | 62.8 | stable |
 | Playbasis Platform Bridge | 394 | 13 | 13 | 10.5 | rising |

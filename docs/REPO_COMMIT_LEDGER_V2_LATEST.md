@@ -1,8 +1,8 @@
 # Repo Commit Ledger (v2)
 
-Generated: 2026-07-07T15:35:50.329Z
+Generated: 2026-07-07T17:51:46.744Z
 
-## 2026-07 (59 commits)
+## 2026-07 (62 commits)
 - `14ce98dee` 2026-07-04 — feat: prove live navigator council session
 - `e4d0b735f` 2026-07-04 — feat: add navigator forced entropy
 - `e772c49dc` 2026-07-04 — feat: add navigator research bridge
@@ -50,6 +50,8 @@ Generated: 2026-07-07T15:35:50.329Z
 - `1d785434f` 2026-07-06 — chore: sync export with latest reports and docs
 - `e152456e5` 2026-07-06 — chore: switch public verification to manual gate
 - `10e9f45ff` 2026-07-06 — feat: initial public release of Playbasis Agent OS harness
+- `cdfa057a6` 2026-07-07 — docs: refresh public proof reports
+- `93fe4ddec` 2026-07-07 — chore: sync image pipeline proof export
 - `965306a64` 2026-07-07 — docs: add image-pipeline donor-scan documentation
 - `e92eea51c` 2026-07-07 — docs: clarify donor-scan doc describes non-exported package code
 - `d07726a71` 2026-07-07 — fix: remove private eval-root path string from donor-scan doc
@@ -62,3 +64,4 @@ Generated: 2026-07-07T15:35:50.329Z
 - `87366b8bd` 2026-07-07 — feat: port critique-driven variant generation from gpt5-image-pipeline donor scan
 - `63f544560` 2026-07-07 — fix: close Navigator passport screen CSS specificity bug
 - `9ddb860f7` 2026-07-07 — chore: checkpoint proof harness progress
+- `14305c47d` 2026-07-08 — Update public wiring audit export
