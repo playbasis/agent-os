@@ -1,0 +1,64 @@
+# Repo Commit Ledger (v2)
+
+Generated: 2026-07-07T15:35:50.329Z
+
+## 2026-07 (59 commits)
+- `14ce98dee` 2026-07-04 — feat: prove live navigator council session
+- `e4d0b735f` 2026-07-04 — feat: add navigator forced entropy
+- `e772c49dc` 2026-07-04 — feat: add navigator research bridge
+- `f651b1aae` 2026-07-04 — feat: add workspaceops catalog bridge
+- `35e5556cd` 2026-07-04 — feat: add flappy eval factory
+- `26b51f2c7` 2026-07-04 — feat: add lfd navigator goal artifacts
+- `91e039b2e` 2026-07-04 — feat: add prompt twin flappy ab proof
+- `270783689` 2026-07-04 — feat: track provider council identity diversity
+- `f310cd27a` 2026-07-04 — feat: add provider council session proof
+- `9b2d8cb18` 2026-07-04 — feat: add gated provider council proof
+- `e8fc159d5` 2026-07-04 — feat: add navigator daily loop proof
+- `bc0ff49e7` 2026-07-04 — feat: add navigator ambition ratchet decisions
+- `a024a47f4` 2026-07-04 — feat: measure navigator council seat diversity
+- `7de58d79c` 2026-07-04 — feat: preregister navigator path forecasts
+- `22b11fcb2` 2026-07-04 — feat: consume navigator shape memory priors
+- `3b70454c8` 2026-07-04 — feat: feed dispatched mission evidence into navigator loop
+- `800f29918` 2026-07-04 — feat: add navigator source repair proof
+- `bac269d37` 2026-07-04 — feat: add navigator prompt twin proof
+- `6293b7e7d` 2026-07-04 — feat: add navigator monorepo primitive proof
+- `e9da6a8cf` 2026-07-04 — feat: add repaired pygame validator proof
+- `d32ea2937` 2026-07-04 — feat: run flappy smoke in validator proof
+- `5621e5c8f` 2026-07-04 — feat: add navigator flappy validator proof
+- `6e9b2350f` 2026-07-04 — feat: add navigator checkpoint loop proof
+- `0c092bb5d` 2026-07-04 — feat: add navigator council drift proof
+- `f207292ba` 2026-07-04 — feat: add navigator path planning proof
+- `e8dee9362` 2026-07-04 — feat: add credible optimizer and run warehouse
+- `bf7290005` 2026-07-04 — docs: add agent os pov handover
+- `a34ac5359` 2026-07-04 — feat: add agent os sandbox eval dashboard
+- `c9f60acc8` 2026-07-04 — feat: add live value proof harness
+- `1c9b74916` 2026-07-04 — feat: prove live provider loop
+- `616da83fd` 2026-07-04 — feat: implement donor-derived agent primitives
+- `836c081b8` 2026-07-04 — feat: add robust proof and hill-climb gates
+- `71c61f040` 2026-07-04 — feat: add monorepo-backed agent OS PoV harness
+- `a5ccc9f0c` 2026-07-04 — chore: baseline raw donor archive
+- `5f45c69be` 2026-07-05 — chore: sync docs and proof artifacts
+- `0526c2f10` 2026-07-05 — feat: descend navigator rendered pixel loop
+- `c840d613a` 2026-07-05 — feat: port navigator shared-shell targets
+- `72964c6d8` 2026-07-05 — feat: descend navigator rendered pixel loop
+- `aa735f237` 2026-07-05 — feat: add navigator rendered pixel loop
+- `0b1a5b5a6` 2026-07-05 — docs: add design system, app mockups, and strategy docs
+- `a18e0a28a` 2026-07-05 — feat: make progress sharpe drive navigator selection
+- `14f530ec4` 2026-07-05 — feat: add creative asset clone bridge
+- `687ef733f` 2026-07-05 — feat: preregister prompt twin heldout proof
+- `dd493f37d` 2026-07-06 — fix: bump vitest to 3.2.6, expand secret scanner, document scan limits
+- `1d785434f` 2026-07-06 — chore: sync export with latest reports and docs
+- `e152456e5` 2026-07-06 — chore: switch public verification to manual gate
+- `10e9f45ff` 2026-07-06 — feat: initial public release of Playbasis Agent OS harness
+- `965306a64` 2026-07-07 — docs: add image-pipeline donor-scan documentation
+- `e92eea51c` 2026-07-07 — docs: clarify donor-scan doc describes non-exported package code
+- `d07726a71` 2026-07-07 — fix: remove private eval-root path string from donor-scan doc
+- `68cc1a304` 2026-07-07 — chore: sync public safety guardrails
+- `01707980e` 2026-07-07 — feat: add operator-twin donor-outcomes command for outcome-aware tracking
+- `1421fca9d` 2026-07-07 — fix: add authoritative latest-mission pointer for evidence-dashboard
+- `5676a71c3` 2026-07-07 — fix: delete worktree branches after operator-twin loop cycle cleanup
+- `f8d4cc9d0` 2026-07-07 — feat: add operator-twin loop command with worktree isolation and best-of-N
+- `5cef20424` 2026-07-07 — test: temporarily reintroduce known passport CSS regression
+- `87366b8bd` 2026-07-07 — feat: port critique-driven variant generation from gpt5-image-pipeline donor scan
+- `63f544560` 2026-07-07 — fix: close Navigator passport screen CSS specificity bug
+- `9ddb860f7` 2026-07-07 — chore: checkpoint proof harness progress

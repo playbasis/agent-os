@@ -1,17 +1,17 @@
 # End-to-End Wiring Audit
 
-Generated At: 2026-07-06T05:45:00.363Z
+Generated At: 2026-07-07T16:05:28.081Z
 
-Profile: staging-sandbox
+Profile: fixture
 
-Claim Status: internal-proof-green-live-write-gates-blocked
+Claim Status: needs-attention
 
 ## Summary
-- Internal harness wired: true
+- Internal harness wired: false
 - Real service evidence present: true
 - Live write activation complete: false
-- OSS clean export verified: true
-- Zero leak: true
+- OSS clean export verified: false
+- Zero leak: false
 - OpenAPI operations with evidence: 153/232
 - Direct safe-live operation evidence: 24
 - Unevidenced operations: 79
@@ -34,7 +34,7 @@ Claim Status: internal-proof-green-live-write-gates-blocked
 - Connector workflow pending private contracts: 24
 - Connector workflow replay plans: 5
 - Connector workflow zero leak: true
-- Run warehouse evidence packs: 822
+- Run warehouse evidence packs: 830
 - Agent-loop mechanics ledger wired: true
 - Agent-loop mechanics covered: 16/16
 - Agent-loop ledger records: 61
@@ -92,7 +92,7 @@ Claim Status: internal-proof-green-live-write-gates-blocked
 ## Value Lanes
 | Lane | Status | Strength | Evidence | Next proof |
 | --- | --- | --- | --- | --- |
-| mission-kernel-evidence-packs | wired | fixture | 822 evidence packs in run warehouse | Keep indexing all mission runs and require evidence packs before promotion. |
+| mission-kernel-evidence-packs | wired | fixture | 830 evidence packs in run warehouse | Keep indexing all mission runs and require evidence packs before promotion. |
 | playbasis-safe-live-mechanics | wired | safe-live | 13 live-recorded capabilities; 20 safe-live calls | Increase direct SafeProbeEvidence coverage for unevidenced OpenAPI operations. |
 | openapi-route-diagnosis | wired | readiness-only | 79 diagnosed; 5 source-backed staging 404; 5 feature-flag-gated; 0 module-imported staging gaps; 0 contract-only | Enable or verify the relevant staging feature flags, then rerun safe read probes. |
 | openapi-feature-flag-activation | gated | readiness-only | 2 feature flags (billing, health); 5 source-backed safe-read operations blocked | Enable or verify billing, health in staging, then rerun safe read probes. |
@@ -103,7 +103,7 @@ Claim Status: internal-proof-green-live-write-gates-blocked
 | workspaceops-runtime-surface | wired | safe-live | recorded/safe-live-probe | Tie WorkspaceOps runtime/super-prompt calls to mission outcome deltas, not only surface coverage. |
 | ceo-simulator-benchmark | fixture-only | clean-room-sim | 0.1083 relative lift; held-out hash only=true | Adapt one private WorkspaceOps CEO-sim primitive and compare against the clean-room fixture world. |
 | value-measurement-experiment | fixture-only | fixture | pov fixture winner; 6 reviewer rows | Replace deterministic reviewer rows with real blind review while keeping preregistration and losses. |
-| oss-export-boundary | wired | safe-live | 88 clean-export files; 0 forbidden hits | Publish only the public ruler/kernel once license and private-data review are complete. |
+| oss-export-boundary | missing | missing | 95 clean-export files; 1 forbidden hits | Publish only the public ruler/kernel once license and private-data review are complete. |
 
 ## Remaining Gaps
 | Gap | Severity | Status | Next action |
@@ -121,6 +121,7 @@ Claim Status: internal-proof-green-live-write-gates-blocked
 | openapi-source-backed-staging-404 | high | blocked | Enable or verify the staging feature flags for the source-backed 404 routes, then rerun `pnpm pbos audit probe-backlog --profile staging-sandbox --include-identifier-reads --allow-failing`. |
 | real-blind-value-review | high | needs-external-review | Run the preregistered value experiment with real blind reviewers, timing rows, costs, losses, and zero-leak scan. |
 | workspaceops-ceo-sim-private-primitive | medium | needs-private-adapter | Run one private WorkspaceOps CEO-sim primitive through a hash-only adapter and compare against fixture policy arms. |
+| oss-clean-export-verification | high | blocked | Run pbos export-oss-candidate --verify and require install/typecheck/test/scan inside a clean export copy. |
 
 ## Claim Boundary
 Current public claim: evidence-gated autonomy infrastructure benchmark/kernel

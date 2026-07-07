@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-06T05:45:00.363Z",
-  "profile": "staging-sandbox",
+  "generatedAt": "2026-07-07T16:05:28.081Z",
+  "profile": "fixture",
   "sourceReports": {
     "auditScorecard": {
       "path": "reports/audit-scorecard.json",
@@ -36,12 +36,12 @@
     "mechanicsActivationReadiness": {
       "path": "reports/playbasis-mechanics-activation-gates.json",
       "present": true,
-      "hash": "56a75555f31cd537fd67c0ff1340866bd319371820a8adb294618771f91a945d"
+      "hash": "72bf61148c182b1141276ac06c7d6ea3dcaa8467c172f1e21e0f9f0b697d70e0"
     },
     "runWarehouseSummary": {
       "path": "reports/run-warehouse/summary.json",
       "present": true,
-      "hash": "a5e9c0f4efec96a5bba7730653c48a1f8c6e4eb873765f74b72944e688113fed"
+      "hash": "bfb3c47c087548ee5d9ffa4e049ed288c3a991a29d83dc45cc12796d412399db"
     },
     "agentLoopMechanicsLedger": {
       "path": "reports/agent-loop-mechanics-ledger.json",
@@ -61,16 +61,16 @@
     "ossVerification": {
       "path": "reports/oss-export-verification.json",
       "present": true,
-      "hash": "d231881f8545e16296cdf4c98a68e669edb6c599b98bb694e63d4ab77efca7ba"
+      "hash": "9f0abd3f959e24e886e515df9e5ea5eb4cb9e5da759ba9e10c1a29eac02ad7d5"
     }
   },
   "summary": {
-    "claimStatus": "internal-proof-green-live-write-gates-blocked",
-    "internalHarnessWired": true,
+    "claimStatus": "needs-attention",
+    "internalHarnessWired": false,
     "realServiceEvidencePresent": true,
     "liveWriteActivationComplete": false,
-    "ossCleanExportVerified": true,
-    "zeroLeak": true,
+    "ossCleanExportVerified": false,
+    "zeroLeak": false,
     "totalMechanics": 16,
     "safeLiveMechanics": 13,
     "simulatedMechanics": 0,
@@ -110,7 +110,7 @@
     "connectorWorkflowPrivateAdapterContractsPending": 24,
     "connectorWorkflowReplayPlans": 5,
     "connectorWorkflowZeroLeak": true,
-    "runWarehouseEvidencePacks": 822,
+    "runWarehouseEvidencePacks": 830,
     "agentLoopLedgerWired": true,
     "agentLoopMechanicsCovered": 16,
     "agentLoopRequiredMechanics": 16,
@@ -819,7 +819,7 @@
       "lane": "mission-kernel-evidence-packs",
       "status": "wired",
       "evidenceStrength": "fixture",
-      "evidence": "822 evidence packs in run warehouse",
+      "evidence": "830 evidence packs in run warehouse",
       "nextProof": "Keep indexing all mission runs and require evidence packs before promotion."
     },
     {
@@ -894,9 +894,9 @@
     },
     {
       "lane": "oss-export-boundary",
-      "status": "wired",
-      "evidenceStrength": "safe-live",
-      "evidence": "88 clean-export files; 0 forbidden hits",
+      "status": "missing",
+      "evidenceStrength": "missing",
+      "evidence": "95 clean-export files; 1 forbidden hits",
       "nextProof": "Publish only the public ruler/kernel once license and private-data review are complete."
     }
   ],
@@ -991,6 +991,13 @@
       "status": "needs-private-adapter",
       "nextAction": "Run one private WorkspaceOps CEO-sim primitive through a hash-only adapter and compare against fixture policy arms.",
       "claimBoundary": "Do not claim WorkspaceOps CEO simulator parity from clean-room fixture evidence alone."
+    },
+    {
+      "gapId": "oss-clean-export-verification",
+      "severity": "high",
+      "status": "blocked",
+      "nextAction": "Run pbos export-oss-candidate --verify and require install/typecheck/test/scan inside a clean export copy.",
+      "claimBoundary": "Do not publish OSS candidate without clean export verification."
     }
   ],
   "safety": {
