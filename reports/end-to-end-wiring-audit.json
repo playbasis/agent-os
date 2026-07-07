@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-07T16:05:28.081Z",
+  "generatedAt": "2026-07-07T16:08:09.209Z",
   "profile": "fixture",
   "sourceReports": {
     "auditScorecard": {
@@ -61,16 +61,16 @@
     "ossVerification": {
       "path": "reports/oss-export-verification.json",
       "present": true,
-      "hash": "9f0abd3f959e24e886e515df9e5ea5eb4cb9e5da759ba9e10c1a29eac02ad7d5"
+      "hash": "62424d953a03cb8816f3b74cc8a2e972e8b24da432b2683f91e15921e3831af3"
     }
   },
   "summary": {
-    "claimStatus": "needs-attention",
-    "internalHarnessWired": false,
+    "claimStatus": "internal-proof-green-live-write-gates-blocked",
+    "internalHarnessWired": true,
     "realServiceEvidencePresent": true,
     "liveWriteActivationComplete": false,
-    "ossCleanExportVerified": false,
-    "zeroLeak": false,
+    "ossCleanExportVerified": true,
+    "zeroLeak": true,
     "totalMechanics": 16,
     "safeLiveMechanics": 13,
     "simulatedMechanics": 0,
@@ -894,9 +894,9 @@
     },
     {
       "lane": "oss-export-boundary",
-      "status": "missing",
-      "evidenceStrength": "missing",
-      "evidence": "95 clean-export files; 1 forbidden hits",
+      "status": "wired",
+      "evidenceStrength": "safe-live",
+      "evidence": "95 clean-export files; 0 forbidden hits",
       "nextProof": "Publish only the public ruler/kernel once license and private-data review are complete."
     }
   ],
@@ -991,13 +991,6 @@
       "status": "needs-private-adapter",
       "nextAction": "Run one private WorkspaceOps CEO-sim primitive through a hash-only adapter and compare against fixture policy arms.",
       "claimBoundary": "Do not claim WorkspaceOps CEO simulator parity from clean-room fixture evidence alone."
-    },
-    {
-      "gapId": "oss-clean-export-verification",
-      "severity": "high",
-      "status": "blocked",
-      "nextAction": "Run pbos export-oss-candidate --verify and require install/typecheck/test/scan inside a clean export copy.",
-      "claimBoundary": "Do not publish OSS candidate without clean export verification."
     }
   ],
   "safety": {
